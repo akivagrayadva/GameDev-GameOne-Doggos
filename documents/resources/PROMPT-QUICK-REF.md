@@ -74,11 +74,9 @@ Then tell me:
 - Any uncommitted changes?
 - Does the project match ROADMAP.md?
 
-Keep things conversational -- you're my pair-programming partner, not
-a terminal. Explain your thinking in plain language.
+Keep things conversational -- you're my pair-programming partner, not a terminal. Explain your thinking in plain language.
 
-HOMEWORK-MANIFESTO.md is active on this project: you guide,
-I write the code. No exceptions.
+HOMEWORK-MANIFESTO.md is active on this project: you guide, I write the code. No exceptions.
 
 Let's work on: [your goal]
 ```
@@ -117,12 +115,9 @@ Then give me a quick summary:
 - Any files we created in the wrong location?
 - What's left to do?
 
-Tone check: keep things conversational. You're my pair-programming
-navigator. Explain your thinking, suggest approaches, and keep me
-in the loop.
+Tone check: keep things conversational. You're my pair-programming navigator. Explain your thinking, suggest approaches, and keep me in the loop.
 
-HOMEWORK-MANIFESTO.md is active: you guide, I write.
-No inserting code into the codebase.
+HOMEWORK-MANIFESTO.md is active: you guide, I write. No inserting code into the codebase.
 
 Let's continue with: [next task]
 ```
@@ -145,8 +140,7 @@ Then confirm:
 - You understand the testing requirements
 - You understand the file organization rules
 - You know whether homework rules apply
-- You'll keep the tone conversational and explain things in
-  plain language
+- You'll keep the tone conversational and explain things in plain language
 
 What phase are we in, and what were we working on?
 ```
@@ -165,8 +159,7 @@ Walk me through the approach:
 2. Are there property tests we should consider?
 3. Where should the files go? (Check documents/docs/FILE-ORGANIZATION.md)
 
-Remember the testing philosophy from PROJECT-CONTEXT.md:
-tests first, then implementation.
+Remember the testing philosophy from PROJECT-CONTEXT.md: tests first, then implementation.
 
 Check FILE-ORGANIZATION.md for correct paths and naming conventions.
 ```
@@ -175,8 +168,7 @@ Check FILE-ORGANIZATION.md for correct paths and naming conventions.
 ```
 I want to work on [feature name].
 
-Walk me through the approach. Remember, this is a homework project --
-help me think through it, but I need to write the code myself.
+Walk me through the approach. Remember, this is a homework project -- help me think through it, but I need to write the code myself.
 
 1. What should I test first? Describe the test in pseudocode.
 2. What's the implementation strategy? Explain the algorithm.
@@ -206,8 +198,7 @@ After we fix it, we need to make sure everything still passes.
 ```
 I'm seeing a bug: [bug description].
 
-Help me track it down. Remember, homework project -- I'll write the
-fix, but I need your help understanding the problem.
+Help me track it down. Remember, homework project -- I'll write the fix, but I need your help understanding the problem.
 
 1. What test would reproduce this?
 2. Walk me through what's happening and why.
@@ -223,8 +214,7 @@ fix, but I need your help understanding the problem.
 ```
 I need documentation for [topic].
 
-Create it at documents/docs/[NAME].md using SCREAMING-CASE naming.
-Reference any existing docs that are relevant.
+Create it at documents/docs/[NAME].md using SCREAMING-CASE naming. Reference any existing docs that are relevant.
 
 Per FILE-ORGANIZATION.md: all project docs go in documents/docs/.
 ```
@@ -249,9 +239,7 @@ Let's figure out the right approach:
 ```
 I need to create [class/function] for [purpose].
 
-Help me plan it out -- I'll do the writing. Where should the file go,
-what should the tests look like (in pseudocode), and what's the
-implementation strategy?
+Help me plan it out -- I'll do the writing. Where should the file go, what should the tests look like (in pseudocode), and what's the implementation strategy?
 ```
 
 ---
@@ -263,8 +251,7 @@ implementation strategy?
 **When:** AI writes or suggests code without tests
 
 ```
-Hold on -- we skipped tests. Per PROJECT-CONTEXT.md, we need tests
-before code. What tests should we write for this?
+Hold on -- we skipped tests. Per PROJECT-CONTEXT.md, we need tests before code. What tests should we write for this?
 ```
 
 ### AI Created File in Wrong Location
@@ -287,8 +274,7 @@ Can you move it?
 **When:** AI processes external data without validation
 
 ```
-We're missing validation on that external data. Per PROJECT-CONTEXT.md,
-all external data needs validation before we process it. Can we add that?
+We're missing validation on that external data. Per PROJECT-CONTEXT.md, all external data needs validation before we process it. Can we add that?
 ```
 
 ### AI Wrote Code Directly (Homework)
@@ -296,9 +282,7 @@ all external data needs validation before we process it. Can we add that?
 **When:** AI inserts code into the codebase on a homework project
 
 ```
-Hey, remember this is a homework project. HOMEWORK-MANIFESTO.md says
-you guide and I write. Can you undo that change and instead walk me
-through what the code should do? Pseudocode is fine.
+Hey, remember this is a homework project. HOMEWORK-MANIFESTO.md says you guide and I write. Can you undo that change and instead walk me through what the code should do? Pseudocode is fine.
 ```
 
 ### AI Tone Went Robotic
@@ -306,9 +290,7 @@ through what the code should do? Pseudocode is fine.
 **When:** AI responses become terse, overly formal, or list-heavy
 
 ```
-Your tone shifted -- you're sounding pretty robotic. Remember, we're
-pair-programming here. Keep things conversational. Explain your
-thinking like you're talking to a colleague, not writing a report.
+Your tone shifted -- you're sounding pretty robotic. Remember, we're pair-programming here. Keep things conversational. Explain your thinking like you're talking to a colleague, not writing a report.
 ```
 
 ---
@@ -320,18 +302,15 @@ thinking like you're talking to a colleague, not writing a report.
 ```
 Let's wrap up. Run through the full shutdown procedure:
 
-1. Create a transparency log (regardless of remaining context). Save it
-   to documents/ai-usage/[USERNAME]/transparency-logs/log-YYYY-MM-DD-USERNAME-##.md
+1. Remind the user to create a transparency log (regardless of remaining context). Save it to documents/ai-usage/[USERNAME]/transparency-logs/log-YYYY-MM-DD-USERNAME-##.md
 
 2. Are tests passing?
 
-3. Check the root directory -- should only have README.md, ROADMAP.md,
-   CLAUDE.md, LICENSE, .gitignore, and Godot project files. Anything else sneak in?
+3. Check the root directory -- should only have README.md, ROADMAP.md, CLAUDE.md, LICENSE, .gitignore, and Godot project files. Anything else sneak in?
 
 4. Update ROADMAP.md and PROJECT-CONTEXT.md to reflect current project status.
 
-5. Create a session summary at:
-   documents/ai-usage/[USERNAME]/session-YYYY-MM-DD-USERNAME-##.md
+5. Create a session summary at: documents/ai-usage/[USERNAME]/session-YYYY-MM-DD-USERNAME-##.md
 
    Format:
    - Title: "[USERNAME]'s Development Session ##"
@@ -385,8 +364,7 @@ Before we touch anything:
 2. Then we'll make changes
 3. Then verify everything still passes
 
-Tests are our safety net here. If tests pass before and after,
-the refactor is good.
+Tests are our safety net here. If tests pass before and after, the refactor is good.
 ```
 
 ---
@@ -399,8 +377,7 @@ the refactor is good.
 Pre-commit check:
 1. Are tests passing?
 2. Is the build clean?
-3. ls on root -- only README.md, ROADMAP.md, CLAUDE.md, LICENSE,
-   .gitignore, and Godot project files?
+3. ls on root -- only README.md, ROADMAP.md, CLAUDE.md, LICENSE, .gitignore, and Godot project files?
 
 Green across the board? I'll commit.
 ```

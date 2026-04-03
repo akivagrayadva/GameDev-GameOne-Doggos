@@ -50,7 +50,7 @@ This game blends two genres, roguelikes and gacha games, to make a pet-based rog
 | MDA Segment | Definition | MVP Elements | Ideal Elements | Stretch Elements |
 |-|-|-|-|-|
 | Mechanics | The game experience when it's not played | 1 currency (base); 1 human, 2 dogs; 2 dog power tiers; gacha shop; 1 room (aka map); 3 main obstacles in the room; | 2 currencies (base, premium); several dogs; 3-5 dog power tiers; 3 rooms; room-themed obstacles for each room; | comsumable powerups; many dogs; 5+ tiers and a secret super power tier; 2+ humans; secret shop or mid-round shop; 5+ rooms; 2nd floor in house; non-linear room layout;  |
-| Dynamics | The game experience while it's played | game opens to 1-button start menu; game automatically opens gacha shop after round end; can only exit game from gacha shop UI; no save ability; wasd movement of dog; point-and-click menu navigation; pulls bought one-by-one; | game opens to 2-button start menu (start, options); pause menu during round allows round abandonment; one save, always overwritten; game auto-saves before each round; options allows bgm, sfx on/off; options allows save reset; wasd or udlr movement of dog; wasd+enter or udlr+enter or point-and-click menu navigation; single or bulk pulls; gacha shop pause menu has exit, options, always saves before exiting; | rooms procedurally place obstacles so that each round has a slightly different set of layouts; game auto-saves after each pull to prevent save-scumming; game auto-saves before and after each round to prevent save-scumming; several save files; gacha shop pause menu has exit, title, options |
+| Dynamics | The game experience while it's played | game opens to 2-button start menu (start, exit); game automatically opens gacha shop after round end; can only exit game from gacha shop UI or start screen; no save ability; wasd movement of dog; point-and-click menu navigation; pulls bought one-by-one; | game opens to 3-button start menu (start, exit, options); pause menu during round allows round abandonment; one save, always overwritten; game auto-saves before each round; options allows bgm, sfx on/off; options allows save reset; wasd or udlr movement of dog; wasd+enter or udlr+enter or point-and-click menu navigation; single or bulk pulls; gacha shop pause menu has exit, options, always saves before exiting; | rooms procedurally place obstacles so that each round has a slightly different set of layouts; game auto-saves after each pull to prevent save-scumming; game auto-saves before and after each round to prevent save-scumming; several save files; gacha shop pause menu has exit, title, options |
 | Aesthetics | The game experience after it's played | amusing | aw that's quaint | i'm invested in this family and also FUCK GACHA GIMME MY SS PULL |
 
 ---
@@ -63,6 +63,9 @@ Ideas, concepts, questions, and propositions that need team review
 - [ ] Pixel or 2D?
   - Akiva: after thinking for a bit and working on specs, maybe we try a hybrid? pixel assets are going to be easy to find, but we can use 2D for splash art. I recall from other pixel games that having more detailed versiosn of the sprite art can be really fun to see. Also, intentionally blending pixelated menus with 2D art can look cool if done well.
   - Akiva 2.0: Biggest visual concern is making sure the game has a visual identity and doesn't feel like it is mis-matched, looks canned, or is only from an asset store
+- [ ] Jailed doggo idea: more info?
+- [ ] how are we handling duplicate pulls?
+- [ ] 
 
 ---
 

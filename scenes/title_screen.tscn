@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://hhybejs82qhl"]
+
+[ext_resource type="Script" uid="uid://d01e5k2doeidk" path="res://scripts/TitleScreen.cs" id="1_fgkus"]
+
+[node name="TitleScreen" type="Control" unique_id=651025193]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fgkus")
+
+[node name="Exit" type="Button" parent="." unique_id=63779566]
+process_mode = 3
+layout_mode = 1
+offset_left = 226.0
+offset_top = 10.0
+offset_right = 426.0
+offset_bottom = 60.0
+text = "Exit"
+
+[node name="Start" type="Button" parent="." unique_id=1032896729]
+process_mode = 3
+layout_mode = 1
+offset_left = 13.0
+offset_top = 9.0
+offset_right = 213.0
+offset_bottom = 59.0
+text = "Start"

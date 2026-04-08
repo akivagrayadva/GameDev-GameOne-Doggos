@@ -25,7 +25,8 @@ AI is used to augment our capacity to learn and create, not replace it. See [HOM
 These are suggested workflows. You are not required to use them if you can accomplish the same transparency another way, but the project is optimized with them in mind.
 
 **Claude Code:**
-- For transparency logs, copy and paste compact logs as your log entry
+- For transparency logs, copy and paste compact summaries as your log entry
+  - Updated to Claude Code may or may not allow you to copy and paste, but you can have the agent transcribe the log verbatim in your stead
 - Include the URL at the end directing to the full (not-super-human-readable) session transcript
 - You may sanitize the filepath to be relative so your machine's file structure is not revealed
 

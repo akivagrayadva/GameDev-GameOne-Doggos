@@ -5,10 +5,10 @@
 ## Project Overview
 
 **Name:** GameDev-GameOne-Doggos
-**Purpose:** A roguelike gacha game about dogs and the messes they get into
+**Purpose:** Dogcha! A roguelike gacha game about dogs and the messes they get into
 **Language:** C#
 **Engine:** Godot (with C# scripting)
-**Current Phase:** [Phase name from ROADMAP.md]
+**Current Phase:** Phase 1 - Paper Prototyping
 
 **For detailed roadmap:** See [../../ROADMAP.md](../../ROADMAP.md)
 
@@ -132,10 +132,16 @@ export create_test_fixture(...)    -- single source
 ## Current Project State
 
 ### What Works
-- [Describe current working state]
+- Project documentation structure is complete
+- Godot project initialized
+- No game code yet (Phase 1 is paper prototyping, no code)
 
 ### Planned Features
-- [List from ROADMAP.md]
+- See ROADMAP.md for full Tetrad/MDA breakdown
+- Phase 1: Paper prototyping (numeric balancing, room layouts, UI layouts)
+- Phase 2: MVP I (playable game with placeholder art)
+- Phase 3: MVP II (cohesive sprites, GUI menus, music, SFX)
+- Phase 4: Bonus round (ideal/stretch elements)
 
 ### Test Files Location
 See [FILE-ORGANIZATION.md](FILE-ORGANIZATION.md) for C#-specific test paths and naming conventions.
@@ -234,12 +240,12 @@ dotnet build
 
 ## Next Phase
 
-**Goal:** [Current phase goal from ROADMAP.md]
+**Goal:** Complete paper prototyping -- establish numeric balancing and visual layouts before writing code
 
 **Implementation Plan:**
-1. [Step 1]
-2. [Step 2]
-3. [Step 3]
+1. Establish currency spawning rates, prices, speed ratios, gacha drop rates
+2. Finalize room layouts for Phases 2 and 3
+3. Finalize menu and UI layouts
 
 **Requirements for new code:**
 1. Write integration test showing expected workflow

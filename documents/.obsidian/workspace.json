@@ -11,14 +11,10 @@
             "id": "a07468f3f3365d81",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "resources/PROMPT-QUICK-REF.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "PROMPT-QUICK-REF"
+              "title": "New tab"
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "resources/PROMPT-QUICK-REF.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for PROMPT-QUICK-REF"
+              "title": "Backlinks"
             }
           },
           {
@@ -113,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "resources/PROMPT-QUICK-REF.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from PROMPT-QUICK-REF"
+              "title": "Outgoing links"
             }
           },
           {
@@ -183,25 +177,29 @@
       "bases:Create new base": false
     }
   },
-  "active": "a07468f3f3365d81",
+  "active": "16fc85179f425165",
   "lastOpenFiles": [
-    "docs/FILE-ORGANIZATION.md",
-    "docs/PROJECT-CONTEXT.md",
-    "ai-usage/policies/HOMEWORK-MANIFESTO.md",
-    "ai-usage/disclosures/akivagrayadva/transparency-logs",
-    "resources/FOR-CONTRIBUTORS.md",
+    "ai-usage/disclosures/akivagrayadva/transparency-logs/log-2026-04-08-akivagrayadva-01.md",
+    "ai-usage/disclosures/akivagrayadva/session-2026-04-08-akivagrayadva-01.md",
+    "ai-usage/thaimor/session-2026-04-08-akivagrayadva-01.md",
+    "ai-usage/thaimor/session-2026-04-08-thaimor-01.md",
+    "ai-usage/thaimor/transparency-logs",
+    "ai-usage/thaimor",
     "resources/PROMPT-QUICK-REF.md",
+    "resources/FOR-CONTRIBUTORS.md",
     "resources",
+    "docs/PROJECT-CONTEXT.md",
+    "docs/FILE-ORGANIZATION.md",
+    "docs",
+    "ai-usage/policies/HOMEWORK-MANIFESTO.md",
+    "ai-usage/policies",
+    "ai-usage/disclosures/akivagrayadva/transparency-logs",
     "docs/PROJECT-CONTEXT.md.tmp.35932.1775064527399",
     "ai-usage/resources/PROMPT-QUICK-REF.md",
     "docs/FOR-CONTRIBUTORS.md",
     "Welcome.md",
     "ai-usage/disclosures/akivagrayadva/compact-logs",
     "ai-usage/disclosures/ashniccole",
-    "ai-usage/disclosures/joshryder55",
-    "ai-usage/disclosures/akivagrayadva",
-    "ai-usage/resources",
-    "ai-usage/policies",
-    "ai-usage/disclosures"
+    "ai-usage/disclosures/joshryder55"
   ]
 }

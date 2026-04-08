@@ -302,7 +302,7 @@ Your tone shifted -- you're sounding pretty robotic. Remember, we're pair-progra
 ```
 Let's wrap up. Run through the full shutdown procedure:
 
-1. Remind the user to create a transparency log (regardless of remaining context). Save it to documents/ai-usage/[USERNAME]/transparency-logs/log-YYYY-MM-DD-USERNAME-##.md
+1. Remind the user to create a transparency log (regardless of remaining context). Save it to documents/ai-usage/disclosures/[USERNAME]/transparency-logs/log-YYYY-MM-DD-USERNAME-##.md
 
 2. Are tests passing?
 
@@ -310,7 +310,7 @@ Let's wrap up. Run through the full shutdown procedure:
 
 4. Update ROADMAP.md and PROJECT-CONTEXT.md to reflect current project status.
 
-5. Create a session summary at: documents/ai-usage/[USERNAME]/session-YYYY-MM-DD-USERNAME-##.md
+5. Create a session summary at: documents/ai-usage/disclosures/[USERNAME]/session-YYYY-MM-DD-USERNAME-##.md
 
    Format:
    - Title: "[USERNAME]'s Development Session ##"

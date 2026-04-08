@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites id="2026-04-08" name="report_1" tests="1" failures="1" skipped="0" flaky="0" time="0.000">
-	<testsuite id="0" name="GachaShopUiTests" package="tests" timestamp="2026-04-08T18:58:43" hostname="localhost" tests="1" failures="1" errors="0" skipped="0" flaky="0" time="0.128">
-		<testcase name="TestFetchButtonExists" classname="GachaShopUiTests" time="0.033">
-			<failure message="FAILED: res://tests/GachaShopUiTests.cs:19" type="FAILURE">
+	<testsuite id="0" name="GachaShopUiTests" package="tests" timestamp="2026-04-08T21:06:45" hostname="localhost" tests="1" failures="1" errors="0" skipped="0" flaky="0" time="0.112">
+		<testcase name="TestFetchButtonExists" classname="GachaShopUiTests" time="0.026">
+			<failure message="FAILED: res://tests/GachaShopUiTests.cs:21" type="FAILURE">
 <![CDATA[
 Object reference not set to an instance of an object.
 ]]>

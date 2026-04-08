@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://dewhvn2wp335o"]
 
+[ext_resource type="Script" uid="uid://bbfn7de02aamh" path="res://scripts/GachaShopUi.cs" id="1_h5epl"]
+
 [node name="GachaShop" type="Node2D" unique_id=609489877]
+
+[node name="ShopUI" type="CanvasLayer" parent="." unique_id=1002499542]
+script = ExtResource("1_h5epl")
+
+[node name="Fetch" type="Button" parent="ShopUI" unique_id=380777465]
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 208.0
+offset_bottom = 56.0
+text = "Fetch"
+
+[node name="Title" type="Button" parent="ShopUI" unique_id=2111639523]
+offset_left = 219.0
+offset_top = 7.0
+offset_right = 419.0
+offset_bottom = 57.0
+text = "Title"

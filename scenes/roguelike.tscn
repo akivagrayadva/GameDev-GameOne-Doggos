@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1bd36kw8dne5"]
 
 [ext_resource type="Script" uid="uid://cjmnamg28qx1a" path="res://scripts/RoguelikeMovement.cs" id="1_y4nua"]
+[ext_resource type="Script" uid="uid://djaiqloxvwwq3" path="res://scripts/Treat.cs" id="2_ibjl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjl0"]
 
@@ -48,6 +49,7 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_ibjl0")
 
 [node name="DummyGoal" type="Area2D" parent="Actors and Objects" unique_id=1686661369]
+visible = false
 position = Vector2(459, 454)
 collision_layer = 8
 
@@ -66,6 +68,52 @@ grow_vertical = 2
 color = Color(0.3476, 0.79, 0.42133328, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/DummyGoal" unique_id=782594766]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_brp47")
+
+[node name="Treat" type="Area2D" parent="Actors and Objects" unique_id=1330432456]
+position = Vector2(459, 454)
+collision_layer = 8
+script = ExtResource("2_ibjl0")
+
+[node name="ColorRect" type="ColorRect" parent="Actors and Objects/Treat" unique_id=5648029]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3476, 0.79, 0.42133328, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat" unique_id=908824225]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_brp47")
+
+[node name="Treat2" type="Area2D" parent="Actors and Objects" unique_id=1516485143]
+position = Vector2(170, 164)
+collision_layer = 8
+script = ExtResource("2_ibjl0")
+
+[node name="ColorRect" type="ColorRect" parent="Actors and Objects/Treat2" unique_id=1985459110]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2250424, 0.78821105, 0.59506387, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat2" unique_id=481410628]
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_brp47")
 

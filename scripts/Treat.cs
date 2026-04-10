@@ -12,7 +12,8 @@ public partial class Treat : Area2D
 	{
 		if (body.Name == "DummyDog")
 		{
-			GD.Print("Dog touched the treat!");
+			GD.Print("Dog collected treat!");
+			RoguelikeMovement.Instance.TreatCollected();
 			QueueFree();
 			
 		}

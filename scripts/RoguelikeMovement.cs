@@ -2,6 +2,8 @@ using Godot;
 using System;
 
 public partial class RoguelikeMovement : Node2D {
+	public static RoguelikeMovement Instance;
+	
 	CharacterBody2D activeDog;
 	CharacterBody2D activeHuman;
 	Node treatCounter;
@@ -12,6 +14,7 @@ public partial class RoguelikeMovement : Node2D {
 	float dogSpeed = GLOBAL_CONSTANTS.DOG_SPEED;
 	float humanSpeedModifier = GLOBAL_CONSTANTS.HUMAN_SPEED_Modifier;
 	public override void _Ready(){
+		Instance = this;		
 		activeDog = GetNode<CharacterBody2D>("DummyDog");       // Change to "ActiveDog" when the actual dog scene is ready
 		activeHuman = GetNode<CharacterBody2D>("DummyHuman");   // Change to "ActiveHuman" when the actual human scene is ready
 		var goalArea = GetNode<Area2D>("DummyGoal");             // This becomes the collision for the canna-biscuits that end a sucessful round

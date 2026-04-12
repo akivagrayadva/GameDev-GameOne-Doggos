@@ -1,0 +1,287 @@
+[gd_scene format=3 uid="uid://b1bd36kw8dne5"]
+
+[ext_resource type="Script" uid="uid://cjmnamg28qx1a" path="res://scripts/RoguelikeMovement.cs" id="1_y4nua"]
+[ext_resource type="Script" uid="uid://djaiqloxvwwq3" path="res://scripts/Treat.cs" id="2_ibjl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brp47"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcvjx"]
+size = Vector2(5, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbkj4"]
+size = Vector2(5, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwsn"]
+size = Vector2(512, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foalq"]
+size = Vector2(512, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdh2y"]
+
+[node name="Roguelike" type="Node2D" unique_id=508994204]
+
+[node name="Actors and Objects" type="Node2D" parent="." unique_id=1461066257]
+script = ExtResource("1_y4nua")
+
+[node name="DummyDog" type="CharacterBody2D" parent="Actors and Objects" unique_id=181501565]
+position = Vector2(364, 136)
+collision_mask = 2
+
+[node name="ColorRect" type="ColorRect" parent="Actors and Objects/DummyDog" unique_id=1806081181]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2236, 0.59483343, 0.86, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/DummyDog" unique_id=1108728528]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_ibjl0")
+
+[node name="DummyGoal" type="Area2D" parent="Actors and Objects" unique_id=1686661369]
+visible = false
+position = Vector2(459, 454)
+collision_layer = 8
+
+[node name="ColorRect" type="ColorRect" parent="Actors and Objects/DummyGoal" unique_id=1250947538]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3476, 0.79, 0.42133328, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/DummyGoal" unique_id=782594766]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_brp47")
+
+[node name="Treat" type="Area2D" parent="Actors and Objects" unique_id=1330432456]
+position = Vector2(459, 454)
+collision_layer = 8
+script = ExtResource("2_ibjl0")
+
+[node name="ColorRect" type="ColorRect" parent="Actors and Objects/Treat" unique_id=5648029]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3476, 0.79, 0.42133328, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat" unique_id=908824225]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_brp47")
+
+[node name="Treat2" type="Area2D" parent="Actors and Objects" unique_id=1516485143]
+position = Vector2(170, 164)
+collision_layer = 8
+script = ExtResource("2_ibjl0")
+
+[node name="ColorRect" type="ColorRect" parent="Actors and Objects/Treat2" unique_id=1985459110]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2250424, 0.78821105, 0.59506387, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat2" unique_id=481410628]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_brp47")
+
+[node name="Treat4" type="Area2D" parent="Actors and Objects" unique_id=886431170]
+position = Vector2(242, 488)
+collision_layer = 8
+script = ExtResource("2_ibjl0")
+
+[node name="ColorRect" type="ColorRect" parent="Actors and Objects/Treat4" unique_id=1461731085]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2250424, 0.78821105, 0.59506387, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat4" unique_id=1464567201]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_brp47")
+
+[node name="Treat3" type="Area2D" parent="Actors and Objects" unique_id=1410161637]
+position = Vector2(323, 258)
+collision_layer = 8
+script = ExtResource("2_ibjl0")
+
+[node name="ColorRect" type="ColorRect" parent="Actors and Objects/Treat3" unique_id=330038218]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2250424, 0.78821105, 0.59506387, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat3" unique_id=7108962]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_brp47")
+
+[node name="DummyWalls" type="StaticBody2D" parent="Actors and Objects" unique_id=553278758]
+collision_layer = 2
+collision_mask = 0
+
+[node name="LeftWallCollision" type="CollisionShape2D" parent="Actors and Objects/DummyWalls" unique_id=1961949749]
+position = Vector2(64, 320)
+shape = SubResource("RectangleShape2D_hcvjx")
+debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+
+[node name="LeftWallBound" type="ColorRect" parent="Actors and Objects/DummyWalls/LeftWallCollision" unique_id=203484294]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -256.0
+offset_right = 2.5
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74, 0.11840002, 0.11840002, 1)
+
+[node name="RightWallCollision" type="CollisionShape2D" parent="Actors and Objects/DummyWalls" unique_id=2058264203]
+position = Vector2(576, 320)
+shape = SubResource("RectangleShape2D_dbkj4")
+debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+
+[node name="RightWallBound" type="ColorRect" parent="Actors and Objects/DummyWalls/RightWallCollision" unique_id=891411477]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -257.0
+offset_right = 3.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74, 0.11840002, 0.11840002, 1)
+
+[node name="TopWallCollision" type="CollisionShape2D" parent="Actors and Objects/DummyWalls" unique_id=1050351171]
+position = Vector2(320, 64)
+shape = SubResource("RectangleShape2D_4hwsn")
+debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+
+[node name="TopWallBound" type="ColorRect" parent="Actors and Objects/DummyWalls/TopWallCollision" unique_id=771655867]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -2.5
+offset_right = 256.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74, 0.11840002, 0.11840002, 1)
+
+[node name="BottomWallCollision" type="CollisionShape2D" parent="Actors and Objects/DummyWalls" unique_id=133155426]
+position = Vector2(320, 576)
+shape = SubResource("RectangleShape2D_foalq")
+debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+
+[node name="BottomWallBound" type="ColorRect" parent="Actors and Objects/DummyWalls/BottomWallCollision" unique_id=1671959522]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -2.5
+offset_right = 256.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74, 0.11840002, 0.11840002, 1)
+
+[node name="DummyHuman" type="CharacterBody2D" parent="Actors and Objects" unique_id=72975321]
+position = Vector2(189, 385)
+collision_layer = 4
+collision_mask = 2
+
+[node name="HumanEnvironmentCollision" type="CollisionShape2D" parent="Actors and Objects/DummyHuman" unique_id=291716011]
+shape = SubResource("RectangleShape2D_mdh2y")
+
+[node name="ColorRect" type="ColorRect" parent="Actors and Objects/DummyHuman" unique_id=1516376428]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95, 0.69698334, 0.057, 1)
+
+[node name="DogDetection" type="Area2D" parent="Actors and Objects/DummyHuman" unique_id=1828182148]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/DummyHuman/DogDetection" unique_id=1351431044]
+shape = SubResource("RectangleShape2D_mdh2y")
+
+[node name="Non-Interactable Objects" type="CanvasGroup" parent="." unique_id=177582493]
+
+[node name="DummyPlayArea" type="ColorRect" parent="Non-Interactable Objects" unique_id=1741442803]
+z_index = -1
+offset_left = 64.0
+offset_top = 65.0
+offset_right = 576.0
+offset_bottom = 577.0
+color = Color(0.65999997, 0.8433333, 0.88, 1)
+
+[node name="Roguelike GUI" type="Control" parent="." unique_id=563930200]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2

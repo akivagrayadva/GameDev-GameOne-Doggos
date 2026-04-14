@@ -1,22 +1,44 @@
 [gd_scene format=3 uid="uid://dewhvn2wp335o"]
 
 [ext_resource type="Script" uid="uid://bbfn7de02aamh" path="res://scripts/GachaShopUi.cs" id="1_h5epl"]
+[ext_resource type="FontFile" uid="uid://b7v0s5yuaicm4" path="res://scenes/TTF/dogicapixel.ttf" id="2_t7xrn"]
 
 [node name="GachaShop" type="Node2D" unique_id=609489877]
 
 [node name="ShopUI" type="CanvasLayer" parent="." unique_id=1002499542]
 script = ExtResource("1_h5epl")
 
+[node name="CatHud" type="HBoxContainer" parent="ShopUI" unique_id=1875246404]
+offset_right = 649.0
+offset_bottom = 155.0
+
+[node name="FakeCat" type="ColorRect" parent="ShopUI/CatHud" unique_id=329718217]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_vertical = 0
+color = Color(1, 0.41960785, 1, 1)
+
+[node name="Speech bubble" type="PanelContainer" parent="ShopUI/CatHud" unique_id=345498112]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="dialog" type="Label" parent="ShopUI/CatHud/Speech bubble" unique_id=98734390]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_t7xrn")
+text = "\"Oh, back again are we?\""
+
 [node name="Fetch" type="Button" parent="ShopUI" unique_id=380777465]
-offset_left = 8.0
-offset_top = 6.0
-offset_right = 208.0
-offset_bottom = 56.0
+offset_left = 17.0
+offset_top = 553.0
+offset_right = 217.0
+offset_bottom = 603.0
 text = "Fetch"
 
 [node name="Title" type="Button" parent="ShopUI" unique_id=2111639523]
-offset_left = 219.0
-offset_top = 7.0
-offset_right = 419.0
-offset_bottom = 57.0
+offset_left = 330.0
+offset_top = 553.0
+offset_right = 530.0
+offset_bottom = 603.0
 text = "Title"

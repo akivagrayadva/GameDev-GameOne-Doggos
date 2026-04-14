@@ -27,6 +27,6 @@ public partial class GachaShopUi : CanvasLayer {
 
 	public void OnTitlePressed() {
 		GD.Print("Returning to Title Screen...");
-		GetTree().ChangeSceneToFile("res://scenes/title_screen.tscn");
+		GetTree().ChangeSceneToFile("res://scenes/main_menu.tscn");
 	}
 }

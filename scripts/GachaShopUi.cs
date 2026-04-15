@@ -1,14 +1,14 @@
 using Godot;
 
-public partial class GachaShopUi : CanvasLayer {
+public partial class GachaShopUi : Control {
 	Button fetchButton;
 	Button titleButton;
 
 	
 	public override void _Ready() {
 		GD.Print("Gacha Shop ready.");
-		fetchButton = GetNode<Button>("Fetch");
-		titleButton = GetNode<Button>("Title");
+		fetchButton = GetNode<Button>("HBoxContainer/Fetch");
+		titleButton = GetNode<Button>("HBoxContainer/Title");
 
 		GD.Print("Fetch button: " + fetchButton);
 		GD.Print("Exit button: " + titleButton);

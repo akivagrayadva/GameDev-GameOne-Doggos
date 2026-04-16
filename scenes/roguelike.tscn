@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bn5wne1fqanmm" path="res://assets/livingroom_LRK.png" id="3_brp47"]
 [ext_resource type="Texture2D" uid="uid://j2pht23tbbog" path="res://assets/decorations_LRK.png" id="4_hcvjx"]
 [ext_resource type="Texture2D" uid="uid://ccayx5alkyfj3" path="res://assets/floorswalls_LRK.png" id="5_dbkj4"]
+[ext_resource type="Texture2D" uid="uid://b1p2lukhyoc5d" path="res://assets/kitchen_LRK.png" id="6_4hwsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjl0"]
 
@@ -82,6 +83,35 @@ region = Rect2(82, 49, 60, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml7ob"]
 size = Vector2(64.396515, 32.01657)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml7ob"]
+atlas = ExtResource("6_4hwsn")
+region = Rect2(23, 144, 120, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1x8e"]
+atlas = ExtResource("6_4hwsn")
+region = Rect2(353, 180, 30, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65ar4"]
+size = Vector2(61.937412, 91.994995)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eco7"]
+atlas = ExtResource("6_4hwsn")
+region = Rect2(193, 170, 126, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7xem"]
+size = Vector2(162.17853, 64.550995)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64rha"]
+atlas = ExtResource("3_brp47")
+region = Rect2(16, 256, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf4uk"]
+atlas = ExtResource("6_4hwsn")
+region = Rect2(24, 170, 22, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55u56"]
+size = Vector2(260.15234, 63.253387)
 
 [node name="Roguelike" type="Node2D" unique_id=508994204]
 
@@ -261,7 +291,7 @@ shape = SubResource("RectangleShape2D_mdh2y")
 [node name="Rooms" type="CanvasGroup" parent="." unique_id=177582493]
 y_sort_enabled = true
 
-[node name="Room1" type="ColorRect" parent="Rooms" unique_id=1741442803]
+[node name="Living Room" type="ColorRect" parent="Rooms" unique_id=1741442803]
 z_index = -1
 y_sort_enabled = true
 offset_left = -520.0
@@ -272,17 +302,17 @@ rotation = -0.00025899892
 scale = Vector2(1.739, 1.75)
 color = Color(0.65999997, 0.8433333, 0.88, 1)
 
-[node name="OuterWalls" type="StaticBody2D" parent="Rooms/Room1" unique_id=553278758]
+[node name="OuterWalls" type="StaticBody2D" parent="Rooms/Living Room" unique_id=553278758]
 position = Vector2(-64, -65)
 collision_layer = 2
 collision_mask = 0
 
-[node name="LeftWallCollision" type="CollisionShape2D" parent="Rooms/Room1/OuterWalls" unique_id=1961949749]
+[node name="LeftWallCollision" type="CollisionShape2D" parent="Rooms/Living Room/OuterWalls" unique_id=1961949749]
 position = Vector2(64, 320)
 shape = SubResource("RectangleShape2D_hcvjx")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
-[node name="LeftWallBound" type="ColorRect" parent="Rooms/Room1/OuterWalls/LeftWallCollision" unique_id=203484294]
+[node name="LeftWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/LeftWallCollision" unique_id=203484294]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -296,12 +326,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="RightWallCollision" type="CollisionShape2D" parent="Rooms/Room1/OuterWalls" unique_id=2058264203]
+[node name="RightWallCollision" type="CollisionShape2D" parent="Rooms/Living Room/OuterWalls" unique_id=2058264203]
 position = Vector2(576, 320)
 shape = SubResource("RectangleShape2D_dbkj4")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
-[node name="RightWallBound" type="ColorRect" parent="Rooms/Room1/OuterWalls/RightWallCollision" unique_id=891411477]
+[node name="RightWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/RightWallCollision" unique_id=891411477]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -315,12 +345,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/Room1/OuterWalls" unique_id=1050351171]
+[node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/Living Room/OuterWalls" unique_id=1050351171]
 position = Vector2(320, 64)
 shape = SubResource("RectangleShape2D_4hwsn")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
-[node name="TopWallBound" type="ColorRect" parent="Rooms/Room1/OuterWalls/TopWallCollision" unique_id=771655867]
+[node name="TopWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/TopWallCollision" unique_id=771655867]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -334,12 +364,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="BottomWallCollision" type="CollisionShape2D" parent="Rooms/Room1/OuterWalls" unique_id=133155426]
+[node name="BottomWallCollision" type="CollisionShape2D" parent="Rooms/Living Room/OuterWalls" unique_id=133155426]
 position = Vector2(320, 576)
 shape = SubResource("RectangleShape2D_foalq")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
-[node name="BottomWallBound" type="ColorRect" parent="Rooms/Room1/OuterWalls/BottomWallCollision" unique_id=1671959522]
+[node name="BottomWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/BottomWallCollision" unique_id=1671959522]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -353,7 +383,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="Couch" type="StaticBody2D" parent="Rooms/Room1" unique_id=151188974]
+[node name="Couch" type="StaticBody2D" parent="Rooms/Living Room" unique_id=151188974]
 visibility_layer = 3
 y_sort_enabled = true
 position = Vector2(103.452385, 212.59805)
@@ -361,16 +391,16 @@ rotation = 0.03141593
 scale = Vector2(5, 25.856)
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room1/Couch" unique_id=282269859]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Couch" unique_id=282269859]
 visibility_layer = 7
 rotation = -0.0052359877
 scale = Vector2(0.629, 0.09)
 texture = SubResource("AtlasTexture_hcvjx")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Room1/Couch" unique_id=229888413]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Living Room/Couch" unique_id=229888413]
 polygon = PackedVector2Array(-9.9902115, -0.27219963, 13.199871, -0.38427734, 14.963669, -0.17329979, 15.029274, 1.1282673, 13.188362, 1.333272, -12.886379, 1.4350357, -15.082207, 1.2266607, -14.859795, -0.07664013, -13.297981, -0.22455978)
 
-[node name="TV" type="Sprite2D" parent="Rooms/Room1" unique_id=1855106615]
+[node name="TV" type="Sprite2D" parent="Rooms/Living Room" unique_id=1855106615]
 top_level = true
 y_sort_enabled = true
 position = Vector2(-339, 36.999996)
@@ -378,21 +408,21 @@ scale = Vector2(4.076854, 4.009989)
 skew = -0.01570797
 texture = SubResource("AtlasTexture_foalq")
 
-[node name="Table" type="StaticBody2D" parent="Rooms/Room1" unique_id=244966239]
+[node name="Table" type="StaticBody2D" parent="Rooms/Living Room" unique_id=244966239]
 position = Vector2(104.07387, 34.312504)
 rotation = 0.022840705
 scale = Vector2(3.9911385, 20.638245)
 skew = -0.02443461
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room1/Table" unique_id=786926497]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Table" unique_id=786926497]
 scale = Vector2(0.504, 0.125)
 texture = SubResource("AtlasTexture_brp47")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Room1/Table" unique_id=1800100525]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Living Room/Table" unique_id=1800100525]
 polygon = PackedVector2Array(-11.817268, -0.031458616, -11.834003, 1.7129519, -9.239525, 1.6739337, -9.372227, 0.48393416, 9.651978, 0.40085673, 10.07053, 1.8387997, 12.087719, 1.8853662, 12.125965, -2.1018577, -12.518494, -2.049613)
 
-[node name="FirePlace" type="StaticBody2D" parent="Rooms/Room1" unique_id=580822910]
+[node name="FirePlace" type="StaticBody2D" parent="Rooms/Living Room" unique_id=580822910]
 y_sort_enabled = true
 position = Vector2(311.11487, -63.348503)
 rotation = 0.002595238
@@ -400,16 +430,16 @@ scale = Vector2(5.7521653, 25.81856)
 skew = -0.030761957
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room1/FirePlace" unique_id=1811677916]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/FirePlace" unique_id=1811677916]
 scale = Vector2(0.504, 0.125)
 texture = SubResource("AtlasTexture_4hwsn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room1/FirePlace" unique_id=392067548]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/FirePlace" unique_id=392067548]
 position = Vector2(0.0014181137, -0.6632631)
 scale = Vector2(1.0000005, 0.9999998)
 shape = SubResource("RectangleShape2D_46eot")
 
-[node name="TVSpeaker" type="StaticBody2D" parent="Rooms/Room1" unique_id=834857937]
+[node name="TVSpeaker" type="StaticBody2D" parent="Rooms/Living Room" unique_id=834857937]
 y_sort_enabled = true
 position = Vector2(41.977814, 1.1536865)
 rotation = 0.0034906585
@@ -417,16 +447,16 @@ scale = Vector2(4.256, 22.008)
 skew = -0.02443461
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room1/TVSpeaker" unique_id=60363141]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/TVSpeaker" unique_id=60363141]
 scale = Vector2(0.504, 0.125)
 texture = SubResource("AtlasTexture_mdh2y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room1/TVSpeaker" unique_id=359815613]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/TVSpeaker" unique_id=359815613]
 position = Vector2(-0.008523941, -0.02643764)
 scale = Vector2(2.3776405, 0.70624906)
 shape = SubResource("RectangleShape2D_7xngb")
 
-[node name="TVSpeaker2" type="StaticBody2D" parent="Rooms/Room1" unique_id=1912987721]
+[node name="TVSpeaker2" type="StaticBody2D" parent="Rooms/Living Room" unique_id=1912987721]
 y_sort_enabled = true
 position = Vector2(165.03723, 0.61390686)
 rotation = 0.0034906585
@@ -434,16 +464,16 @@ scale = Vector2(4.256, 22.008)
 skew = -0.02443461
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room1/TVSpeaker2" unique_id=1688634770]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/TVSpeaker2" unique_id=1688634770]
 scale = Vector2(0.504, 0.125)
 texture = SubResource("AtlasTexture_mdh2y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room1/TVSpeaker2" unique_id=1182032691]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/TVSpeaker2" unique_id=1182032691]
 position = Vector2(-0.008523941, -0.02643764)
 scale = Vector2(2.3776405, 0.70624906)
 shape = SubResource("RectangleShape2D_7xngb")
 
-[node name="DecorationTable" type="StaticBody2D" parent="Rooms/Room1" unique_id=406649037]
+[node name="DecorationTable" type="StaticBody2D" parent="Rooms/Living Room" unique_id=406649037]
 y_sort_enabled = true
 position = Vector2(477.27496, 41.83716)
 rotation = 0.0034906585
@@ -451,7 +481,7 @@ scale = Vector2(4.256, 22.008)
 skew = -0.02443461
 collision_layer = 2
 
-[node name="Plant" type="Sprite2D" parent="Rooms/Room1/DecorationTable" unique_id=1104839100]
+[node name="Plant" type="Sprite2D" parent="Rooms/Living Room/DecorationTable" unique_id=1104839100]
 visibility_layer = 2
 z_index = 1
 y_sort_enabled = true
@@ -461,17 +491,17 @@ scale = Vector2(0.7044268, 0.1598728)
 skew = 0.095977426
 texture = SubResource("AtlasTexture_46eot")
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room1/DecorationTable" unique_id=180291872]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/DecorationTable" unique_id=180291872]
 position = Vector2(-1.2132717, -0.025213024)
 scale = Vector2(0.504, 0.125)
 texture = SubResource("AtlasTexture_7d1bx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room1/DecorationTable" unique_id=1237975517]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/DecorationTable" unique_id=1237975517]
 position = Vector2(-2.9118538, 0.66528916)
 scale = Vector2(1.0000005, 0.9999998)
 shape = SubResource("RectangleShape2D_7d1bx")
 
-[node name="Chair" type="StaticBody2D" parent="Rooms/Room1" unique_id=1188257028]
+[node name="Chair" type="StaticBody2D" parent="Rooms/Living Room" unique_id=1188257028]
 y_sort_enabled = true
 position = Vector2(435.20886, 378.96912)
 rotation = 0.0034906585
@@ -479,16 +509,16 @@ scale = Vector2(4.256, 22.008)
 skew = -0.02443461
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room1/Chair" unique_id=863528431]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Chair" unique_id=863528431]
 scale = Vector2(0.504, 0.125)
 texture = SubResource("AtlasTexture_x7b4m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room1/Chair" unique_id=1482290475]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Chair" unique_id=1482290475]
 position = Vector2(0.46937943, 0.026426315)
 scale = Vector2(1.0000005, 0.24999996)
 shape = SubResource("RectangleShape2D_x7b4m")
 
-[node name="Chair2" type="StaticBody2D" parent="Rooms/Room1" unique_id=256914740]
+[node name="Chair2" type="StaticBody2D" parent="Rooms/Living Room" unique_id=256914740]
 y_sort_enabled = true
 position = Vector2(344.9052, 462.94595)
 rotation = 0.0034906585
@@ -496,16 +526,16 @@ scale = Vector2(4.256, 22.008)
 skew = -0.02443461
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room1/Chair2" unique_id=2084778397]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Chair2" unique_id=2084778397]
 scale = Vector2(0.504, 0.125)
 texture = SubResource("AtlasTexture_7xngb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room1/Chair2" unique_id=1735005984]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Chair2" unique_id=1735005984]
 position = Vector2(-0.35062218, 0.1083374)
 scale = Vector2(1.0000005, 0.24999996)
 shape = SubResource("RectangleShape2D_x7b4m")
 
-[node name="Rug" type="Sprite2D" parent="Rooms/Room1" unique_id=1825311811]
+[node name="Rug" type="Sprite2D" parent="Rooms/Living Room" unique_id=1825311811]
 visibility_layer = 2
 y_sort_enabled = true
 position = Vector2(101.17037, 142.88321)
@@ -514,48 +544,51 @@ scale = Vector2(3, 3.5)
 skew = -0.024434686
 texture = SubResource("AtlasTexture_dbkj4")
 
-[node name="Wall" type="StaticBody2D" parent="Rooms/Room1" unique_id=157920237]
+[node name="Wall" type="StaticBody2D" parent="Rooms/Living Room" unique_id=157920237]
 position = Vector2(64.408844, -15.411995)
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room1/Wall" unique_id=1790753676]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Wall" unique_id=1790753676]
 position = Vector2(-0.5750431, -0.00014799938)
 texture = SubResource("AtlasTexture_64k7t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room1/Wall" unique_id=140827440]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Wall" unique_id=140827440]
 scale = Vector2(0.99999976, 0.9999999)
 shape = SubResource("RectangleShape2D_ml7ob")
 
-[node name="Wall2" type="StaticBody2D" parent="Rooms/Room1" unique_id=1877923511]
+[node name="Wall2" type="StaticBody2D" parent="Rooms/Living Room" unique_id=1877923511]
 position = Vector2(119.03796, -15.397934)
 scale = Vector2(0.99999964, 0.9999997)
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room1/Wall2" unique_id=1213209601]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Wall2" unique_id=1213209601]
 texture = SubResource("AtlasTexture_64k7t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room1/Wall2" unique_id=868314856]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Wall2" unique_id=868314856]
 visible = false
 scale = Vector2(0.99999976, 0.9999999)
 shape = SubResource("RectangleShape2D_ml7ob")
 
-[node name="Room2" type="ColorRect" parent="Rooms" unique_id=1510841887]
+[node name="Kitchen" type="ColorRect" parent="Rooms" unique_id=378468650]
 z_index = -1
-offset_left = 1144.0
-offset_top = 66.0
-offset_right = 1656.0
-offset_bottom = 578.0
+y_sort_enabled = true
+offset_left = 423.99988
+offset_top = 51.999996
+offset_right = 935.9999
+offset_bottom = 564.0
+rotation = -0.00025899892
+scale = Vector2(1.739, 1.75)
 color = Color(0.65999997, 0.8433333, 0.88, 1)
 
-[node name="DummyWalls" type="StaticBody2D" parent="Rooms/Room2" unique_id=1513828305]
+[node name="OuterWalls" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=2136326946]
 position = Vector2(-64, -65)
 collision_layer = 2
 collision_mask = 0
 
-[node name="LeftWallCollision" type="CollisionShape2D" parent="Rooms/Room2/DummyWalls" unique_id=1394446624]
+[node name="LeftWallCollision" type="CollisionShape2D" parent="Rooms/Kitchen/OuterWalls" unique_id=1224774584]
 position = Vector2(64, 320)
 shape = SubResource("RectangleShape2D_hcvjx")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
-[node name="LeftWallBound" type="ColorRect" parent="Rooms/Room2/DummyWalls/LeftWallCollision" unique_id=1560436586]
+[node name="LeftWallBound" type="ColorRect" parent="Rooms/Kitchen/OuterWalls/LeftWallCollision" unique_id=242454261]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -569,12 +602,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="RightWallCollision" type="CollisionShape2D" parent="Rooms/Room2/DummyWalls" unique_id=153269601]
+[node name="RightWallCollision" type="CollisionShape2D" parent="Rooms/Kitchen/OuterWalls" unique_id=1705231988]
 position = Vector2(576, 320)
 shape = SubResource("RectangleShape2D_dbkj4")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
-[node name="RightWallBound" type="ColorRect" parent="Rooms/Room2/DummyWalls/RightWallCollision" unique_id=609159218]
+[node name="RightWallBound" type="ColorRect" parent="Rooms/Kitchen/OuterWalls/RightWallCollision" unique_id=1141675967]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -588,12 +621,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/Room2/DummyWalls" unique_id=288862419]
+[node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/Kitchen/OuterWalls" unique_id=207218551]
 position = Vector2(320, 64)
 shape = SubResource("RectangleShape2D_4hwsn")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
-[node name="TopWallBound" type="ColorRect" parent="Rooms/Room2/DummyWalls/TopWallCollision" unique_id=1506896727]
+[node name="TopWallBound" type="ColorRect" parent="Rooms/Kitchen/OuterWalls/TopWallCollision" unique_id=352365998]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -607,12 +640,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="BottomWallCollision" type="CollisionShape2D" parent="Rooms/Room2/DummyWalls" unique_id=1789667100]
+[node name="BottomWallCollision" type="CollisionShape2D" parent="Rooms/Kitchen/OuterWalls" unique_id=431316394]
 position = Vector2(320, 576)
 shape = SubResource("RectangleShape2D_foalq")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
-[node name="BottomWallBound" type="ColorRect" parent="Rooms/Room2/DummyWalls/BottomWallCollision" unique_id=629623982]
+[node name="BottomWallBound" type="ColorRect" parent="Rooms/Kitchen/OuterWalls/BottomWallCollision" unique_id=2126034327]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -626,94 +659,62 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="Room3" type="ColorRect" parent="Rooms" unique_id=541304668]
-z_index = -1
-offset_left = 604.0
-offset_top = 65.0
-offset_right = 1116.0
-offset_bottom = 577.0
-color = Color(0.65999997, 0.8433333, 0.88, 1)
+[node name="Counter" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=1470698706]
+position = Vector2(59.797848, 25.72968)
 
-[node name="DummyWalls" type="StaticBody2D" parent="Rooms/Room3" unique_id=2055587801]
-position = Vector2(-64, -65)
-collision_layer = 2
-collision_mask = 0
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/Counter" unique_id=281046583]
+position = Vector2(39.38994, 16.504501)
+scale = Vector2(1.656499, 1.5594746)
+texture = SubResource("AtlasTexture_ml7ob")
 
-[node name="LeftWallCollision" type="CollisionShape2D" parent="Rooms/Room3/DummyWalls" unique_id=1034640683]
-position = Vector2(64, 320)
-shape = SubResource("RectangleShape2D_hcvjx")
-debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Kitchen/Counter" unique_id=1516921705]
+position = Vector2(39.564808, 16.731174)
+scale = Vector2(1.626545, 1.53112)
+polygon = PackedVector2Array(-37.380493, 10.276093, -37.38556, 29.704666, -60.387268, 29.698746, -60.371933, -29.158398, 59.812073, -29.127464, 60.376373, 12.015533, -36.80591, 11.990524)
 
-[node name="LeftWallBound" type="ColorRect" parent="Rooms/Room3/DummyWalls/LeftWallCollision" unique_id=1212446096]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2.5
-offset_top = -256.0
-offset_right = 2.5
-offset_bottom = 256.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.74, 0.11840002, 0.11840002, 1)
+[node name="Fridge" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=872398603]
+position = Vector2(213.33226, 33.76919)
 
-[node name="RightWallCollision" type="CollisionShape2D" parent="Rooms/Room3/DummyWalls" unique_id=1104479418]
-position = Vector2(576, 320)
-shape = SubResource("RectangleShape2D_dbkj4")
-debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/Fridge" unique_id=1984541966]
+position = Vector2(15.667221, -17.523775)
+scale = Vector2(2.0444815, 1.6148694)
+texture = SubResource("AtlasTexture_n1x8e")
 
-[node name="RightWallBound" type="ColorRect" parent="Rooms/Room3/DummyWalls/RightWallCollision" unique_id=902991952]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2.0
-offset_top = -257.0
-offset_right = 3.0
-offset_bottom = 255.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.74, 0.11840002, 0.11840002, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Kitchen/Fridge" unique_id=1625606541]
+position = Vector2(15.626404, -17.41909)
+scale = Vector2(0.9999994, 0.9999996)
+shape = SubResource("RectangleShape2D_65ar4")
 
-[node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/Room3/DummyWalls" unique_id=249686116]
-position = Vector2(320, 64)
-shape = SubResource("RectangleShape2D_4hwsn")
-debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+[node name="Counter2" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=1496223843]
+position = Vector2(302.46338, 36.077854)
 
-[node name="TopWallBound" type="ColorRect" parent="Rooms/Room3/DummyWalls/TopWallCollision" unique_id=2003749917]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -2.5
-offset_right = 256.0
-offset_bottom = 2.5
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.74, 0.11840002, 0.11840002, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/Counter2" unique_id=1975570688]
+position = Vector2(39.104584, -6.275656)
+scale = Vector2(1.290553, 3.0777364)
+texture = SubResource("AtlasTexture_5eco7")
 
-[node name="BottomWallCollision" type="CollisionShape2D" parent="Rooms/Room3/DummyWalls" unique_id=1623538727]
-position = Vector2(320, 576)
-shape = SubResource("RectangleShape2D_foalq")
-debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Kitchen/Counter2" unique_id=386042713]
+position = Vector2(39.104492, -7.143467)
+scale = Vector2(0.9999997, 0.9999998)
+shape = SubResource("RectangleShape2D_b7xem")
 
-[node name="BottomWallBound" type="ColorRect" parent="Rooms/Room3/DummyWalls/BottomWallCollision" unique_id=1558364568]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -2.5
-offset_right = 256.0
-offset_bottom = 2.5
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.74, 0.11840002, 0.11840002, 1)
+[node name="Rug" type="Sprite2D" parent="Rooms/Kitchen" unique_id=811268738]
+position = Vector2(122.30965, 82.75003)
+scale = Vector2(1.3006592, 1.3843496)
+texture = SubResource("AtlasTexture_64rha")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=2075520802]
+position = Vector2(80.47036, 137.16357)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/StaticBody2D" unique_id=883894934]
+position = Vector2(120.01707, -1.0699434)
+scale = Vector2(11.910643, 2.1181672)
+texture = SubResource("AtlasTexture_wf4uk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Kitchen/StaticBody2D" unique_id=1582032024]
+position = Vector2(120.18158, -0.91363525)
+scale = Vector2(0.99999976, 0.9999999)
+shape = SubResource("RectangleShape2D_55u56")
 
 [node name="Roguelike GUI" type="Control" parent="." unique_id=563930200]
 layout_mode = 3

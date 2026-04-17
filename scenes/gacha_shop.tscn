@@ -8,6 +8,14 @@
 [ext_resource type="FontFile" uid="uid://dms3tqy3xeyx" path="res://scenes/TTF/dogica.ttf" id="3_5avp7"]
 [ext_resource type="Texture2D" uid="uid://oneaa0t6mamf" path="res://assets/cat.png" id="5_4vb04"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8a0k"]
+bg_color = Color(0.1288298, 0.12882978, 0.12882978, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vtgl6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5avp7"]
@@ -63,6 +71,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h5epl")
 
+[node name="ShopBackground2" type="Panel" parent="." unique_id=1772689601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x8a0k")
+
 [node name="Split" type="HBoxContainer" parent="." unique_id=849638302]
 layout_mode = 1
 anchors_preset = 15
@@ -74,6 +91,19 @@ grow_vertical = 2
 [node name="LeftPanel" type="Panel" parent="Split" unique_id=915494556]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Leftbackground" type="Panel" parent="Split/LeftPanel" unique_id=724589355]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.46800002
+anchor_right = 0.5
+anchor_bottom = 0.46800002
+offset_left = -272.0
+offset_top = -252.264
+offset_right = 259.0
+offset_bottom = 266.736
+theme_override_styles/panel = SubResource("StyleBoxFlat_x8a0k")
 
 [node name="CurrentDogPanel" type="Panel" parent="Split/LeftPanel" unique_id=415860231]
 layout_mode = 1

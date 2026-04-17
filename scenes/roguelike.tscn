@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://j2pht23tbbog" path="res://assets/decorations_LRK.png" id="4_hcvjx"]
 [ext_resource type="Texture2D" uid="uid://ccayx5alkyfj3" path="res://assets/floorswalls_LRK.png" id="5_dbkj4"]
 [ext_resource type="Texture2D" uid="uid://b1p2lukhyoc5d" path="res://assets/kitchen_LRK.png" id="6_4hwsn"]
+[ext_resource type="Script" uid="uid://nc4advn31pl1" path="res://scripts/Door.cs" id="6_foalq"]
+[ext_resource type="Texture2D" uid="uid://ciy6ugfyrbb7r" path="res://assets/doorswindowsstairs_LRK.png" id="7_mdh2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjl0"]
 
@@ -17,7 +19,7 @@
 size = Vector2(5, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbkj4"]
-size = Vector2(5, 512)
+size = Vector2(5, 640.9613)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwsn"]
 size = Vector2(512, 5)
@@ -59,19 +61,16 @@ region = Rect2(65.98, 121, 13, 19)
 atlas = ExtResource("3_brp47")
 region = Rect2(224, 208, 32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d1bx"]
-size = Vector2(11.05949, 2.618545)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_x7b4m"]
 atlas = ExtResource("3_brp47")
 region = Rect2(240, 96, 32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7b4m"]
-size = Vector2(14.18082, 15.411854)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xngb"]
 atlas = ExtResource("3_brp47")
 region = Rect2(336, 96, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4hwsn"]
+radius = 7.6300373
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dbkj4"]
 atlas = ExtResource("3_brp47")
@@ -84,6 +83,21 @@ region = Rect2(82, 49, 60, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml7ob"]
 size = Vector2(64.396515, 32.01657)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7xem"]
+atlas = ExtResource("7_mdh2y")
+region = Rect2(92, 96, 3, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55u56"]
+atlas = ExtResource("7_mdh2y")
+region = Rect2(116, 99, 24, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjabr"]
+atlas = ExtResource("7_mdh2y")
+region = Rect2(140, 99, 3, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7b4m"]
+size = Vector2(4.6004877, 75.42773)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ml7ob"]
 atlas = ExtResource("6_4hwsn")
 region = Rect2(23, 144, 120, 59)
@@ -93,7 +107,7 @@ atlas = ExtResource("6_4hwsn")
 region = Rect2(353, 180, 30, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65ar4"]
-size = Vector2(61.937412, 91.994995)
+size = Vector2(61.937412, 90.84932)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5eco7"]
 atlas = ExtResource("6_4hwsn")
@@ -102,16 +116,23 @@ region = Rect2(193, 170, 126, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7xem"]
 size = Vector2(162.17853, 64.550995)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_64rha"]
-atlas = ExtResource("3_brp47")
-region = Rect2(16, 256, 64, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wf4uk"]
 atlas = ExtResource("6_4hwsn")
 region = Rect2(24, 170, 22, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55u56"]
 size = Vector2(260.15234, 63.253387)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64rha"]
+atlas = ExtResource("3_brp47")
+region = Rect2(16, 256, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65ar4"]
+atlas = ExtResource("6_4hwsn")
+region = Rect2(24, 145, 22, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eco7"]
+size = Vector2(38.767227, 119.42456)
 
 [node name="Roguelike" type="Node2D" unique_id=508994204]
 
@@ -120,7 +141,7 @@ script = ExtResource("1_y4nua")
 
 [node name="DummyDog" type="CharacterBody2D" parent="Actors and Objects" unique_id=181501565]
 y_sort_enabled = true
-position = Vector2(250, 294)
+position = Vector2(140, 220)
 collision_mask = 2
 
 [node name="ColorRect" type="ColorRect" parent="Actors and Objects/DummyDog" unique_id=1806081181]
@@ -146,7 +167,7 @@ shape = SubResource("RectangleShape2D_ibjl0")
 
 [node name="DummyGoal" type="Area2D" parent="Actors and Objects" unique_id=1686661369]
 visible = false
-position = Vector2(459, 454)
+position = Vector2(527, 436)
 collision_layer = 8
 
 [node name="ColorRect" type="ColorRect" parent="Actors and Objects/DummyGoal" unique_id=1250947538]
@@ -168,7 +189,7 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_brp47")
 
 [node name="Treat" type="Area2D" parent="Actors and Objects" unique_id=1330432456]
-position = Vector2(143, 778)
+position = Vector2(275, 864)
 collision_layer = 8
 script = ExtResource("2_ibjl0")
 
@@ -213,31 +234,8 @@ color = Color(0.2250424, 0.78821105, 0.59506387, 1)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_brp47")
 
-[node name="Treat4" type="Area2D" parent="Actors and Objects" unique_id=886431170]
-position = Vector2(-356, 653)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="ColorRect" type="ColorRect" parent="Actors and Objects/Treat4" unique_id=1461731085]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.2250424, 0.78821105, 0.59506387, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat4" unique_id=1464567201]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
 [node name="Treat3" type="Area2D" parent="Actors and Objects" unique_id=1410161637]
-position = Vector2(-275, 423)
+position = Vector2(344, 81)
 collision_layer = 8
 script = ExtResource("2_ibjl0")
 
@@ -294,10 +292,10 @@ y_sort_enabled = true
 [node name="Living Room" type="ColorRect" parent="Rooms" unique_id=1741442803]
 z_index = -1
 y_sort_enabled = true
-offset_left = -520.0
-offset_top = 52.0
-offset_right = -8.0
-offset_bottom = 564.0
+offset_left = -518.0
+offset_top = 56.999996
+offset_right = -6.0
+offset_bottom = 569.0
 rotation = -0.00025899892
 scale = Vector2(1.739, 1.75)
 color = Color(0.65999997, 0.8433333, 0.88, 1)
@@ -327,11 +325,32 @@ grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
 [node name="RightWallCollision" type="CollisionShape2D" parent="Rooms/Living Room/OuterWalls" unique_id=2058264203]
-position = Vector2(576, 320)
+position = Vector2(579.1304, 480.56122)
+scale = Vector2(1.01, 0.38)
 shape = SubResource("RectangleShape2D_dbkj4")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
 [node name="RightWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/RightWallCollision" unique_id=891411477]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -257.0
+offset_right = 3.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74, 0.11840002, 0.11840002, 1)
+
+[node name="RightWallCollision2" type="CollisionShape2D" parent="Rooms/Living Room/OuterWalls" unique_id=1509760027]
+position = Vector2(577.4759, 184.62952)
+scale = Vector2(1.01, 0.38)
+shape = SubResource("RectangleShape2D_dbkj4")
+debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+
+[node name="RightWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/RightWallCollision2" unique_id=1885993686]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -496,10 +515,8 @@ position = Vector2(-1.2132717, -0.025213024)
 scale = Vector2(0.504, 0.125)
 texture = SubResource("AtlasTexture_7d1bx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/DecorationTable" unique_id=1237975517]
-position = Vector2(-2.9118538, 0.66528916)
-scale = Vector2(1.0000005, 0.9999998)
-shape = SubResource("RectangleShape2D_7d1bx")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Living Room/DecorationTable" unique_id=848739131]
+polygon = PackedVector2Array(-7.628006, -0.67046165, 0.20915604, -0.67536306, 2.5701866, -0.027579308, 2.6183167, 1.9980836, -7.783348, 1.9786186)
 
 [node name="Chair" type="StaticBody2D" parent="Rooms/Living Room" unique_id=1188257028]
 y_sort_enabled = true
@@ -513,10 +530,8 @@ collision_layer = 2
 scale = Vector2(0.504, 0.125)
 texture = SubResource("AtlasTexture_x7b4m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Chair" unique_id=1482290475]
-position = Vector2(0.46937943, 0.026426315)
-scale = Vector2(1.0000005, 0.24999996)
-shape = SubResource("RectangleShape2D_x7b4m")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Living Room/Chair" unique_id=578583033]
+polygon = PackedVector2Array(-6.1245403, -0.827219, 6.039421, -0.8607979, 6.2555656, -0.3674965, 6.6182175, 0.02183342, 7.398922, 1.5276299, 6.2695236, 1.9698353, -6.302658, 2.0296383, -7.881426, 1.6410694, -6.770397, 0.13409042, -6.4431973, -0.38552284)
 
 [node name="Chair2" type="StaticBody2D" parent="Rooms/Living Room" unique_id=256914740]
 y_sort_enabled = true
@@ -530,10 +545,10 @@ collision_layer = 2
 scale = Vector2(0.504, 0.125)
 texture = SubResource("AtlasTexture_7xngb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Chair2" unique_id=1735005984]
-position = Vector2(-0.35062218, 0.1083374)
-scale = Vector2(1.0000005, 0.24999996)
-shape = SubResource("RectangleShape2D_x7b4m")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Chair2" unique_id=975572478]
+position = Vector2(0.120893404, 0.12977645)
+scale = Vector2(1.0000005, 0.19184865)
+shape = SubResource("CircleShape2D_4hwsn")
 
 [node name="Rug" type="Sprite2D" parent="Rooms/Living Room" unique_id=1825311811]
 visibility_layer = 2
@@ -567,12 +582,29 @@ visible = false
 scale = Vector2(0.99999976, 0.9999999)
 shape = SubResource("RectangleShape2D_ml7ob")
 
+[node name="Door" type="StaticBody2D" parent="Rooms/Living Room" unique_id=1121548879]
+position = Vector2(508.2644, 282.98795)
+collision_layer = 2
+script = ExtResource("6_foalq")
+DoorClosedTexture = SubResource("AtlasTexture_b7xem")
+DoorOpenTexture = SubResource("AtlasTexture_55u56")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Door" unique_id=1131301604]
+position = Vector2(5.398447, -2.8567028)
+scale = Vector2(2, -1.662)
+texture = SubResource("AtlasTexture_qjabr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Door" unique_id=362560718]
+position = Vector2(5.1763916, -3.9980469)
+scale = Vector2(0.9999993, 0.9999995)
+shape = SubResource("RectangleShape2D_x7b4m")
+
 [node name="Kitchen" type="ColorRect" parent="Rooms" unique_id=378468650]
 z_index = -1
 y_sort_enabled = true
-offset_left = 423.99988
+offset_left = 376.0
 offset_top = 51.999996
-offset_right = 935.9999
+offset_right = 888.0
 offset_bottom = 564.0
 rotation = -0.00025899892
 scale = Vector2(1.739, 1.75)
@@ -582,25 +614,6 @@ color = Color(0.65999997, 0.8433333, 0.88, 1)
 position = Vector2(-64, -65)
 collision_layer = 2
 collision_mask = 0
-
-[node name="LeftWallCollision" type="CollisionShape2D" parent="Rooms/Kitchen/OuterWalls" unique_id=1224774584]
-position = Vector2(64, 320)
-shape = SubResource("RectangleShape2D_hcvjx")
-debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
-
-[node name="LeftWallBound" type="ColorRect" parent="Rooms/Kitchen/OuterWalls/LeftWallCollision" unique_id=242454261]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2.5
-offset_top = -256.0
-offset_right = 2.5
-offset_bottom = 256.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.74, 0.11840002, 0.11840002, 1)
 
 [node name="RightWallCollision" type="CollisionShape2D" parent="Rooms/Kitchen/OuterWalls" unique_id=1705231988]
 position = Vector2(576, 320)
@@ -659,21 +672,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="Counter" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=1470698706]
+[node name="Counter w_ Appliances" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=1470698706]
 position = Vector2(59.797848, 25.72968)
+collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/Counter" unique_id=281046583]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/Counter w_ Appliances" unique_id=281046583]
 position = Vector2(39.38994, 16.504501)
 scale = Vector2(1.656499, 1.5594746)
 texture = SubResource("AtlasTexture_ml7ob")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Kitchen/Counter" unique_id=1516921705]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Kitchen/Counter w_ Appliances" unique_id=1516921705]
 position = Vector2(39.564808, 16.731174)
 scale = Vector2(1.626545, 1.53112)
 polygon = PackedVector2Array(-37.380493, 10.276093, -37.38556, 29.704666, -60.387268, 29.698746, -60.371933, -29.158398, 59.812073, -29.127464, 60.376373, 12.015533, -36.80591, 11.990524)
 
 [node name="Fridge" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=872398603]
 position = Vector2(213.33226, 33.76919)
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/Fridge" unique_id=1984541966]
 position = Vector2(15.667221, -17.523775)
@@ -681,12 +696,13 @@ scale = Vector2(2.0444815, 1.6148694)
 texture = SubResource("AtlasTexture_n1x8e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Kitchen/Fridge" unique_id=1625606541]
-position = Vector2(15.626404, -17.41909)
-scale = Vector2(0.9999994, 0.9999996)
+position = Vector2(15.626434, -17.991924)
+scale = Vector2(0.9999993, 0.9999995)
 shape = SubResource("RectangleShape2D_65ar4")
 
 [node name="Counter2" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=1496223843]
 position = Vector2(302.46338, 36.077854)
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/Counter2" unique_id=1975570688]
 position = Vector2(39.104584, -6.275656)
@@ -698,23 +714,38 @@ position = Vector2(39.104492, -7.143467)
 scale = Vector2(0.9999997, 0.9999998)
 shape = SubResource("RectangleShape2D_b7xem")
 
-[node name="Rug" type="Sprite2D" parent="Rooms/Kitchen" unique_id=811268738]
-position = Vector2(122.30965, 82.75003)
-scale = Vector2(1.3006592, 1.3843496)
-texture = SubResource("AtlasTexture_64rha")
+[node name="Island" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=2075520802]
+position = Vector2(91.97003, 141.73796)
+collision_layer = 2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=2075520802]
-position = Vector2(80.47036, 137.16357)
-
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/StaticBody2D" unique_id=883894934]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/Island" unique_id=883894934]
 position = Vector2(120.01707, -1.0699434)
 scale = Vector2(11.910643, 2.1181672)
 texture = SubResource("AtlasTexture_wf4uk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Kitchen/StaticBody2D" unique_id=1582032024]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Kitchen/Island" unique_id=1582032024]
 position = Vector2(120.18158, -0.91363525)
 scale = Vector2(0.99999976, 0.9999999)
 shape = SubResource("RectangleShape2D_55u56")
+
+[node name="Rug" type="Sprite2D" parent="Rooms/Kitchen" unique_id=811268738]
+position = Vector2(122.46193, 85.745804)
+scale = Vector2(1.3006591, 1.3843496)
+texture = SubResource("AtlasTexture_64rha")
+
+[node name="Vertical Counter" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=410976913]
+position = Vector2(10.320462, 116.57408)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/Vertical Counter" unique_id=429046811]
+position = Vector2(9.389778, 2.3866868)
+scale = Vector2(1.8536162, 2.0943654)
+texture = SubResource("AtlasTexture_65ar4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Kitchen/Vertical Counter" unique_id=1656489793]
+position = Vector2(9.383652, 2.0054321)
+scale = Vector2(0.99999976, 0.9999999)
+shape = SubResource("RectangleShape2D_5eco7")
 
 [node name="Roguelike GUI" type="Control" parent="." unique_id=563930200]
 layout_mode = 3

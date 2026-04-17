@@ -4,10 +4,15 @@ using System;
 public partial class RoguelikeMovement : Node2D {
 	public static RoguelikeMovement Instance;
 	
+	[Signal] public delegate void Room1TreatsCollectedEventHandler();
+	[Signal] public delegate void Room2TreatsCollectedEventHandler();
+
 	CharacterBody2D activeDog;
 	CharacterBody2D activeHuman;
 	Node treatCounter;
-	int totalTreats = 4;
+	int totalTreats = 7;
+	int livingRoomTreats = 3;
+	int kitchenTreats = 7;
 	int collectedTreats = 0;
 	//bool levelEnded = false;
 	
@@ -28,13 +33,28 @@ public partial class RoguelikeMovement : Node2D {
 
 		GD.Print("Ready to run.");
 	}
+	
+	public void nextRoom(){
+		GD.Print("ONTO THE NEXT ROOM");
+	}
 
 	public void TreatCollected(){
 		collectedTreats++;
 		
+		//Opens the first door after all the treats have been collected
+		if(collectedTreats == livingRoomTreats){
+			EmitSignal(SignalName.Room1TreatsCollected);
+		}
+		
+		//Open the second door after all the treats have been collected
+		if(collectedTreats == kitchenTreats) {
+			EmitSignal(SignalName.Room2TreatsCollected);
+		}
+		
 		if(collectedTreats == totalTreats){
 			OnGoalTouched();
 		}
+		
 	}
 	public override void _PhysicsProcess(double delta) {
 		Vector2 inputVector = Vector2.Zero;

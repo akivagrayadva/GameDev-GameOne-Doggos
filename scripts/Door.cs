@@ -21,7 +21,7 @@ public partial class Door : StaticBody2D
 		}
 	}
 
-	public void OpenDoor()
+	public void OpenDoor(){
 		var sprite = GetNode<Sprite2D>("Sprite2D");
 		var collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		GetNode<Sprite2D>("Sprite2D").Texture = DoorOpenTexture;

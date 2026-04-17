@@ -7,8 +7,8 @@ public partial class GachaShopUi : Control {
 	
 	public override void _Ready() {
 		GD.Print("Gacha Shop ready.");
-		fetchButton = GetNode<Button>("HBoxContainer/Fetch");
-		titleButton = GetNode<Button>("HBoxContainer/Title");
+		fetchButton = GetNode<Button>("Split/RightPanel/ButtonRow/Fetch");
+		titleButton = GetNode<Button>("Split/RightPanel/ButtonRow/Title");
 
 		GD.Print("Fetch button: " + fetchButton);
 		GD.Print("Exit button: " + titleButton);

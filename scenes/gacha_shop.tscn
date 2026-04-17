@@ -139,7 +139,7 @@ offset_left = 56.0
 offset_top = 204.0
 offset_right = 165.0
 offset_bottom = 227.0
-text = "<current dog>"
+text = "babushka dog"
 
 [node name="PrevButton" type="TextureButton" parent="Split/LeftPanel/CurrentDogPanel" unique_id=1896028592]
 layout_mode = 1

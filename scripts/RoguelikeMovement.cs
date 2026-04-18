@@ -10,6 +10,7 @@ public partial class RoguelikeMovement : Node2D {
 	CharacterBody2D activeDog;
 	CharacterBody2D activeHuman;
 	Node treatCounter;
+	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
 	int totalTreats = 7;
 	int livingRoomTreats = 3;
 	int kitchenTreats = 7;
@@ -40,6 +41,7 @@ public partial class RoguelikeMovement : Node2D {
 
 	public void TreatCollected(){
 		collectedTreats++;
+		TotalTreats++;
 		
 		//Opens the first door after all the treats have been collected
 		if(collectedTreats == livingRoomTreats){

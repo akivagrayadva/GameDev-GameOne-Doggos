@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bi24m73a4nff5"]
+
+[ext_resource type="Texture2D" uid="uid://du7755ukj5mbp" path="res://assets/Pet Dogs Pack/Dog-1-Golden-Retriever/Golden-Retriever-walk.png" id="1_skkdb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m26m8"]
+atlas = ExtResource("1_skkdb")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5s8l"]
+atlas = ExtResource("1_skkdb")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfn8f"]
+atlas = ExtResource("1_skkdb")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j666"]
+atlas = ExtResource("1_skkdb")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75v7r"]
+atlas = ExtResource("1_skkdb")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odybc"]
+atlas = ExtResource("1_skkdb")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_376o3"]
+atlas = ExtResource("1_skkdb")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rugjh"]
+atlas = ExtResource("1_skkdb")
+region = Rect2(700, 0, 100, 100)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m26m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5s8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfn8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j666")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75v7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odybc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_376o3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rugjh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]

@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c6mannvmlhr6g"]
+
+[ext_resource type="Texture2D" uid="uid://8m4ojcgxcl08" path="res://assets/Pet Dogs Pack/Dog-3-Great-Dane/Great-Dane-walk.png" id="1_nja6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1avc"]
+atlas = ExtResource("1_nja6q")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkbb8"]
+atlas = ExtResource("1_nja6q")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qysi2"]
+atlas = ExtResource("1_nja6q")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvqkg"]
+atlas = ExtResource("1_nja6q")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6r48"]
+atlas = ExtResource("1_nja6q")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45yen"]
+atlas = ExtResource("1_nja6q")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioqpa"]
+atlas = ExtResource("1_nja6q")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx5q7"]
+atlas = ExtResource("1_nja6q")
+region = Rect2(700, 0, 100, 100)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1avc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkbb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qysi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvqkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6r48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45yen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioqpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx5q7")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]

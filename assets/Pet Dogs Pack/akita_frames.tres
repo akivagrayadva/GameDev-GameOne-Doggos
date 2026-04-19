@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://4nok3le1tg4t"]
+
+[ext_resource type="Texture2D" uid="uid://clgbsdxqgeiga" path="res://assets/Pet Dogs Pack/Dog-2-Akita/Akita-walk.png" id="1_cltg2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srct8"]
+atlas = ExtResource("1_cltg2")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3spl8"]
+atlas = ExtResource("1_cltg2")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_533wi"]
+atlas = ExtResource("1_cltg2")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny73v"]
+atlas = ExtResource("1_cltg2")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dmis"]
+atlas = ExtResource("1_cltg2")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyucr"]
+atlas = ExtResource("1_cltg2")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx1nd"]
+atlas = ExtResource("1_cltg2")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qibek"]
+atlas = ExtResource("1_cltg2")
+region = Rect2(700, 0, 100, 100)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srct8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3spl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_533wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny73v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dmis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyucr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx1nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qibek")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]

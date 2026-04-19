@@ -3,12 +3,34 @@ using System;
 
 public partial class RoguelikeMovement : Node2D {
 	public static RoguelikeMovement Instance;
+
+
+public enum DogBreed {
+	GoldenRetriever,
+	Akita,
+	GreatDane,
+	Schnauzer,
+	SaintBernard,
+	SiberianHusky	
+	
+}
+
+	// NEW: Dog types
+	public enum DogType {
+		Balanced,
+		Fast,
+		Heavy
+	}
+
+	// selectable in inspector
+	[Export] public DogBreed CurrentDog = DogBreed.GreatDane;
 	
 	[Signal] public delegate void Room1TreatsCollectedEventHandler();
 	[Signal] public delegate void Room2TreatsCollectedEventHandler();
 
 	CharacterBody2D activeDog;
 	CharacterBody2D activeHuman;
+	AnimatedSprite2D dogAnim;
 	Node treatCounter;
 	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
 	int totalTreats = 7;
@@ -18,26 +40,41 @@ public partial class RoguelikeMovement : Node2D {
 	//bool levelEnded = false;
 	
 	float dogSpeed = GLOBAL_CONSTANTS.DOG_SPEED;
-	float humanSpeedModifier = GLOBAL_CONSTANTS.HUMAN_SPEED_Modifier;
-	public override void _Ready(){
-		Instance = this;		
-		activeDog = GetNode<CharacterBody2D>("DummyDog");       // Change to "ActiveDog" when the actual dog scene is ready
-		activeHuman = GetNode<CharacterBody2D>("DummyHuman");   // Change to "ActiveHuman" when the actual human scene is ready
-		var goalArea = GetNode<Area2D>("DummyGoal");             // This becomes the collision for the canna-biscuits that end a sucessful round
-		var failArea = activeHuman.GetNode<Area2D>("DogDetection");                             // This becomes the collision for the human that ends a failed round
-		
-		
-		failArea.BodyEntered += (body) => {
-			if (body == activeDog)
-				OnFailTouched();
-		};
 
-		GD.Print("Ready to run.");
-	}
+	//  turn speed for different dog handling
+	float dogTurnSpeed = 8f;
+
+	float humanSpeedModifier = GLOBAL_CONSTANTS.HUMAN_SPEED_Modifier;
+
+	public override void _Ready(){
+	Instance = this;		
+	activeDog = GetNode<CharacterBody2D>("DummyDog");       // Change to "ActiveDog" when the actual dog scene is ready
+	dogAnim = activeDog.GetNode<AnimatedSprite2D>("Anim");
+	activeHuman = GetNode<CharacterBody2D>("DummyHuman");   // Change to "ActiveHuman" when the actual human scene is ready
+	var goalArea = GetNode<Area2D>("DummyGoal");             // This becomes the collision for the canna-biscuits that end a sucessful round
+	var failArea = activeHuman.GetNode<Area2D>("DogDetection");                             // This becomes the collision for the human that ends a failed round
 	
-	public void nextRoom(){
-		GD.Print("ONTO THE NEXT ROOM");
-	}
+	//  assign stats based on selected dog
+	DogType dogType = GetDogType(CurrentDog);
+	DogStats stats = GetDogStats(dogType);
+
+	dogSpeed = stats.MoveSpeed;
+	dogTurnSpeed = stats.TurnSpeed;
+	
+	dogAnim = activeDog.GetNode<AnimatedSprite2D>("Anim");
+	SetDogSprite(CurrentDog);
+
+	GD.Print("Current dog: " + CurrentDog);
+	GD.Print("Dog type: " + dogType);
+	GD.Print("Ready to run.");
+	
+	failArea.BodyEntered += (body) => {
+		if (body == activeDog)
+			OnFailTouched();
+	};
+
+	GD.Print("Ready to run.");
+}
 
 	public void TreatCollected(){
 		collectedTreats++;
@@ -58,6 +95,73 @@ public partial class RoguelikeMovement : Node2D {
 		}
 		
 	}
+
+private DogType GetDogType(DogBreed dogBreed)
+{
+	switch (dogBreed)
+	{
+		case DogBreed.GreatDane:
+		case DogBreed.SaintBernard:
+			return DogType.Heavy;
+
+		case DogBreed.SiberianHusky:
+			return DogType.Fast;
+
+		case DogBreed.GoldenRetriever:
+		case DogBreed.Akita:
+		case DogBreed.Schnauzer:
+		default:
+			return DogType.Balanced;
+	}
+}
+private DogStats GetDogStats(DogType dogType)
+{
+	switch (dogType)
+	{
+		case DogType.Fast:
+			return new DogStats("Fast Dog", 250f, 5f);
+
+		case DogType.Heavy:
+			return new DogStats("Heavy Dog", 160f, 12f);
+
+		case DogType.Balanced:
+		default:
+			return new DogStats("Balanced Dog", 200f, 8f);
+	}
+}
+
+private void SetDogSprite(DogBreed dog)
+{
+	switch (dog)
+	{
+		case DogBreed.Schnauzer:
+			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/schnauzer_frames.tres");
+			break;
+
+		case DogBreed.GoldenRetriever:
+			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/goldenretriever_frames.tres");
+			break;
+
+		case DogBreed.Akita:
+			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/akita_frames.tres");
+			break;
+
+		case DogBreed.GreatDane:
+			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/greatdane_frames.tres");
+			break;
+
+		case DogBreed.SaintBernard:
+			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/saintbernard_frames.tres");
+			break;
+
+		case DogBreed.SiberianHusky:
+			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/siberianhusky_frames.tres");
+			break;
+	}
+
+	dogAnim.Stop(); // reset animation
+}
+
 	public override void _PhysicsProcess(double delta) {
 		Vector2 inputVector = Vector2.Zero;
 
@@ -74,6 +178,23 @@ public partial class RoguelikeMovement : Node2D {
 
 		activeDog.Velocity = inputVector * dogSpeed;           // speed needs to be a float to multiply with the direction vector 
 		activeDog.MoveAndSlide();
+
+		// play walking animation and flip sprite left/right
+		if (inputVector != Vector2.Zero)
+		{
+			dogAnim.Play("walk");
+
+			if (inputVector.X < 0)
+				dogAnim.FlipH = true;
+			else if (inputVector.X > 0)
+				dogAnim.FlipH = false;
+		}
+		else
+		{
+			dogAnim.Stop();
+		}
+
+		
 
 		activeHuman.Velocity = humanPathingAlgorithm(activeHuman.Position, activeDog.Position) * dogSpeed * humanSpeedModifier;
 		activeHuman.MoveAndSlide();
@@ -93,5 +214,4 @@ public partial class RoguelikeMovement : Node2D {
 		// Placeholder for a more complex pathfinding algorithm
 		return (dogPos - humanPos).Normalized();
 	}
-
 }

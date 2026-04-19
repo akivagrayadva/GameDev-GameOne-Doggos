@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://m44g7htmvtb8"]
+
+[ext_resource type="Texture2D" uid="uid://bdjxujsdeb7t6" path="res://assets/Pet Dogs Pack/Dog-5-Saint-Bernard/Saint-Bernard-walk.png" id="1_y3g87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3g87"]
+atlas = ExtResource("1_y3g87")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r8j8"]
+atlas = ExtResource("1_y3g87")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yx35"]
+atlas = ExtResource("1_y3g87")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1u4e"]
+atlas = ExtResource("1_y3g87")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5463"]
+atlas = ExtResource("1_y3g87")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb50e"]
+atlas = ExtResource("1_y3g87")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0dga"]
+atlas = ExtResource("1_y3g87")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhy88"]
+atlas = ExtResource("1_y3g87")
+region = Rect2(700, 0, 100, 100)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3g87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r8j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yx35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1u4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5463")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb50e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0dga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhy88")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://df07l7uvaxi7t"]
 
 [ext_resource type="Script" uid="uid://xfwqeoqtpruk" path="res://scripts/MainMenu.cs" id="1_ekxnf"]
-[ext_resource type="FontFile" uid="uid://b7v0s5yuaicm4" path="res://scenes/TTF/dogicapixel.ttf" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://b7v0s5yuaicm4" path="res://assets/TTF/dogicapixel.ttf" id="2_bqqt6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
 bg_color = Color(0.69411767, 0.6117647, 0.8509804, 1)

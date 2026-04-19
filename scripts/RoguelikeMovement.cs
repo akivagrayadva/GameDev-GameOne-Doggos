@@ -23,7 +23,7 @@ public enum DogBreed {
 	}
 
 	// selectable in inspector
-	[Export] public DogBreed CurrentDog = DogBreed.GreatDane;
+	[Export] public DogBreed CurrentDog = DogBreed.SaintBernard;
 	
 	[Signal] public delegate void Room1TreatsCollectedEventHandler();
 	[Signal] public delegate void Room2TreatsCollectedEventHandler();

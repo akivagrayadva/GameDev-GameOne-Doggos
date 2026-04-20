@@ -614,19 +614,20 @@ collision_layer = 2
 visibility_layer = 2
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-0.3468609, -1.7657738)
+position = Vector2(-5.1160502, -1.3992046)
 rotation = 0.0037453335
-scale = Vector2(0.7044268, 0.1598728)
+scale = Vector2(0.61586785, 0.12244542)
 skew = 0.095977426
 texture = SubResource("AtlasTexture_46eot")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/DecorationTable" unique_id=180291872]
-position = Vector2(-1.2132717, -0.025213024)
-scale = Vector2(0.504, 0.125)
+position = Vector2(-6.1061945, 0.23755139)
+scale = Vector2(0.46360472, 0.0971903)
 texture = SubResource("AtlasTexture_7d1bx")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Living Room/DecorationTable" unique_id=848739131]
-polygon = PackedVector2Array(-7.628006, -0.67046165, 0.20915604, -0.67536306, 2.5701866, -0.027579308, 2.6183167, 1.9980836, -7.783348, 1.9786186)
+position = Vector2(-3.251515, 0.0799436)
+polygon = PackedVector2Array(-7.628006, -0.67046165, 0.20915604, -0.67536306, 1.3426933, 0.07707143, 0.87880707, 1.8433504, -6.673874, 1.7182217)
 
 [node name="Chair" type="StaticBody2D" parent="Rooms/Living Room" unique_id=1188257028]
 y_sort_enabled = true
@@ -707,6 +708,23 @@ position = Vector2(4.893448, -2.855896)
 scale = Vector2(0.9999984, 0.999999)
 shape = SubResource("RectangleShape2D_x7b4m")
 
+[node name="Door2" type="StaticBody2D" parent="Rooms/Living Room" unique_id=1287122799]
+position = Vector2(1024.6531, 283.12085)
+collision_layer = 2
+script = ExtResource("6_foalq")
+DoorClosedTexture = SubResource("AtlasTexture_b7xem")
+DoorOpenTexture = SubResource("AtlasTexture_55u56")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Door2" unique_id=1281572253]
+position = Vector2(5.398447, -2.8567028)
+scale = Vector2(2, -1.662)
+texture = SubResource("AtlasTexture_qjabr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Door2" unique_id=2133154036]
+position = Vector2(4.893448, -2.855896)
+scale = Vector2(0.9999984, 0.999999)
+shape = SubResource("RectangleShape2D_x7b4m")
+
 [node name="Kitchen" type="ColorRect" parent="Rooms" unique_id=378468650]
 z_index = -1
 y_sort_enabled = true
@@ -727,20 +745,6 @@ collision_mask = 0
 position = Vector2(576, 320)
 shape = SubResource("RectangleShape2D_dbkj4")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
-
-[node name="RightWallBound" type="ColorRect" parent="Rooms/Kitchen/OuterWalls/RightWallCollision" unique_id=1141675967]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2.0
-offset_top = -257.0
-offset_right = 3.0
-offset_bottom = 255.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.74, 0.11840002, 0.11840002, 1)
 
 [node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/Kitchen/OuterWalls" unique_id=207218551]
 position = Vector2(320, 64)
@@ -935,6 +939,79 @@ texture = SubResource("AtlasTexture_inqac")
 position = Vector2(488.3877, 434.1235)
 scale = Vector2(0.9999995, 0.99999964)
 shape = SubResource("RectangleShape2D_6qle1")
+
+[node name="Backyard" type="ColorRect" parent="Rooms" unique_id=220203898]
+z_index = -1
+y_sort_enabled = true
+offset_left = 1268.9999
+offset_top = 56.999992
+offset_right = 1780.9999
+offset_bottom = 569.0
+rotation = -0.00025899892
+scale = Vector2(1.739, 1.75)
+color = Color(0.65999997, 0.8433333, 0.88, 1)
+
+[node name="OuterWalls" type="StaticBody2D" parent="Rooms/Backyard" unique_id=1315268218]
+position = Vector2(-64, -65)
+collision_layer = 2
+collision_mask = 0
+
+[node name="RightWallCollision" type="CollisionShape2D" parent="Rooms/Backyard/OuterWalls" unique_id=1983818455]
+position = Vector2(576, 320)
+shape = SubResource("RectangleShape2D_dbkj4")
+debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+
+[node name="RightWallBound" type="ColorRect" parent="Rooms/Backyard/OuterWalls/RightWallCollision" unique_id=1914848612]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -257.0
+offset_right = 3.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74, 0.11840002, 0.11840002, 1)
+
+[node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/Backyard/OuterWalls" unique_id=749911574]
+position = Vector2(320, 64)
+shape = SubResource("RectangleShape2D_4hwsn")
+debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+
+[node name="TopWallBound" type="ColorRect" parent="Rooms/Backyard/OuterWalls/TopWallCollision" unique_id=1392389423]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -2.5
+offset_right = 256.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74, 0.11840002, 0.11840002, 1)
+
+[node name="BottomWallCollision" type="CollisionShape2D" parent="Rooms/Backyard/OuterWalls" unique_id=1900560702]
+position = Vector2(320, 576)
+shape = SubResource("RectangleShape2D_foalq")
+debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
+
+[node name="BottomWallBound" type="ColorRect" parent="Rooms/Backyard/OuterWalls/BottomWallCollision" unique_id=278415779]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -2.5
+offset_right = 256.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74, 0.11840002, 0.11840002, 1)
 
 [node name="Roguelike GUI" type="Control" parent="." unique_id=563930200]
 layout_mode = 3

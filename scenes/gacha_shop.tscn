@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bbfn7de02aamh" path="res://scripts/GachaShopUi.cs" id="1_h5epl"]
 [ext_resource type="Texture2D" uid="uid://c6fj6eyrh2t17" path="res://assets/icons8-dog-bone-32.png" id="2_bsppm"]
 [ext_resource type="Texture2D" uid="uid://ix6milwoxyp0" path="res://assets/Arrow left bold.png" id="2_cspr6"]
-[ext_resource type="FontFile" uid="uid://b7v0s5yuaicm4" path="res://scenes/TTF/dogicapixel.ttf" id="2_t7xrn"]
+[ext_resource type="FontFile" uid="uid://b7v0s5yuaicm4" path="res://assets/TTF/dogicapixel.ttf" id="2_t7xrn"]
 [ext_resource type="Texture2D" uid="uid://c3yvr0cae1ju8" path="res://assets/tilleyscreenshot.png" id="2_vtgl6"]
-[ext_resource type="FontFile" uid="uid://dms3tqy3xeyx" path="res://scenes/TTF/dogica.ttf" id="3_5avp7"]
+[ext_resource type="FontFile" uid="uid://dms3tqy3xeyx" path="res://assets/TTF/dogica.ttf" id="3_5avp7"]
 [ext_resource type="Texture2D" uid="uid://oneaa0t6mamf" path="res://assets/cat.png" id="5_4vb04"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8a0k"]
@@ -60,6 +60,48 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r5t0"]
+bg_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mr7kc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr7kc"]
+bg_color = Color(0.3137255, 0.3137255, 0.3137255, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr8g"]
+bg_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ttbl"]
+bg_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7okx"]
+bg_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="GachaShop" type="Control" unique_id=968624387]
 custom_minimum_size = Vector2(400, 150)
@@ -230,6 +272,15 @@ Pull"
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Rightbackground2" type="Panel" parent="Split/RightPanel" unique_id=1571137138]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x8a0k")
+
 [node name="CatHud" type="HBoxContainer" parent="Split/RightPanel" unique_id=1875246404]
 layout_mode = 0
 offset_left = 5.0
@@ -269,7 +320,7 @@ texture = ExtResource("2_bsppm")
 [node name="AmountOfTreats" type="Label" parent="Split/RightPanel/Currency/PremiumTreat" unique_id=2090447899]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t7xrn")
-text = "# of premium treats"
+text = "x0"
 
 [node name="Treat" type="HBoxContainer" parent="Split/RightPanel/Currency" unique_id=1791817561]
 layout_mode = 2
@@ -278,10 +329,10 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("2_bsppm")
 
-[node name="AmountOfTreats" type="Label" parent="Split/RightPanel/Currency/Treat" unique_id=1867597547]
+[node name="TreatAmount" type="Label" parent="Split/RightPanel/Currency/Treat" unique_id=1867597547]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t7xrn")
-text = "# of treats"
+text = "x0"
 
 [node name="ButtonRow" type="HBoxContainer" parent="Split/RightPanel" unique_id=361060200]
 z_as_relative = false
@@ -333,3 +384,94 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vtgl6")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_4vb04")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x8a0k")
 text = "Title"
+
+[node name="TutorialPopup" type="Control" parent="." unique_id=987943879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBackground" type="ColorRect" parent="TutorialPopup" unique_id=348812352]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 0.47058824)
+
+[node name="PopupPanel" type="PanelContainer" parent="TutorialPopup" unique_id=489582255]
+custom_minimum_size = Vector2(600, 450)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -31.0
+offset_right = 20.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3r5t0")
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialPopup/PopupPanel" unique_id=1186911732]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialPopup/PopupPanel/MarginContainer" unique_id=28952595]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="TutorialPopup/PopupPanel/MarginContainer/VBoxContainer" unique_id=248978474]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_fonts/font = ExtResource("2_t7xrn")
+theme_override_font_sizes/font_size = 14
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="BodyLabel" type="Label" parent="TutorialPopup/PopupPanel/MarginContainer/VBoxContainer" unique_id=1199213484]
+custom_minimum_size = Vector2(450, 200)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.040268797, 0.040268805, 0.040268797, 1)
+theme_override_fonts/font = ExtResource("2_t7xrn")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mr7kc")
+text = "Welcome to Dogcha!
+
+You are a dog.
+Get the treats.
+Don't get caught.
+
+Controls:
+→ Arrow Keys to move
+
+Goal:
+→ Collect all treats
+→ Avoid the human
+
+Shop:
+→ Treats = normal currency
+→ Premium treats = better pulls
+
+Buttons:
+→ Fetch = play a run
+→ Title = main menu"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="StartButton" type="Button" parent="TutorialPopup/PopupPanel/MarginContainer/VBoxContainer" unique_id=42452517]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_t7xrn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mr7kc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mr7kc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ytr8g")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3ttbl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_u7okx")
+text = "Start Fetching!"

@@ -35,7 +35,7 @@ public enum DogBreed {
 	CollisionShape2D dogCollision;
 	
 	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
-	int totalTreats = 7;
+	int totalTreats = 8;
 	int livingRoomTreats = 3;
 	int kitchenTreats = 7;
 	int collectedTreats = 0;

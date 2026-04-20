@@ -23,7 +23,7 @@ public enum DogBreed {
 	}
 
 	// selectable in inspector
-	[Export] public DogBreed CurrentDog = DogBreed.SaintBernard;
+	[Export] public DogBreed CurrentDog = DogBreed.SiberianHusky;
 	
 	[Signal] public delegate void Room1TreatsCollectedEventHandler();
 	[Signal] public delegate void Room2TreatsCollectedEventHandler();
@@ -32,6 +32,8 @@ public enum DogBreed {
 	CharacterBody2D activeHuman;
 	AnimatedSprite2D dogAnim;
 	Node treatCounter;
+	CollisionShape2D dogCollision;
+	
 	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
 	int totalTreats = 7;
 	int livingRoomTreats = 3;
@@ -53,6 +55,8 @@ public enum DogBreed {
 	activeHuman = GetNode<CharacterBody2D>("DummyHuman");   // Change to "ActiveHuman" when the actual human scene is ready
 	var goalArea = GetNode<Area2D>("DummyGoal");             // This becomes the collision for the canna-biscuits that end a sucessful round
 	var failArea = activeHuman.GetNode<Area2D>("DogDetection");                             // This becomes the collision for the human that ends a failed round
+	dogCollision = activeDog.GetNode<CollisionShape2D>("CollisionShape2D");
+	
 	
 	//  assign stats based on selected dog
 	DogType dogType = GetDogType(CurrentDog);
@@ -132,30 +136,56 @@ private DogStats GetDogStats(DogType dogType)
 
 private void SetDogSprite(DogBreed dog)
 {
+	RectangleShape2D rectShape = dogCollision.Shape as RectangleShape2D;
+	
 	switch (dog)
 	{
 		case DogBreed.Schnauzer:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/schnauzer_frames.tres");
+			dogAnim.Scale = new Vector2(2.5f, 2.5f);
+			if (rectShape != null)
+				rectShape.Size = new Vector2(40,16);
+			dogCollision.Position = new Vector2(0, 0);
 			break;
 
 		case DogBreed.GoldenRetriever:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/goldenretriever_frames.tres");
+			dogAnim.Scale = new Vector2(4.0f, 4.0f);
+			if (rectShape != null)
+				rectShape.Size = new Vector2(60, 30);
+			dogCollision.Position = new Vector2(0, 3);
 			break;
 
 		case DogBreed.Akita:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/akita_frames.tres");
+			dogAnim.Scale = new Vector2(4.5f, 4.5f);
+			if (rectShape != null)
+				rectShape.Size = new Vector2(44, 24);
+			dogCollision.Position = new Vector2(0, 3);
 			break;
 
 		case DogBreed.GreatDane:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/greatdane_frames.tres");
+			dogAnim.Scale = new Vector2(4.0f, 4.0f);
+			if (rectShape != null)
+				rectShape.Size = new Vector2(75, 35);
+			dogCollision.Position = new Vector2(0, 5);
 			break;
 
 		case DogBreed.SaintBernard:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/saintbernard_frames.tres");
+			dogAnim.Scale = new Vector2(3.5f, 3.5f);
+			if (rectShape != null)
+				rectShape.Size = new Vector2(80, 35);
+			dogCollision.Position = new Vector2(0, 0);
 			break;
 
 		case DogBreed.SiberianHusky:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/siberianhusky_frames.tres");
+			dogAnim.Scale = new Vector2(3.5f, 3.5f);
+			if (rectShape != null)
+				rectShape.Size = new Vector2(60, 25);
+			dogCollision.Position = new Vector2(0, 0);
 			break;
 	}
 

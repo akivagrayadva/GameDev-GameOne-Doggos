@@ -11,42 +11,148 @@ public partial class GachaShopUi : Control
 	Label titleLabel;
 	Label bodyLabel;
 
+	TextureRect dogPhoto;
+	Label dogName;
+	TextureButton prevButton;
+	TextureButton nextButton;
+
 	private static bool hasShownTutorial = false;
+	public static RoguelikeMovement.DogBreed SelectedDog = RoguelikeMovement.DogBreed.GoldenRetriever;
+
+	//testing to see if photos show up. will change code
+	private RoguelikeMovement.DogBreed[] ownedDogs =
+	{
+		RoguelikeMovement.DogBreed.GoldenRetriever,
+	RoguelikeMovement.DogBreed.Akita,
+	RoguelikeMovement.DogBreed.GreatDane,
+	RoguelikeMovement.DogBreed.Schnauzer,
+	RoguelikeMovement.DogBreed.SaintBernard,
+	RoguelikeMovement.DogBreed.SiberianHusky
+	};
+
+	private int selectedDogIndex = 0;
 
 	public override void _Ready()
+{
+	GD.Print("Gacha Shop ready.");
+
+	fetchButton = GetNode<Button>("MarginContainer/Split/RightPanel/ButtonRow/Fetch");
+	titleButton = GetNode<Button>("MarginContainer/Split/RightPanel/ButtonRow/Title");
+	treatLabel = GetNode<Label>("MarginContainer/Split/RightPanel/Currency/Treat/TreatAmount");
+
+	tutorialPopup = GetNode<Control>("TutorialPopup");
+	startTutorialButton = GetNode<Button>("TutorialPopup/PopupPanel/MarginContainer/VBoxContainer/StartButton");
+	titleLabel = GetNode<Label>("TutorialPopup/PopupPanel/MarginContainer/VBoxContainer/TitleLabel");
+	bodyLabel = GetNode<Label>("TutorialPopup/PopupPanel/MarginContainer/VBoxContainer/BodyLabel");
+
+	dogPhoto = GetNode<TextureRect>("MarginContainer/Split/LeftPanel/CurrentDog/DogPhoto");
+	dogName = GetNode<Label>("MarginContainer/Split/LeftPanel/CurrentDog/DogName");
+	prevButton = GetNode<TextureButton>("MarginContainer/Split/LeftPanel/CurrentDog/PrevButton");
+	nextButton = GetNode<TextureButton>("MarginContainer/Split/LeftPanel/CurrentDog/NextButton");
+
+	GD.Print("Prev button found: " + prevButton);
+	GD.Print("Next button found: " + nextButton);
+
+	fetchButton.Pressed += OnFetchPressed;
+	titleButton.Pressed += OnTitlePressed;
+	startTutorialButton.Pressed += OnTutorialClosed;
+	prevButton.Pressed += OnPrevPressed;
+	nextButton.Pressed += OnNextPressed;
+
+	UpdateTreatUI();
+	UpdateDogUI();
+	SetupTutorialText();
+
+	if (!hasShownTutorial)
 	{
-		GD.Print("Gacha Shop ready.");
-
-		fetchButton = GetNode<Button>("Split/RightPanel/ButtonRow/Fetch");
-		titleButton = GetNode<Button>("Split/RightPanel/ButtonRow/Title");
-		treatLabel = GetNode<Label>("Split/RightPanel/Currency/Treat/TreatAmount");
-
-		tutorialPopup = GetNode<Control>("TutorialPopup");
-		startTutorialButton = GetNode<Button>("TutorialPopup/PopupPanel/MarginContainer/VBoxContainer/StartButton");
-		titleLabel = GetNode<Label>("TutorialPopup/PopupPanel/MarginContainer/VBoxContainer/TitleLabel");
-		bodyLabel = GetNode<Label>("TutorialPopup/PopupPanel/MarginContainer/VBoxContainer/BodyLabel");
-
-		fetchButton.Pressed += OnFetchPressed;
-		titleButton.Pressed += OnTitlePressed;
-		startTutorialButton.Pressed += OnTutorialClosed;
-
-		UpdateTreatUI();
-		SetupTutorialText();
-
-		if (!hasShownTutorial)
-		{
-			tutorialPopup.Visible = true;
-			hasShownTutorial = true;
-		}
-		else
-		{
-			tutorialPopup.Visible = false;
-		}
+		tutorialPopup.Visible = true;
+		hasShownTutorial = true;
 	}
-
+	else
+	{
+		tutorialPopup.Visible = false;
+	}
+}
 	private void UpdateTreatUI()
 	{
 		treatLabel.Text = "x" + RoguelikeMovement.TotalTreats;
+	}
+
+	private void UpdateDogUI()
+	{
+		RoguelikeMovement.DogBreed currentDog = ownedDogs[selectedDogIndex];
+	SelectedDog = currentDog;
+
+	dogName.Text = GetDogDisplayName(currentDog);
+	dogPhoto.Texture = GetDogTexture(currentDog);
+	}
+
+	private string GetDogDisplayName(RoguelikeMovement.DogBreed dog)
+	{
+		switch (dog)
+		{
+			case RoguelikeMovement.DogBreed.GoldenRetriever:
+				return "Golden Retriever";
+			case RoguelikeMovement.DogBreed.Akita:
+				return "Akita";
+			case RoguelikeMovement.DogBreed.GreatDane:
+				return "Great Dane";
+			case RoguelikeMovement.DogBreed.Schnauzer:
+				return "Schnauzer";
+			case RoguelikeMovement.DogBreed.SaintBernard:
+				return "Saint Bernard";
+			case RoguelikeMovement.DogBreed.SiberianHusky:
+				return "Siberian Husky";
+			default:
+				return "Dog";
+		}
+	}
+
+	private Texture2D GetDogTexture(RoguelikeMovement.DogBreed dog)
+	{
+		switch (dog)
+		{
+			case RoguelikeMovement.DogBreed.GoldenRetriever:
+				return GD.Load<Texture2D>("res://assets/Pet Dogs Pack/golden.png");
+			case RoguelikeMovement.DogBreed.Akita:
+				return GD.Load<Texture2D>("res://assets/Pet Dogs Pack/akita.png");
+			case RoguelikeMovement.DogBreed.GreatDane:
+				return GD.Load<Texture2D>("res://assets/Pet Dogs Pack/greatdane.png");
+			case RoguelikeMovement.DogBreed.Schnauzer:
+				return GD.Load<Texture2D>("res://assets/Pet Dogs Pack/schnauzer.png");
+			case RoguelikeMovement.DogBreed.SaintBernard:
+				return GD.Load<Texture2D>("res://assets/Pet Dogs Pack/saintbernard.png");
+				case RoguelikeMovement.DogBreed.SiberianHusky:
+				return GD.Load<Texture2D>("res://assets/Pet Dogs Pack/siberianhusky.png");
+			default:
+				return null;
+		}
+	}
+
+	private void OnPrevPressed()
+	{
+		GD.Print("Prev button clicked");
+		selectedDogIndex--;
+
+		if (selectedDogIndex < 0)
+		{
+			selectedDogIndex = ownedDogs.Length - 1;
+		}
+
+		UpdateDogUI();
+	}
+
+	private void OnNextPressed()
+	{
+		GD.Print("Next button clicked");
+		selectedDogIndex++;
+
+		if (selectedDogIndex >= ownedDogs.Length)
+		{
+			selectedDogIndex = 0;
+		}
+
+		UpdateDogUI();
 	}
 
 	private void SetupTutorialText()

@@ -49,7 +49,9 @@ public enum DogBreed {
 	float humanSpeedModifier = GLOBAL_CONSTANTS.HUMAN_SPEED_Modifier;
 
 	public override void _Ready(){
-	Instance = this;		
+	Instance = this;
+	CurrentDog = GachaShopUi.SelectedDog;
+			
 	activeDog = GetNode<CharacterBody2D>("DummyDog");       // Change to "ActiveDog" when the actual dog scene is ready
 	dogAnim = activeDog.GetNode<AnimatedSprite2D>("Anim");
 	activeHuman = GetNode<CharacterBody2D>("DummyHuman");   // Change to "ActiveHuman" when the actual human scene is ready

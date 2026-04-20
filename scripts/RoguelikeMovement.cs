@@ -23,7 +23,7 @@ public enum DogBreed {
 	}
 
 	// selectable in inspector
-	[Export] public DogBreed CurrentDog = DogBreed.Schnauzer;
+	[Export] public DogBreed CurrentDog = DogBreed.GoldenRetriever;
 	
 	[Signal] public delegate void Room1TreatsCollectedEventHandler();
 	[Signal] public delegate void Room2TreatsCollectedEventHandler();
@@ -49,7 +49,9 @@ public enum DogBreed {
 	float humanSpeedModifier = GLOBAL_CONSTANTS.HUMAN_SPEED_Modifier;
 
 	public override void _Ready(){
-	Instance = this;		
+	Instance = this;
+	CurrentDog = GachaShopUi.SelectedDog;
+			
 	activeDog = GetNode<CharacterBody2D>("DummyDog");       // Change to "ActiveDog" when the actual dog scene is ready
 	dogAnim = activeDog.GetNode<AnimatedSprite2D>("Anim");
 	activeHuman = GetNode<CharacterBody2D>("DummyHuman");   // Change to "ActiveHuman" when the actual human scene is ready
@@ -150,7 +152,7 @@ private void SetDogSprite(DogBreed dog)
 
 		case DogBreed.GoldenRetriever:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/goldenretriever_frames.tres");
-			dogAnim.Scale = new Vector2(4.0f, 4.0f);
+			dogAnim.Scale = new Vector2(3.8f, 3.8f);
 			if (rectShape != null)
 				rectShape.Size = new Vector2(60, 30);
 			dogCollision.Position = new Vector2(0, 3);
@@ -166,17 +168,17 @@ private void SetDogSprite(DogBreed dog)
 
 		case DogBreed.GreatDane:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/greatdane_frames.tres");
-			dogAnim.Scale = new Vector2(4.0f, 4.0f);
+			dogAnim.Scale = new Vector2(3.3f, 3.3f);
 			if (rectShape != null)
-				rectShape.Size = new Vector2(75, 35);
-			dogCollision.Position = new Vector2(0, 5);
+				rectShape.Size = new Vector2(70, 35);
+			dogCollision.Position = new Vector2(0, 4);
 			break;
 
 		case DogBreed.SaintBernard:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/saintbernard_frames.tres");
-			dogAnim.Scale = new Vector2(3.5f, 3.5f);
+			dogAnim.Scale = new Vector2(3.0f, 3.0f);
 			if (rectShape != null)
-				rectShape.Size = new Vector2(80, 35);
+				rectShape.Size = new Vector2(75, 35);
 			dogCollision.Position = new Vector2(0, 0);
 			break;
 

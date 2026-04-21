@@ -10,6 +10,7 @@ public partial class GachaShopUi : Control
 	Button startTutorialButton;
 	Label titleLabel;
 	Label bodyLabel;
+	AnimatedSprite2D shopCat;
 
 	TextureRect dogPhoto;
 	Label dogName;
@@ -35,6 +36,9 @@ public partial class GachaShopUi : Control
 	public override void _Ready()
 {
 	GD.Print("Gacha Shop ready.");
+	
+	shopCat = GetNode<AnimatedSprite2D>("MarginContainer/Split/RightPanel/CatHud/ShopCat");
+	shopCat.Play("talk");
 
 	fetchButton = GetNode<Button>("MarginContainer/Split/RightPanel/ButtonRow/Fetch");
 	titleButton = GetNode<Button>("MarginContainer/Split/RightPanel/ButtonRow/Title");

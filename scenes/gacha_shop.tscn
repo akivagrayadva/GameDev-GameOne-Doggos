@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ix6milwoxyp0" path="res://assets/Arrow left bold.png" id="2_cspr6"]
 [ext_resource type="FontFile" uid="uid://b7v0s5yuaicm4" path="res://assets/TTF/dogicapixel.ttf" id="2_t7xrn"]
 [ext_resource type="FontFile" uid="uid://dms3tqy3xeyx" path="res://assets/TTF/dogica.ttf" id="3_5avp7"]
-[ext_resource type="Texture2D" uid="uid://oneaa0t6mamf" path="res://assets/cat.png" id="5_4vb04"]
+[ext_resource type="SpriteFrames" uid="uid://c7n8q6ireuae7" path="res://assets/Cat/cat_frames.tres" id="4_vtgl6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8a0k"]
 bg_color = Color(0.6042546, 0.5485357, 0.7076875, 1)
@@ -280,10 +280,10 @@ anchor_left = 0.5
 anchor_top = 0.46800002
 anchor_right = 0.5
 anchor_bottom = 0.46800002
-offset_left = -273.0
-offset_top = -252.264
-offset_right = 258.0
-offset_bottom = 266.736
+offset_left = -272.0
+offset_top = -251.264
+offset_right = 259.0
+offset_bottom = 267.736
 theme_override_styles/panel = SubResource("StyleBoxFlat_x8a0k")
 
 [node name="CatHud" type="HBoxContainer" parent="MarginContainer/Split/RightPanel" unique_id=1875246404]
@@ -294,15 +294,19 @@ offset_right = 572.76666
 offset_bottom = 260.0
 scale = Vector2(0.8840113, 0.8687598)
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Split/RightPanel/CatHud" unique_id=1145211147]
-layout_mode = 2
-texture = ExtResource("5_4vb04")
-expand_mode = 2
+[node name="ShopCat" type="AnimatedSprite2D" parent="MarginContainer/Split/RightPanel/CatHud" unique_id=1194481543]
+position = Vector2(67.87242, 61.0065)
+scale = Vector2(0.2, 0.2)
+sprite_frames = ExtResource("4_vtgl6")
+animation = &"talk"
+frame = 1
+frame_progress = 0.96874315
 
 [node name="Speech bubble" type="PanelContainer" parent="MarginContainer/Split/RightPanel/CatHud" unique_id=345498112]
 custom_minimum_size = Vector2(200, 80)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
 
 [node name="dialog" type="Label" parent="MarginContainer/Split/RightPanel/CatHud/Speech bubble" unique_id=98734390]
 layout_mode = 2

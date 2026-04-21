@@ -11,7 +11,8 @@ public enum DogBreed {
 	GreatDane,
 	Schnauzer,
 	SaintBernard,
-	SiberianHusky	
+	SiberianHusky,
+	FrostDog
 	
 }
 
@@ -23,7 +24,7 @@ public enum DogBreed {
 	}
 
 	// selectable in inspector
-	[Export] public DogBreed CurrentDog = DogBreed.GoldenRetriever;
+	[Export] public DogBreed CurrentDog = DogBreed.FrostDog;
 	
 	[Signal] public delegate void Room1TreatsCollectedEventHandler();
 	[Signal] public delegate void Room2TreatsCollectedEventHandler();
@@ -111,6 +112,7 @@ private DogType GetDogType(DogBreed dogBreed)
 			return DogType.Heavy;
 
 		case DogBreed.SiberianHusky:
+		case DogBreed.FrostDog:
 			return DogType.Fast;
 
 		case DogBreed.GoldenRetriever:
@@ -125,6 +127,7 @@ private DogStats GetDogStats(DogType dogType)
 	switch (dogType)
 	{
 		case DogType.Fast:
+			
 			return new DogStats("Fast Dog", 250f, 5f);
 
 		case DogType.Heavy:
@@ -188,6 +191,14 @@ private void SetDogSprite(DogBreed dog)
 			if (rectShape != null)
 				rectShape.Size = new Vector2(60, 25);
 			dogCollision.Position = new Vector2(0, 0);
+			break;
+			
+			case DogBreed.FrostDog:
+			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/frostdog_frames.tres");
+			dogAnim.Scale = new Vector2(2.0f, 2.0f);
+			if (rectShape != null)
+				rectShape.Size = new Vector2(60, 30);
+			dogCollision.Position = new Vector2(0, 3);
 			break;
 	}
 

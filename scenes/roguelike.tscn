@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1bd36kw8dne5"]
 
 [ext_resource type="Script" uid="uid://cjmnamg28qx1a" path="res://scripts/RoguelikeMovement.cs" id="1_y4nua"]
+[ext_resource type="SpriteFrames" uid="uid://cgugsepvxwu17" path="res://assets/Pet Dogs Pack/frostdog_frames.tres" id="2_5eco7"]
 [ext_resource type="Script" uid="uid://djaiqloxvwwq3" path="res://scripts/Treat.cs" id="2_ibjl0"]
-[ext_resource type="SpriteFrames" uid="uid://m44g7htmvtb8" path="res://assets/Pet Dogs Pack/saintbernard_frames.tres" id="2_x7b4m"]
 [ext_resource type="Texture2D" uid="uid://bn5wne1fqanmm" path="res://assets/livingroom_LRK.png" id="3_brp47"]
 [ext_resource type="Texture2D" uid="uid://j2pht23tbbog" path="res://assets/decorations_LRK.png" id="4_hcvjx"]
 [ext_resource type="Texture2D" uid="uid://qdpqw3xwojm7" path="res://assets/Top-Down_Retro_Interior/Treat.png" id="4_n1x8e"]
@@ -239,8 +239,9 @@ position = Vector2(155, 199)
 collision_mask = 2
 
 [node name="Anim" type="AnimatedSprite2D" parent="Actors and Objects/DummyDog" unique_id=1262435739]
-sprite_frames = ExtResource("2_x7b4m")
-animation = &"run"
+sprite_frames = ExtResource("2_5eco7")
+animation = &"walk"
+frame_progress = 0.42009425
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/DummyDog" unique_id=1108728528]
 shape = SubResource("RectangleShape2D_ibjl0")

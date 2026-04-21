@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cgugsepvxwu17"]
+
+[ext_resource type="Texture2D" uid="uid://c1ojkt06hajew" path="res://assets/Pet Dogs Pack/FrostDog/FrostDog/Sprites/Idle/Char0001.png" id="1_wy2wg"]
+[ext_resource type="Texture2D" uid="uid://cbcl0tqvujv4b" path="res://assets/Pet Dogs Pack/FrostDog/FrostDog/Sprites/Idle/Char0002.png" id="2_e7jpm"]
+[ext_resource type="Texture2D" uid="uid://dmb4c5u24a01c" path="res://assets/Pet Dogs Pack/FrostDog/FrostDog/Sprites/Idle/Char0003.png" id="3_1egkp"]
+[ext_resource type="Texture2D" uid="uid://cucs1fslvryj8" path="res://assets/Pet Dogs Pack/FrostDog/FrostDog/Sprites/Idle/Char0004.png" id="4_ndjxy"]
+[ext_resource type="Texture2D" uid="uid://c1jqucb5vow0h" path="res://assets/Pet Dogs Pack/FrostDog/FrostDog/Sprites/Idle/Char0005.png" id="5_ln7b2"]
+[ext_resource type="Texture2D" uid="uid://d2kmbqhuugdk6" path="res://assets/Pet Dogs Pack/FrostDog/FrostDog/Sprites/Walk/Char0006.png" id="6_lsg6f"]
+[ext_resource type="Texture2D" uid="uid://b0o0qvp14weon" path="res://assets/Pet Dogs Pack/FrostDog/FrostDog/Sprites/Walk/Char0007.png" id="7_kccov"]
+[ext_resource type="Texture2D" uid="uid://djrawmnt2sj3n" path="res://assets/Pet Dogs Pack/FrostDog/FrostDog/Sprites/Walk/Char0008.png" id="8_vxxq4"]
+[ext_resource type="Texture2D" uid="uid://cmw2l86jksxhy" path="res://assets/Pet Dogs Pack/FrostDog/FrostDog/Sprites/Walk/Char0009.png" id="9_ms6hj"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wy2wg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e7jpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1egkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ndjxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ln7b2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_lsg6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kccov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vxxq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ms6hj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

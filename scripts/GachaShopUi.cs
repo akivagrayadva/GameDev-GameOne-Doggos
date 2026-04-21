@@ -23,12 +23,13 @@ public partial class GachaShopUi : Control
 	//testing to see if photos show up. will change code
 	private RoguelikeMovement.DogBreed[] ownedDogs =
 	{
-		RoguelikeMovement.DogBreed.GoldenRetriever,
+	RoguelikeMovement.DogBreed.GoldenRetriever,
 	RoguelikeMovement.DogBreed.Akita,
 	RoguelikeMovement.DogBreed.GreatDane,
 	RoguelikeMovement.DogBreed.Schnauzer,
 	RoguelikeMovement.DogBreed.SaintBernard,
-	RoguelikeMovement.DogBreed.SiberianHusky
+	RoguelikeMovement.DogBreed.SiberianHusky,
+	RoguelikeMovement.DogBreed.FrostDog
 	};
 
 	private int selectedDogIndex = 0;
@@ -107,6 +108,8 @@ public partial class GachaShopUi : Control
 				return "Saint Bernard";
 			case RoguelikeMovement.DogBreed.SiberianHusky:
 				return "Siberian Husky";
+			case RoguelikeMovement.DogBreed.FrostDog:
+				return "Frosty";
 			default:
 				return "Dog";
 		}

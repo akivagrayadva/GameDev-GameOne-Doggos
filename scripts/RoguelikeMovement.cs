@@ -3,6 +3,7 @@ using System;
 
 public partial class RoguelikeMovement : Node2D {
 	public static RoguelikeMovement Instance;
+	DogController dogController;
 
 
 public enum DogBreed {
@@ -35,6 +36,7 @@ public enum DogBreed {
 	Node treatCounter;
 	CollisionShape2D dogCollision;
 	
+	
 	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
 	int totalTreats = 8;
 	int livingRoomTreats = 3;
@@ -42,12 +44,12 @@ public enum DogBreed {
 	int collectedTreats = 0;
 	//bool levelEnded = false;
 	
-	float dogSpeed = GLOBAL_CONSTANTS.DOG_SPEED;
+	bool usedRevive = false;
+	
 
 	//  turn speed for different dog handling
-	float dogTurnSpeed = 8f;
+	//float dogTurnSpeed = 8f;
 
-	float humanSpeedModifier = GLOBAL_CONSTANTS.HUMAN_SPEED_Modifier;
 
 	public override void _Ready(){
 	Instance = this;
@@ -60,19 +62,23 @@ public enum DogBreed {
 	var failArea = activeHuman.GetNode<Area2D>("DogDetection");                             // This becomes the collision for the human that ends a failed round
 	dogCollision = activeDog.GetNode<CollisionShape2D>("CollisionShape2D");
 	
-	
-	//  assign stats based on selected dog
-	DogType dogType = GetDogType(CurrentDog);
-	DogStats stats = GetDogStats(dogType);
-
-	dogSpeed = stats.MoveSpeed;
-	dogTurnSpeed = stats.TurnSpeed;
-	
+			
 	dogAnim = activeDog.GetNode<AnimatedSprite2D>("Anim");
 	SetDogSprite(CurrentDog);
+	
+	dogController = new DogController();
+	AddChild(dogController);
 
+	dogController.Setup(
+		CurrentDog,
+		GLOBAL_CONSTANTS.HUMAN_SPEED_Modifier,
+		activeDog,
+		activeHuman
+	);
+	
+	
 	GD.Print("Current dog: " + CurrentDog);
-	GD.Print("Dog type: " + dogType);
+	
 	GD.Print("Ready to run.");
 	
 	failArea.BodyEntered += (body) => {
@@ -120,22 +126,6 @@ private DogType GetDogType(DogBreed dogBreed)
 		case DogBreed.Schnauzer:
 		default:
 			return DogType.Balanced;
-	}
-}
-private DogStats GetDogStats(DogType dogType)
-{
-	switch (dogType)
-	{
-		case DogType.Fast:
-			
-			return new DogStats("Fast Dog", 250f, 5f);
-
-		case DogType.Heavy:
-			return new DogStats("Heavy Dog", 160f, 12f);
-
-		case DogType.Balanced:
-		default:
-			return new DogStats("Balanced Dog", 200f, 8f);
 	}
 }
 
@@ -205,50 +195,63 @@ private void SetDogSprite(DogBreed dog)
 	dogAnim.Stop(); // reset animation
 }
 
-	public override void _PhysicsProcess(double delta) {
-		Vector2 inputVector = Vector2.Zero;
+	public override void _PhysicsProcess(double delta)
+{
+	Vector2 inputVector = Vector2.Zero;
 
-		if (Input.IsActionPressed("ui_right"))
-			inputVector.X +=  1;
-		if (Input.IsActionPressed("ui_left"))
-			inputVector.X += -1;
-		if (Input.IsActionPressed("ui_down"))
-			inputVector.Y +=  1;
-		if (Input.IsActionPressed("ui_up"))
-			inputVector.Y += -1;
+	if (Input.IsActionPressed("ui_right"))
+		inputVector.X += 1;
+	if (Input.IsActionPressed("ui_left"))
+		inputVector.X -= 1;
+	if (Input.IsActionPressed("ui_down"))
+		inputVector.Y += 1;
+	if (Input.IsActionPressed("ui_up"))
+		inputVector.Y -= 1;
 
-		inputVector = inputVector.Normalized();
+	inputVector = inputVector.Normalized();
 
-		activeDog.Velocity = inputVector * dogSpeed;           // speed needs to be a float to multiply with the direction vector 
-		activeDog.MoveAndSlide();
+	// update abilities
+	dogController.Update(delta);
 
-		// play walking animation and flip sprite left/right
-		if (inputVector != Vector2.Zero)
-		{
-			dogAnim.Play("walk");
+	if (Input.IsActionJustPressed("dog_ability"))
+		dogController.TryUseAbility();
 
-			if (inputVector.X < 0)
-				dogAnim.FlipH = true;
-			else if (inputVector.X > 0)
-				dogAnim.FlipH = false;
-		}
-		else
-		{
-			dogAnim.Stop();
-		}
+	// movement
+	dogController.ApplyMovement(inputVector);
+	activeDog.MoveAndSlide();
 
-		
-
-		activeHuman.Velocity = humanPathingAlgorithm(activeHuman.Position, activeDog.Position) * dogSpeed * humanSpeedModifier;
-		activeHuman.MoveAndSlide();
+	// animation
+	if (inputVector != Vector2.Zero)
+	{
+		dogAnim.Play("walk");
+		dogAnim.FlipH = inputVector.X < 0;
+	}
+	else
+	{
+		dogAnim.Stop();
 	}
 
+	// human movement
+	activeHuman.Velocity =
+	humanPathingAlgorithm(activeHuman.Position, activeDog.Position)
+	* dogController.dogSpeed
+	* dogController.humanSpeedModifier;
+
+	activeHuman.MoveAndSlide();
+}
 	public void OnGoalTouched() {
 		GD.Print("Goal touched! Returning to Gacha Shop...");
 		GetTree().ChangeSceneToFile("res://scenes/gacha_shop.tscn");
 	}
 
 	public void OnFailTouched() {
+		if (CurrentDog == DogBreed.SaintBernard && !usedRevive)
+	{
+		usedRevive = true;
+		GD.Print("Second Chance!");
+		return;
+	}
+		
 		GD.Print("You Got Caught! Returning to Gacha Shop...");
 		GetTree().ChangeSceneToFile("res://scenes/gacha_shop.tscn");
 	}
@@ -257,4 +260,6 @@ private void SetDogSprite(DogBreed dog)
 		// Placeholder for a more complex pathfinding algorithm
 		return (dogPos - humanPos).Normalized();
 	}
+	
+	
 }

@@ -29,7 +29,7 @@ public enum DogBreed {
 	
 	[Signal] public delegate void Room1TreatsCollectedEventHandler();
 	[Signal] public delegate void Room2TreatsCollectedEventHandler();
-
+	
 	CharacterBody2D activeDog;
 	CharacterBody2D activeHuman;
 	AnimatedSprite2D dogAnim;

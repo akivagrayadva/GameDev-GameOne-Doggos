@@ -172,7 +172,7 @@ public partial class GachaShopUi : Control
 			"Get the treats.\n" +
 			"Don't get caught.\n\n" +
 			"Controls:\n" +
-			"→ Arrow Keys to move\n\n" +
+			"→ WASD Keys or Arrow Keys to move\n\n" +
 			"Goal:\n" +
 			"→ Collect all treats\n" +
 			"→ Avoid the human\n\n" +

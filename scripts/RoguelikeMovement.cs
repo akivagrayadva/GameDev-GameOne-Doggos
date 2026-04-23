@@ -232,13 +232,19 @@ private void SetDogSprite(DogBreed dog)
 	}
 
 	// human movement
-	activeHuman.Velocity =
-	humanPathingAlgorithm(activeHuman.Position, activeDog.Position)
-	* dogController.dogSpeed
-	* dogController.humanSpeedModifier;
+// 	activeHuman.Velocity =
+// 	humanPathingAlgorithm(activeHuman.Position, activeDog.Position)
+// 	* dogController.dogSpeed
+// 	* dogController.humanSpeedModifier;
 
-	activeHuman.MoveAndSlide();
-}
+// 	activeHuman.MoveAndSlide();
+// }
+		
+
+		//activeHuman.Velocity = humanPathingAlgorithm(activeHuman.Position, activeDog.Position) * dogSpeed * humanSpeedModifier;
+		//activeHuman.MoveAndSlide();
+	}
+
 	public void OnGoalTouched() {
 		GD.Print("Goal touched! Returning to Gacha Shop...");
 		GetTree().ChangeSceneToFile("res://scenes/gacha_shop.tscn");
@@ -256,10 +262,8 @@ private void SetDogSprite(DogBreed dog)
 		GetTree().ChangeSceneToFile("res://scenes/gacha_shop.tscn");
 	}
 
-	private Vector2 humanPathingAlgorithm(Vector2 humanPos, Vector2 dogPos) {
-		// Placeholder for a more complex pathfinding algorithm
-		return (dogPos - humanPos).Normalized();
-	}
-	
-	
+	//private Vector2 humanPathingAlgorithm(Vector2 humanPos, Vector2 dogPos) {
+		//// Placeholder for a more complex pathfinding algorithm
+		//return (dogPos - humanPos).Normalized();
+	//}
 }

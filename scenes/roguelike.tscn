@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://ciy6ugfyrbb7r" path="res://assets/doorswindowsstairs_LRK.png" id="7_mdh2y"]
 [ext_resource type="Texture2D" uid="uid://bvd2t4kon02v3" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState3.png" id="9_7d1bx"]
 [ext_resource type="Texture2D" uid="uid://cgrm6wdsv0okw" path="res://assets/cabinets_LRK.png" id="9_46eot"]
+[ext_resource type="Texture2D" uid="uid://bd8txf2osrl4" path="res://assets/Top-Down_Retro_Interior/KitchenWall.png" id="10_inqac"]
 [ext_resource type="Texture2D" uid="uid://cn48gyyclqdwg" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState4.png" id="10_ml7ob"]
+[ext_resource type="Texture2D" uid="uid://c4e5i1tg6t3bx" path="res://assets/Top-Down_Retro_Interior/Kitchen&Outside.png" id="10_wd8cj"]
 [ext_resource type="Texture2D" uid="uid://c5kh8kch5ggmt" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState1.png" id="11_7xngb"]
 [ext_resource type="Texture2D" uid="uid://fjwevrredr1k" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="11_n1x8e"]
 [ext_resource type="Texture2D" uid="uid://5ejgjsxmm0ck" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_FloorsAndWalls.png" id="13_5eco7"]
@@ -22,10 +24,13 @@
 [ext_resource type="Texture2D" uid="uid://ee8bddymcbxs" path="res://assets/Top-Down_Retro_Interior/LivingRoomFloor.png" id="17_b7xem"]
 [ext_resource type="Texture2D" uid="uid://dqdxlvosnlpr5" path="res://assets/Top-Down_Retro_Interior/DenFloor.png" id="19_wf4uk"]
 [ext_resource type="Texture2D" uid="uid://bklif2lbysina" path="res://assets/Top-Down_Retro_Interior/DenWall.png" id="20_55u56"]
+[ext_resource type="Texture2D" uid="uid://ojiygpa1bl3l" path="res://assets/Top-Down_Retro_Interior/LivingRoomWallVertical.png" id="20_76041"]
+[ext_resource type="Texture2D" uid="uid://bbip6lh1vo62b" path="res://assets/Top-Down_Retro_Interior/Kitchen&LivingWall.png" id="22_6qle1"]
 [ext_resource type="Texture2D" uid="uid://c3v1x7rj0fijp" path="res://assets/Top-Down_Retro_Interior/BackyardGrass.png" id="22_ewk1i"]
 [ext_resource type="Texture2D" uid="uid://dl54672vtfnld" path="res://assets/Top-Down_Retro_Interior/BackyearFurniture.png" id="23_vhkcm"]
 [ext_resource type="Texture2D" uid="uid://ddo6sivrv2ari" path="res://assets/Top-Down_Retro_Interior/backgroundpound.png" id="25_3ts2m"]
 [ext_resource type="Texture2D" uid="uid://c3o1nnjptyh0g" path="res://assets/Top-Down_Retro_Interior/bush.png" id="26_76041"]
+[ext_resource type="Texture2D" uid="uid://ccy6ac3jtlye4" path="res://assets/Top-Down_Retro_Interior/RightFence.png" id="28_i8ope"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjl0"]
 
@@ -233,13 +238,24 @@ region = Rect2(140, 99, 3, 44)
 size = Vector2(2.300242, 73.143295)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbkj4"]
-size = Vector2(5, 580.6309)
+size = Vector2(5, 515.7894)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkugl"]
+atlas = ExtResource("10_wd8cj")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwsn"]
 size = Vector2(512, 5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1dr7"]
+atlas = ExtResource("10_inqac")
+region = Rect2(0, 0, 413, 60)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_foalq"]
 size = Vector2(512, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsiwc"]
+atlas = ExtResource("10_inqac")
+region = Rect2(0, 0, 413, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i8ope"]
 atlas = ExtResource("11_7xngb")
@@ -357,6 +373,19 @@ region = Rect2(387, 56, 110, 150)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcvjx"]
 size = Vector2(5, 512)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikqy8"]
+atlas = ExtResource("20_76041")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk4ao"]
+atlas = ExtResource("22_6qle1")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oej8g"]
+atlas = ExtResource("20_55u56")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aml1e"]
+atlas = ExtResource("20_55u56")
+region = Rect2(0, 0, 413, 5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjabr"]
 size = Vector2(257, 72)
 
@@ -460,6 +489,9 @@ region = Rect2(97, 116, 14, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhkcm"]
 atlas = ExtResource("22_ewk1i")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo0ab"]
+atlas = ExtResource("28_i8ope")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpeuu"]
 atlas = ExtResource("23_vhkcm")
@@ -943,7 +975,7 @@ scale = Vector2(1.7317615, 1.7658068)
 texture = SubResource("AtlasTexture_yfcei")
 
 [node name="Door2" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=1287122799]
-z_index = 1
+z_index = 6
 position = Vector2(254.4628, 27.722961)
 rotation = -0.0002540054
 scale = Vector2(1.0041797, 0.99104816)
@@ -955,8 +987,8 @@ DoorClosedTexture = SubResource("AtlasTexture_b7xem")
 DoorOpenTexture = SubResource("AtlasTexture_55u56")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/Door2" unique_id=1281572253]
-position = Vector2(5.398447, -2.8567028)
-scale = Vector2(2, -1.662)
+position = Vector2(1.431273, -2.8565235)
+scale = Vector2(3.1753495, -1.662)
 texture = SubResource("AtlasTexture_qjabr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Kitchen/Door2" unique_id=2133154036]
@@ -1029,6 +1061,11 @@ grow_vertical = 2
 color = Color(1, 1, 0.8509804, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/OuterWalls/RightWallCollision4" unique_id=1942850817]
+position = Vector2(0, 201.60297)
+scale = Vector2(1, 1.8868462)
+texture = SubResource("AtlasTexture_jkugl")
+
 [node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/Kitchen/OuterWalls" unique_id=207218551]
 position = Vector2(320, 64)
 shape = SubResource("RectangleShape2D_4hwsn")
@@ -1048,6 +1085,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/OuterWalls/TopWallCollision" unique_id=468651165]
+position = Vector2(0.3579712, -56.74759)
+scale = Vector2(1.2353358, 2.1929522)
+texture = SubResource("AtlasTexture_g1dr7")
 
 [node name="BottomWallCollision" type="CollisionShape2D" parent="Rooms/Kitchen/OuterWalls" unique_id=431316394]
 position = Vector2(320, 576)
@@ -1069,6 +1111,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Kitchen/OuterWalls/BottomWallCollision" unique_id=114603223]
+z_index = 5
+position = Vector2(3.5798283, 1.0432657)
+scale = Vector2(1.2319921, 1.4173063)
+texture = SubResource("AtlasTexture_nsiwc")
 
 [node name="Counter w_ Appliances" type="StaticBody2D" parent="Rooms/Kitchen" unique_id=1470698706]
 position = Vector2(-198.25522, -227.118)
@@ -1388,11 +1436,13 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="LeftWallCollision" type="CollisionShape2D" parent="Rooms/Living Room/OuterWalls" unique_id=1961949749]
+z_index = 1
 position = Vector2(64, 320)
 shape = SubResource("RectangleShape2D_hcvjx")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
 [node name="LeftWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/LeftWallCollision" unique_id=203484294]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1406,13 +1456,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
+[node name="LeftWall" type="Sprite2D" parent="Rooms/Living Room/OuterWalls/LeftWallCollision" unique_id=576407376]
+position = Vector2(-2.3544312, -59.728622)
+scale = Vector2(0.99999994, 0.7171309)
+texture = SubResource("AtlasTexture_ikqy8")
+
 [node name="RightWallCollision" type="CollisionShape2D" parent="Rooms/Living Room/OuterWalls" unique_id=2058264203]
-position = Vector2(579.1304, 480.56122)
+position = Vector2(579.1303, 479.70398)
 scale = Vector2(1.01, 0.38)
 shape = SubResource("RectangleShape2D_dbkj4")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
 [node name="RightWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/RightWallCollision" unique_id=891411477]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1433,6 +1489,7 @@ shape = SubResource("RectangleShape2D_dbkj4")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
 [node name="RightWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/RightWallCollision2" unique_id=1885993686]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1447,6 +1504,7 @@ grow_vertical = 2
 color = Color(1, 1, 0.8509804, 1)
 
 [node name="RightWallBound2" type="ColorRect" parent="Rooms/Living Room/OuterWalls/RightWallCollision2" unique_id=1298695148]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1460,12 +1518,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 0.8509804, 1)
 
+[node name="RightWall2" type="Sprite2D" parent="Rooms/Living Room/OuterWalls/RightWallCollision2" unique_id=1005114249]
+z_index = 1
+position = Vector2(3.4029236, 198.31754)
+scale = Vector2(0.99009895, 1.8871864)
+texture = SubResource("AtlasTexture_nk4ao")
+
 [node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/Living Room/OuterWalls" unique_id=1050351171]
 position = Vector2(320, 64)
 shape = SubResource("RectangleShape2D_4hwsn")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
 [node name="TopWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/TopWallCollision" unique_id=771655867]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1478,6 +1543,11 @@ offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
+
+[node name="TopWall" type="Sprite2D" parent="Rooms/Living Room/OuterWalls/TopWallCollision" unique_id=1787673560]
+position = Vector2(0.91996384, -59.828484)
+scale = Vector2(1.2834022, 2.096039)
+texture = SubResource("AtlasTexture_oej8g")
 
 [node name="BottomWallCollision" type="CollisionShape2D" parent="Rooms/Living Room/OuterWalls" unique_id=133155426]
 position = Vector2(320, 576)
@@ -1485,6 +1555,7 @@ shape = SubResource("RectangleShape2D_foalq")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
 [node name="BottomWallBound" type="ColorRect" parent="Rooms/Living Room/OuterWalls/BottomWallCollision" unique_id=1671959522]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1498,17 +1569,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Rooms/Living Room" unique_id=421133879]
+[node name="BottomWall" type="Sprite2D" parent="Rooms/Living Room/OuterWalls/BottomWallCollision" unique_id=1614181372]
+z_index = 4
+position = Vector2(0.7951393, -0.117004395)
+scale = Vector2(1.2794392, 1.218103)
+texture = SubResource("AtlasTexture_aml1e")
+
+[node name="Couch" type="StaticBody2D" parent="Rooms/Living Room" unique_id=421133879]
 position = Vector2(-11.164837, -16.03563)
 scale = Vector2(0.2658294, 0.2505568)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/StaticBody2D" unique_id=2019001957]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Couch" unique_id=2019001957]
 z_index = 2
 position = Vector2(8.5, 15)
 shape = SubResource("RectangleShape2D_qjabr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/StaticBody2D" unique_id=1456157794]
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Couch" unique_id=1456157794]
 z_index = 1
 position = Vector2(10.220337, -16.076202)
 scale = Vector2(5.4195304, 5.5001407)
@@ -1639,8 +1716,9 @@ DoorClosedTexture = SubResource("AtlasTexture_b7xem")
 DoorOpenTexture = SubResource("AtlasTexture_55u56")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Door" unique_id=1131301604]
-position = Vector2(5.398447, -2.8567028)
-scale = Vector2(2, -1.662)
+z_index = 1
+position = Vector2(8.00754, -2.8567028)
+scale = Vector2(3.7393951, -1.662)
 texture = SubResource("AtlasTexture_qjabr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Door" unique_id=362560718]
@@ -1747,8 +1825,8 @@ texture = SubResource("AtlasTexture_ow1m7")
 position = Vector2(-37.747776, 69.15369)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Rooms/Living Room/Entrance" unique_id=1780108961]
-position = Vector2(-25.785446, 28.92595)
-scale = Vector2(1, 0.41181806)
+position = Vector2(-26.630424, 28.814041)
+scale = Vector2(1.5633188, 0.5219936)
 texture = SubResource("AtlasTexture_m4pyh")
 
 [node name="FrontDoor Wall" type="StaticBody2D" parent="Rooms/Living Room/Entrance" unique_id=666553229]
@@ -1814,6 +1892,7 @@ shape = SubResource("RectangleShape2D_dbkj4")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
 [node name="RightWallBound" type="ColorRect" parent="Rooms/BackYard/OuterWalls/RightWallCollision" unique_id=1914848612]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1827,12 +1906,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/BackYard/OuterWalls/RightWallCollision" unique_id=1827884619]
+position = Vector2(0, -0.91502035)
+scale = Vector2(1, 0.5830401)
+texture = SubResource("AtlasTexture_wo0ab")
+
 [node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/BackYard/OuterWalls" unique_id=749911574]
 position = Vector2(320, 64)
 shape = SubResource("RectangleShape2D_4hwsn")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
 [node name="TopWallBound" type="ColorRect" parent="Rooms/BackYard/OuterWalls/TopWallCollision" unique_id=1392389423]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1852,6 +1937,7 @@ shape = SubResource("RectangleShape2D_foalq")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
 [node name="BottomWallBound" type="ColorRect" parent="Rooms/BackYard/OuterWalls/BottomWallCollision" unique_id=278415779]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

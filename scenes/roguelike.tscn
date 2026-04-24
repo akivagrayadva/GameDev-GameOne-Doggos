@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://clrhohplbsy3x" path="res://scripts/Human.cs" id="5_55u56"]
 [ext_resource type="Texture2D" uid="uid://brpusgup4unts" path="res://assets/Top-Down_Retro_Interior/Floor.png" id="5_65ar4"]
 [ext_resource type="Texture2D" uid="uid://b1p2lukhyoc5d" path="res://assets/kitchen_LRK.png" id="6_4hwsn"]
+[ext_resource type="SpriteFrames" uid="uid://88a60timliu" path="res://assets/City_men_1/human_frames.tres" id="6_ewk1i"]
 [ext_resource type="Script" uid="uid://nc4advn31pl1" path="res://scripts/Door.cs" id="6_foalq"]
 [ext_resource type="Texture2D" uid="uid://ciy6ugfyrbb7r" path="res://assets/doorswindowsstairs_LRK.png" id="7_mdh2y"]
 [ext_resource type="Texture2D" uid="uid://bvd2t4kon02v3" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState3.png" id="9_7d1bx"]
@@ -23,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://bklif2lbysina" path="res://assets/Top-Down_Retro_Interior/DenWall.png" id="20_55u56"]
 [ext_resource type="Texture2D" uid="uid://c3v1x7rj0fijp" path="res://assets/Top-Down_Retro_Interior/BackyardGrass.png" id="22_ewk1i"]
 [ext_resource type="Texture2D" uid="uid://dl54672vtfnld" path="res://assets/Top-Down_Retro_Interior/BackyearFurniture.png" id="23_vhkcm"]
+[ext_resource type="Texture2D" uid="uid://ddo6sivrv2ari" path="res://assets/Top-Down_Retro_Interior/backgroundpound.png" id="25_3ts2m"]
+[ext_resource type="Texture2D" uid="uid://c3o1nnjptyh0g" path="res://assets/Top-Down_Retro_Interior/bush.png" id="26_76041"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjl0"]
 
@@ -437,9 +440,8 @@ region = Rect2(22, 150, 13, 22)
 atlas = ExtResource("23_vhkcm")
 region = Rect2(0, 0, 208, 66)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oej8g"]
-atlas = ExtResource("23_vhkcm")
-region = Rect2(0, 0, 87, 66)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ahy"]
+size = Vector2(144, 147)
 
 [node name="Roguelike" type="Node2D" unique_id=508994204]
 
@@ -448,7 +450,7 @@ script = ExtResource("1_y4nua")
 
 [node name="DummyDog" type="CharacterBody2D" parent="Actors and Objects" unique_id=181501565]
 y_sort_enabled = true
-position = Vector2(152, 147)
+position = Vector2(1312, 322)
 collision_mask = 2
 
 [node name="Anim" type="AnimatedSprite2D" parent="Actors and Objects/DummyDog" unique_id=1262435739]
@@ -603,6 +605,10 @@ scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("5_55u56")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors and Objects/DummyHuman" unique_id=1834598336]
+sprite_frames = ExtResource("6_ewk1i")
+animation = &"walk"
 
 [node name="HumanEnvironmentCollision" type="CollisionShape2D" parent="Actors and Objects/DummyHuman" unique_id=291716011]
 shape = SubResource("RectangleShape2D_mdh2y")
@@ -1750,19 +1756,40 @@ scale = Vector2(2.0384607, 2.0384607)
 texture = SubResource("AtlasTexture_n4jbu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rooms/BackYard" unique_id=977271532]
-position = Vector2(-258.48483, -476.5)
-scale = Vector2(1.8030304, 1.8030303)
+position = Vector2(-219.99997, -506)
+scale = Vector2(2.2767217, 2.6408575)
 texture = SubResource("AtlasTexture_tpeuu")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Rooms/BackYard" unique_id=1655235276]
-position = Vector2(363, -475)
-scale = Vector2(1.7878788, 1.7878788)
-texture = SubResource("AtlasTexture_oej8g")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Rooms/BackYard" unique_id=1627373052]
-position = Vector2(108.00003, -476)
-scale = Vector2(1.8030304, 1.8030303)
+[node name="Sprite2D2" type="Sprite2D" parent="Rooms/BackYard" unique_id=1896018267]
+position = Vector2(237.61052, -505.07416)
+scale = Vector2(2.090284, 2.6386106)
 texture = SubResource("AtlasTexture_tpeuu")
+
+[node name="Pound" type="StaticBody2D" parent="Rooms/BackYard" unique_id=20837777]
+
+[node name="Backgroundpound" type="Sprite2D" parent="Rooms/BackYard/Pound" unique_id=817975687]
+position = Vector2(310.99997, -188)
+rotation = 1.5813532
+scale = Vector2(4.734374, 3.6484375)
+texture = ExtResource("25_3ts2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/BackYard/Pound" unique_id=1393370115]
+position = Vector2(344, -215.5)
+shape = SubResource("RectangleShape2D_i4ahy")
+
+[node name="Bush" type="Sprite2D" parent="Rooms/BackYard/Pound" unique_id=1815952603]
+position = Vector2(461.0001, -147)
+rotation = 1.567503
+scale = Vector2(3.8182423, 3.3986025)
+texture = ExtResource("26_76041")
+offset = Vector2(-22.180908, 26.45813)
+
+[node name="Bush2" type="Sprite2D" parent="Rooms/BackYard/Pound" unique_id=383320439]
+position = Vector2(462.0001, -72)
+rotation = 1.567503
+scale = Vector2(3.8182423, 3.3986025)
+texture = ExtResource("26_76041")
+offset = Vector2(-22.180908, 26.45813)
 
 [node name="Roguelike GUI" type="Control" parent="." unique_id=563930200]
 layout_mode = 3

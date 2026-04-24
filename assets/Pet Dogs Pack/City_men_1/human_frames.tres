@@ -1,6 +1,31 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://bhuavpwl3rtpk"]
 
-[ext_resource type="Texture2D" uid="uid://e81avw2l725q" path="res://assets/City_men_1/Walk.png" id="1_dhrdn"]
+[ext_resource type="Texture2D" uid="uid://e81avw2l725q" path="res://assets/Pet Dogs Pack/City_men_1/Walk.png" id="1_dhrdn"]
+[ext_resource type="Texture2D" uid="uid://d24bkx04ld4mu" path="res://assets/City_men_1/Idle.png" id="1_gtotn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rirv3"]
+atlas = ExtResource("1_gtotn")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oj6s"]
+atlas = ExtResource("1_gtotn")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ku7x"]
+atlas = ExtResource("1_gtotn")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fcmk"]
+atlas = ExtResource("1_gtotn")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krtpg"]
+atlas = ExtResource("1_gtotn")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq6gr"]
+atlas = ExtResource("1_gtotn")
+region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ml2u"]
 atlas = ExtResource("1_dhrdn")
@@ -47,6 +72,29 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rirv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oj6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ku7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fcmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krtpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq6gr")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{

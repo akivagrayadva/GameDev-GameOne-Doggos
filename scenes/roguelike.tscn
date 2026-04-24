@@ -636,13 +636,13 @@ position = Vector2(716, 738)
 position = Vector2(848, 661)
 
 [node name="LivingRoomCouch1" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=262256798]
-position = Vector2(-499, 403)
+position = Vector2(-499, 392)
 
 [node name="LivingRoomCouch2" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1972703739]
 position = Vector2(-126, 516)
 
 [node name="LivingRoomCouch3" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1492115665]
-position = Vector2(-498, 521)
+position = Vector2(-507, 532)
 
 [node name="LivingRoomCouch4" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=241171137]
 position = Vector2(-123, 401)

@@ -29,6 +29,7 @@ public enum DogBreed {
 	
 	[Signal] public delegate void Room1TreatsCollectedEventHandler();
 	[Signal] public delegate void Room2TreatsCollectedEventHandler();
+	[Signal] public delegate void Room3TreatsCollectedEventHandler();
 	
 	CharacterBody2D activeDog;
 	CharacterBody2D activeHuman;
@@ -38,9 +39,10 @@ public enum DogBreed {
 	
 	
 	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
-	int totalTreats = 8;
-	int livingRoomTreats = 3;
-	int kitchenTreats = 7;
+	int totalTreats = 12;
+	int livingRoomTreats = 4;
+	int kitchenTreats = 8;
+	int backyardTreats = 12;
 	int collectedTreats = 0;
 	//bool levelEnded = false;
 	

@@ -9,6 +9,7 @@ public partial class Human : CharacterBody2D
 	NavigationAgent2D navAgent;
 	CharacterBody2D dog;
 	Marker2D doorTarget;
+	Marker2D doorTarget2;
 	List<Marker2D> unstuckMarkers = new List<Marker2D>();
 	Marker2D lastUnstuckMarker = null;
 
@@ -18,8 +19,10 @@ public partial class Human : CharacterBody2D
 	Vector2 lastPosition;
 
 	bool headingToDoor = false;
+	bool headingToDoor2 = false;
 	bool headingToUnstuck = false;
 	Marker2D currentUnstuckTarget = null;
+	
 	AnimatedSprite2D humanAnim;
 
 	public override void _Ready()
@@ -29,9 +32,13 @@ public partial class Human : CharacterBody2D
 		lastPosition = GlobalPosition;
 
 		doorTarget = GetNode<Marker2D>("../LivingRoom_Navigation/WP_Door");
+		doorTarget2 = GetNode<Marker2D>("../Kitchen_Navigation/WP_Door2");
 
 		Area2D doorTrigger = GetNode<Area2D>("../LivingRoom_Navigation/DoorTrigger");
 		doorTrigger.BodyEntered += OnDoorAreaEntered;
+		
+		Area2D doorTrigger2 = GetNode<Area2D>("../Kitchen_Navigation/DoorTrigger2");
+		doorTrigger2.BodyEntered += OnDoorTrigger2Entered;
 
 		// set speed relative to dog speed
 		var gameScript = GetNode<RoguelikeMovement>("..");
@@ -50,6 +57,16 @@ public partial class Human : CharacterBody2D
 		GD.Print("NavAgent: " + navAgent);
 		GD.Print("Dog: " + dog);
 		GD.Print("Unstuck markers loaded: " + unstuckMarkers.Count);
+	}
+
+
+	private void OnDoorTrigger2Entered(Node2D body)
+	{
+		if (body.Name == "DummyDog" && !headingToDoor2)
+		{
+			headingToDoor2 = true;
+			GD.Print("Dog entered door 2, human heading to door 2 marker!");
+		}
 	}
 
 	private void OnDoorAreaEntered(Node2D body)
@@ -98,6 +115,15 @@ else
 			{
 				headingToDoor = false;
 				GD.Print("Through the door, resuming chase!");
+			}
+		}
+		else if (headingToDoor2)
+		{
+			target = doorTarget2.GlobalPosition;
+			if (GlobalPosition.DistanceTo(doorTarget2.GlobalPosition) < 30f)
+			{
+				headingToDoor2 = false;
+				GD.Print("Through door 2, resuming chase!");
 			}
 		}
 		else if (headingToUnstuck && currentUnstuckTarget != null)

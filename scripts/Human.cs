@@ -20,6 +20,7 @@ public partial class Human : CharacterBody2D
 	bool headingToDoor = false;
 	bool headingToUnstuck = false;
 	Marker2D currentUnstuckTarget = null;
+	AnimatedSprite2D humanAnim;
 
 	public override void _Ready()
 	{
@@ -43,7 +44,8 @@ public partial class Human : CharacterBody2D
 		{
 			unstuckMarkers.Add(marker);
 		}
-
+		
+		humanAnim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		GD.Print("HumanAI Ready!");
 		GD.Print("NavAgent: " + navAgent);
 		GD.Print("Dog: " + dog);
@@ -73,6 +75,21 @@ public partial class Human : CharacterBody2D
 	private void HandleChase(double delta)
 	{
 		Vector2 target;
+		
+		humanAnim.Play("walk");
+
+		if (Velocity.Length() > 0)
+{
+	humanAnim.Play("walk");
+	if (Velocity.X < 0)
+		humanAnim.FlipH = true;
+	else if (Velocity.X > 0)
+		humanAnim.FlipH = false;
+}
+else
+{
+	humanAnim.Play("idle");
+}
 
 		if (headingToDoor)
 		{

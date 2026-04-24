@@ -31,13 +31,7 @@ public partial class GachaShopUi : Control
 	private static bool hasShownTutorial = false;
 	public static RoguelikeMovement.DogBreed SelectedDog = RoguelikeMovement.DogBreed.GoldenRetriever;
 
-	//testing to see if photos show up. will change code
-	private RoguelikeMovement.DogBreed[] ownedDogs =
-	{
-	RoguelikeMovement.DogBreed.GoldenRetriever,
 	
-	};
-
 	private int selectedDogIndex = 0;
 
 	public override void _Ready()
@@ -99,7 +93,7 @@ public partial class GachaShopUi : Control
 
 	private void UpdateDogUI()
 	{
-		RoguelikeMovement.DogBreed currentDog = ownedDogs[selectedDogIndex];
+		var currentDog = RoguelikeMovement.OwnedDogs[selectedDogIndex];
 	SelectedDog = currentDog;
 
 	dogName.Text = GetDogDisplayName(currentDog);
@@ -159,7 +153,7 @@ public partial class GachaShopUi : Control
 
 		if (selectedDogIndex < 0)
 		{
-			selectedDogIndex = ownedDogs.Length - 1;
+			selectedDogIndex = RoguelikeMovement.OwnedDogs.Length - 1;
 		}
 
 		UpdateDogUI();
@@ -170,7 +164,7 @@ public partial class GachaShopUi : Control
 		GD.Print("Next button clicked");
 		selectedDogIndex++;
 
-		if (selectedDogIndex >= ownedDogs.Length)
+		if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 		{
 			selectedDogIndex = 0;
 		}
@@ -231,7 +225,7 @@ public partial class GachaShopUi : Control
 	GD.Print("Pulled: " + dog);
 
 	AddDog(dog);
-	selectedDogIndex = ownedDogs.Length - 1;
+	selectedDogIndex = RoguelikeMovement.OwnedDogs.Length - 1;
 	UpdateDogUI();
 	UpdateTreatUI();
 }
@@ -250,7 +244,7 @@ private void OnPremiumPull()
 	GD.Print(" PREMIUM: " + dog);
 
 	AddDog(dog);
-	selectedDogIndex = ownedDogs.Length - 1; 
+	selectedDogIndex = RoguelikeMovement.OwnedDogs.Length - 1; 
 	UpdateDogUI();
 	UpdateTreatUI();
 }
@@ -275,7 +269,7 @@ private RoguelikeMovement.DogBreed RollDog(bool premium)
 }
 private void AddDog(RoguelikeMovement.DogBreed dog)
 {
-	foreach (var d in ownedDogs)
+	foreach (var d in RoguelikeMovement.OwnedDogs)
 	{
 		if (d == dog)
 		{
@@ -284,8 +278,8 @@ private void AddDog(RoguelikeMovement.DogBreed dog)
 		}
 	}
 
-	Array.Resize(ref ownedDogs, ownedDogs.Length + 1);
-	ownedDogs[ownedDogs.Length - 1] = dog;
+	Array.Resize(ref RoguelikeMovement.OwnedDogs, RoguelikeMovement.OwnedDogs.Length + 1);
+	RoguelikeMovement.OwnedDogs[RoguelikeMovement.OwnedDogs.Length - 1] = dog;
 
 	GD.Print("New dog added!");
 }

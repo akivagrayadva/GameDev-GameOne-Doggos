@@ -648,10 +648,13 @@ position = Vector2(-507, 532)
 position = Vector2(-123, 401)
 
 [node name="DenWall1" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1792219854]
-position = Vector2(-98, 701)
+position = Vector2(-114, 739)
 
 [node name="DoorMarker" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1681081133]
 position = Vector2(454, 546)
+
+[node name="Marker2D" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=371233969]
+position = Vector2(246, 861)
 
 [node name="LivingRoom_Navigation" type="Node2D" parent="Actors and Objects" unique_id=390023590]
 

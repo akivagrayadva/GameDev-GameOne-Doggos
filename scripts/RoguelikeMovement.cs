@@ -39,6 +39,13 @@ public enum DogBreed {
 	
 	
 	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
+	public static int PremiumTreats = 0;
+	
+	public static DogBreed[] OwnedDogs =
+	{
+		DogBreed.GoldenRetriever
+	};
+	
 	int totalTreats = 12;
 	int livingRoomTreats = 4;
 	int kitchenTreats = 8;

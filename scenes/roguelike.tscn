@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://clrhohplbsy3x" path="res://scripts/Human.cs" id="5_55u56"]
 [ext_resource type="Texture2D" uid="uid://brpusgup4unts" path="res://assets/Top-Down_Retro_Interior/Floor.png" id="5_65ar4"]
 [ext_resource type="Texture2D" uid="uid://b1p2lukhyoc5d" path="res://assets/kitchen_LRK.png" id="6_4hwsn"]
-[ext_resource type="SpriteFrames" uid="uid://88a60timliu" path="res://assets/City_men_1/human_frames.tres" id="6_ewk1i"]
+[ext_resource type="SpriteFrames" uid="uid://bhuavpwl3rtpk" path="res://assets/City_men_1/human_frames.tres" id="6_ewk1i"]
 [ext_resource type="Script" uid="uid://nc4advn31pl1" path="res://scripts/Door.cs" id="6_foalq"]
 [ext_resource type="Texture2D" uid="uid://ciy6ugfyrbb7r" path="res://assets/doorswindowsstairs_LRK.png" id="7_mdh2y"]
 [ext_resource type="Texture2D" uid="uid://bvd2t4kon02v3" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState3.png" id="9_7d1bx"]
@@ -36,7 +36,7 @@ atlas = ExtResource("4_n1x8e")
 region = Rect2(92, 126, 46, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdh2y"]
-size = Vector2(27.5, 27)
+size = Vector2(29.75, 30)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_55u56"]
 vertices = PackedVector2Array(-52.960938, 184.95313, -52.039063, 419, -513.96094, 419, -513.03906, 184, -269.03906, 184)
@@ -406,10 +406,10 @@ atlas = ExtResource("3_brp47")
 region = Rect2(568, 246, 32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewk1i"]
-size = Vector2(5.0507593, 19.543434)
+size = Vector2(6.6457376, 19.543434)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55u56"]
-size = Vector2(4.5191, 19.543423)
+size = Vector2(6.3799057, 19.543423)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6www"]
 atlas = ExtResource("11_n1x8e")
@@ -446,6 +446,7 @@ size = Vector2(144, 147)
 [node name="Roguelike" type="Node2D" unique_id=508994204]
 
 [node name="Actors and Objects" type="Node2D" parent="." unique_id=1461066257]
+y_sort_enabled = true
 script = ExtResource("1_y4nua")
 
 [node name="DummyDog" type="CharacterBody2D" parent="Actors and Objects" unique_id=181501565]
@@ -454,6 +455,7 @@ position = Vector2(1312, 322)
 collision_mask = 2
 
 [node name="Anim" type="AnimatedSprite2D" parent="Actors and Objects/DummyDog" unique_id=1262435739]
+y_sort_enabled = true
 sprite_frames = ExtResource("2_5eco7")
 animation = &"walk"
 frame_progress = 0.42009425
@@ -600,6 +602,7 @@ scale = Vector2(0.9595113, 0.9958333)
 texture = SubResource("AtlasTexture_rhnre")
 
 [node name="DummyHuman" type="CharacterBody2D" parent="Actors and Objects" unique_id=72975321]
+y_sort_enabled = true
 position = Vector2(-461, 898)
 scale = Vector2(2, 2)
 collision_layer = 4
@@ -611,9 +614,18 @@ sprite_frames = ExtResource("6_ewk1i")
 animation = &"walk"
 
 [node name="HumanEnvironmentCollision" type="CollisionShape2D" parent="Actors and Objects/DummyHuman" unique_id=291716011]
+position = Vector2(2.875, -2)
 shape = SubResource("RectangleShape2D_mdh2y")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Actors and Objects/DummyHuman" unique_id=1031171071]
+y_sort_enabled = true
+position = Vector2(3.4999962, -46.5)
+scale = Vector2(0.8749999, 0.9923774)
+sprite_frames = ExtResource("6_ewk1i")
+animation = &"walk"
+
 [node name="ColorRect" type="ColorRect" parent="Actors and Objects/DummyHuman" unique_id=1516376428]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1579,6 +1591,7 @@ shape = SubResource("RectangleShape2D_j6www")
 
 [node name="Den Wall" type="StaticBody2D" parent="Rooms/Living Room/Den" unique_id=275116771]
 z_index = 1
+y_sort_enabled = true
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Den/Den Wall" unique_id=1832474229]
@@ -1632,12 +1645,12 @@ texture = SubResource("AtlasTexture_w3l6v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Coffee Table" unique_id=512764858]
 z_index = 1
-position = Vector2(-12.095241, 1.0022354)
+position = Vector2(-11.297752, 1.0022354)
 shape = SubResource("RectangleShape2D_ewk1i")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Rooms/Living Room/Coffee Table" unique_id=717730310]
 z_index = 1
-position = Vector2(12.361068, 1.0022354)
+position = Vector2(11.430665, 1.0022354)
 shape = SubResource("RectangleShape2D_55u56")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Rooms/Living Room/Coffee Table" unique_id=118520825]

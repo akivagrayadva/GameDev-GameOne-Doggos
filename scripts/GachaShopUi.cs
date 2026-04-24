@@ -1,10 +1,15 @@
 using Godot;
+using System;
 
 public partial class GachaShopUi : Control
 {
 	Button fetchButton;
 	Button titleButton;
 	Label treatLabel;
+	Label premiumTreatLabel;
+	
+	Random rand = new Random();
+
 
 	Control tutorialPopup;
 	Button startTutorialButton;
@@ -16,7 +21,13 @@ public partial class GachaShopUi : Control
 	Label dogName;
 	TextureButton prevButton;
 	TextureButton nextButton;
+	Button standardPullButton;
+	Button premiumPullButton;
 
+	const int STANDARD_PULL_COST = 10;
+	const int PREMIUM_PULL_COST  = 2; // premium currency is rarer
+	const int PREMIUM_TREAT_COST = 5; //normal treats also required
+	
 	private static bool hasShownTutorial = false;
 	public static RoguelikeMovement.DogBreed SelectedDog = RoguelikeMovement.DogBreed.GoldenRetriever;
 
@@ -24,12 +35,7 @@ public partial class GachaShopUi : Control
 	private RoguelikeMovement.DogBreed[] ownedDogs =
 	{
 	RoguelikeMovement.DogBreed.GoldenRetriever,
-	RoguelikeMovement.DogBreed.Akita,
-	RoguelikeMovement.DogBreed.GreatDane,
-	RoguelikeMovement.DogBreed.Schnauzer,
-	RoguelikeMovement.DogBreed.SaintBernard,
-	RoguelikeMovement.DogBreed.SiberianHusky,
-	RoguelikeMovement.DogBreed.FrostDog
+	
 	};
 
 	private int selectedDogIndex = 0;
@@ -44,6 +50,8 @@ public partial class GachaShopUi : Control
 	fetchButton = GetNode<Button>("MarginContainer/Split/RightPanel/ButtonRow/Fetch");
 	titleButton = GetNode<Button>("MarginContainer/Split/RightPanel/ButtonRow/Title");
 	treatLabel = GetNode<Label>("MarginContainer/Split/RightPanel/Currency/Treat/TreatAmount");
+	premiumTreatLabel = GetNode<Label>("MarginContainer/Split/RightPanel/Currency/PremiumTreat/AmountOfTreats");
+
 
 	tutorialPopup = GetNode<Control>("TutorialPopup");
 	startTutorialButton = GetNode<Button>("TutorialPopup/PopupPanel/MarginContainer/VBoxContainer/StartButton");
@@ -54,6 +62,9 @@ public partial class GachaShopUi : Control
 	dogName = GetNode<Label>("MarginContainer/Split/LeftPanel/CurrentDog/DogName");
 	prevButton = GetNode<TextureButton>("MarginContainer/Split/LeftPanel/CurrentDog/PrevButton");
 	nextButton = GetNode<TextureButton>("MarginContainer/Split/LeftPanel/CurrentDog/NextButton");
+	
+	standardPullButton = GetNode<Button>("MarginContainer/Split/LeftPanel/StdPull");
+	premiumPullButton = GetNode<Button>("MarginContainer/Split/LeftPanel/PremPull");
 
 	GD.Print("Prev button found: " + prevButton);
 	GD.Print("Next button found: " + nextButton);
@@ -63,6 +74,8 @@ public partial class GachaShopUi : Control
 	startTutorialButton.Pressed += OnTutorialClosed;
 	prevButton.Pressed += OnPrevPressed;
 	nextButton.Pressed += OnNextPressed;
+	standardPullButton.Pressed += OnStandardPull;
+	premiumPullButton.Pressed += OnPremiumPull;
 
 	UpdateTreatUI();
 	UpdateDogUI();
@@ -81,6 +94,7 @@ public partial class GachaShopUi : Control
 	private void UpdateTreatUI()
 	{
 		treatLabel.Text = "x" + RoguelikeMovement.TotalTreats;
+		premiumTreatLabel.Text = "x" + RoguelikeMovement.PremiumTreats;
 	}
 
 	private void UpdateDogUI()
@@ -129,8 +143,10 @@ public partial class GachaShopUi : Control
 				return GD.Load<Texture2D>("res://assets/Pet Dogs Pack/schnauzer.png");
 			case RoguelikeMovement.DogBreed.SaintBernard:
 				return GD.Load<Texture2D>("res://assets/Pet Dogs Pack/saintbernard.png");
-				case RoguelikeMovement.DogBreed.SiberianHusky:
+			case RoguelikeMovement.DogBreed.SiberianHusky:
 				return GD.Load<Texture2D>("res://assets/Pet Dogs Pack/siberianhusky.png");
+			case RoguelikeMovement.DogBreed.FrostDog:
+				return GD.Load<Texture2D>("res://assets/Pet Dogs Pack/Frost.png");
 			default:
 				return null;
 		}
@@ -200,4 +216,77 @@ public partial class GachaShopUi : Control
 		GD.Print("Returning to Title Screen...");
 		GetTree().ChangeSceneToFile("res://scenes/main_menu.tscn");
 	}
+	
+	private void OnStandardPull()
+{
+	if (RoguelikeMovement.TotalTreats < STANDARD_PULL_COST)
+	{
+		GD.Print("Not enough treats!");
+		return;
+	}
+
+	RoguelikeMovement.TotalTreats -= STANDARD_PULL_COST;
+
+	var dog = RollDog(false);
+	GD.Print("Pulled: " + dog);
+
+	AddDog(dog);
+	selectedDogIndex = ownedDogs.Length - 1;
+	UpdateDogUI();
+	UpdateTreatUI();
+}
+private void OnPremiumPull()
+{
+	if (RoguelikeMovement.PremiumTreats < PREMIUM_PULL_COST || RoguelikeMovement.TotalTreats < PREMIUM_TREAT_COST)
+	{
+		GD.Print("Not enough premium treats!");
+		return;
+	}
+
+	RoguelikeMovement.PremiumTreats -= PREMIUM_PULL_COST;
+	RoguelikeMovement.TotalTreats -= PREMIUM_TREAT_COST;
+
+	var dog = RollDog(true);
+	GD.Print(" PREMIUM: " + dog);
+
+	AddDog(dog);
+	selectedDogIndex = ownedDogs.Length - 1; 
+	UpdateDogUI();
+	UpdateTreatUI();
+}
+private RoguelikeMovement.DogBreed RollDog(bool premium)
+{
+	int roll = rand.Next(0, 100);
+
+	if (premium)
+	{
+		// PREMIUM POOL (no common dogs)
+		if (roll < 40) return RoguelikeMovement.DogBreed.SiberianHusky;
+		if (roll < 75) return RoguelikeMovement.DogBreed.FrostDog;
+		if (roll < 90) return RoguelikeMovement.DogBreed.GreatDane;
+		return RoguelikeMovement.DogBreed.SaintBernard; // rarest
+	}
+	else
+	{
+		// STANDARD POOL (common only)
+		if (roll < 80) return RoguelikeMovement.DogBreed.Akita;
+		return RoguelikeMovement.DogBreed.Schnauzer;
+	}
+}
+private void AddDog(RoguelikeMovement.DogBreed dog)
+{
+	foreach (var d in ownedDogs)
+	{
+		if (d == dog)
+		{
+			GD.Print("Duplicate!");
+			return;
+		}
+	}
+
+	Array.Resize(ref ownedDogs, ownedDogs.Length + 1);
+	ownedDogs[ownedDogs.Length - 1] = dog;
+
+	GD.Print("New dog added!");
+}
 }

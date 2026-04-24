@@ -29,7 +29,7 @@ public enum DogBreed {
 	
 	[Signal] public delegate void Room1TreatsCollectedEventHandler();
 	[Signal] public delegate void Room2TreatsCollectedEventHandler();
-
+	
 	CharacterBody2D activeDog;
 	CharacterBody2D activeHuman;
 	AnimatedSprite2D dogAnim;
@@ -46,6 +46,7 @@ public enum DogBreed {
 	
 	bool usedRevive = false;
 	
+	public float dogSpeed = GLOBAL_CONSTANTS.DOG_SPEED;
 
 	//  turn speed for different dog handling
 	//float dogTurnSpeed = 8f;
@@ -230,15 +231,12 @@ private void SetDogSprite(DogBreed dog)
 	{
 		dogAnim.Stop();
 	}
+		
 
-	// human movement
-	activeHuman.Velocity =
-	humanPathingAlgorithm(activeHuman.Position, activeDog.Position)
-	* dogController.dogSpeed
-	* dogController.humanSpeedModifier;
+		//activeHuman.Velocity = humanPathingAlgorithm(activeHuman.Position, activeDog.Position) * dogSpeed * humanSpeedModifier;
+		//activeHuman.MoveAndSlide();
+	}
 
-	activeHuman.MoveAndSlide();
-}
 	public void OnGoalTouched() {
 		GD.Print("Goal touched! Returning to Gacha Shop...");
 		GetTree().ChangeSceneToFile("res://scenes/gacha_shop.tscn");
@@ -256,10 +254,8 @@ private void SetDogSprite(DogBreed dog)
 		GetTree().ChangeSceneToFile("res://scenes/gacha_shop.tscn");
 	}
 
-	private Vector2 humanPathingAlgorithm(Vector2 humanPos, Vector2 dogPos) {
-		// Placeholder for a more complex pathfinding algorithm
-		return (dogPos - humanPos).Normalized();
-	}
-	
-	
+	//private Vector2 humanPathingAlgorithm(Vector2 humanPos, Vector2 dogPos) {
+		//// Placeholder for a more complex pathfinding algorithm
+		//return (dogPos - humanPos).Normalized();
+	//}
 }

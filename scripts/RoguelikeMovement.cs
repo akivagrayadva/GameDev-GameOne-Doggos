@@ -46,6 +46,7 @@ public enum DogBreed {
 	
 	bool usedRevive = false;
 	
+	public float dogSpeed = GLOBAL_CONSTANTS.DOG_SPEED;
 
 	//  turn speed for different dog handling
 	//float dogTurnSpeed = 8f;
@@ -230,15 +231,6 @@ private void SetDogSprite(DogBreed dog)
 	{
 		dogAnim.Stop();
 	}
-
-	// human movement
-// 	activeHuman.Velocity =
-// 	humanPathingAlgorithm(activeHuman.Position, activeDog.Position)
-// 	* dogController.dogSpeed
-// 	* dogController.humanSpeedModifier;
-
-// 	activeHuman.MoveAndSlide();
-// }
 		
 
 		//activeHuman.Velocity = humanPathingAlgorithm(activeHuman.Position, activeDog.Position) * dogSpeed * humanSpeedModifier;

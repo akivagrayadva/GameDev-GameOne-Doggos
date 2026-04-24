@@ -1,5 +1,5 @@
 using Godot;
-using System;
+using System.Collections.Generic;
 
 public partial class Human : CharacterBody2D
 {
@@ -9,16 +9,17 @@ public partial class Human : CharacterBody2D
 	NavigationAgent2D navAgent;
 	CharacterBody2D dog;
 	Marker2D doorTarget;
+	List<Marker2D> unstuckMarkers = new List<Marker2D>();
+	Marker2D lastUnstuckMarker = null;
 
-	float speed = 100f;
+	float speed = 0f;
 	float stuckTimer = 0f;
 	float stuckThreshold = 0.5f;
 	Vector2 lastPosition;
 
 	bool headingToDoor = false;
-	bool doorDelayActive = false;
-	float doorDelayTimer = 0f;
-	float doorDelayDuration = 3f;
+	bool headingToUnstuck = false;
+	Marker2D currentUnstuckTarget = null;
 
 	public override void _Ready()
 	{
@@ -26,37 +27,40 @@ public partial class Human : CharacterBody2D
 		dog = GetNode<CharacterBody2D>("../DummyDog");
 		lastPosition = GlobalPosition;
 
-		doorTarget = GetNode<Marker2D>("../../Markers/LivingRoom/Door/WP_Door1");
+		doorTarget = GetNode<Marker2D>("../LivingRoom_Navigation/WP_Door");
 
+		Area2D doorTrigger = GetNode<Area2D>("../LivingRoom_Navigation/DoorTrigger");
+		doorTrigger.BodyEntered += OnDoorAreaEntered;
+
+		// set speed relative to dog speed
 		var gameScript = GetNode<RoguelikeMovement>("..");
-		gameScript.Room1TreatsCollected += OnRoom1Complete;
+		speed = gameScript.dogSpeed * 0.85f;
+		GD.Print("Human speed set to: " + speed);
+
+		// load unstuck markers
+		Node unstuckNode = GetNode("../UnstuckMarkers");
+		foreach (Marker2D marker in unstuckNode.GetChildren())
+		{
+			unstuckMarkers.Add(marker);
+		}
 
 		GD.Print("HumanAI Ready!");
 		GD.Print("NavAgent: " + navAgent);
 		GD.Print("Dog: " + dog);
+		GD.Print("Unstuck markers loaded: " + unstuckMarkers.Count);
 	}
 
-	private void OnRoom1Complete()
+	private void OnDoorAreaEntered(Node2D body)
 	{
-		doorDelayActive = true;
-		doorDelayTimer = 0f;
-		GD.Print("Room 1 complete, heading to door in 3 seconds!");
+		if (body.Name == "DummyDog" && !headingToDoor)
+		{
+			headingToDoor = true;
+			GD.Print("Dog entered door, human heading to door marker!");
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		// count down delay timer
-		if (doorDelayActive)
-		{
-			doorDelayTimer += (float)delta;
-			if (doorDelayTimer >= doorDelayDuration)
-			{
-				doorDelayActive = false;
-				headingToDoor = true;
-				GD.Print("Now heading to door!");
-			}
-		}
-
 		switch (currentState)
 		{
 			case HumanState.Chasing: HandleChase(delta); break;
@@ -68,17 +72,25 @@ public partial class Human : CharacterBody2D
 
 	private void HandleChase(double delta)
 	{
-		// decide target based on state
 		Vector2 target;
+
 		if (headingToDoor)
 		{
 			target = doorTarget.GlobalPosition;
-
-			// once through door resume chasing
 			if (GlobalPosition.DistanceTo(doorTarget.GlobalPosition) < 30f)
 			{
 				headingToDoor = false;
 				GD.Print("Through the door, resuming chase!");
+			}
+		}
+		else if (headingToUnstuck && currentUnstuckTarget != null)
+		{
+			target = currentUnstuckTarget.GlobalPosition;
+			if (GlobalPosition.DistanceTo(currentUnstuckTarget.GlobalPosition) < 30f)
+			{
+				headingToUnstuck = false;
+				currentUnstuckTarget = null;
+				GD.Print("Reached unstuck marker, resuming chase!");
 			}
 		}
 		else
@@ -95,9 +107,17 @@ public partial class Human : CharacterBody2D
 			stuckTimer += (float)delta;
 			if (stuckTimer > stuckThreshold)
 			{
-				navAgent.TargetPosition = target;
 				stuckTimer = 0f;
-				GD.Print("Stuck! Recalculating path");
+
+				if (!headingToUnstuck && !headingToDoor)
+				{
+					currentUnstuckTarget = FindNearestUnstuckMarker();
+					if (currentUnstuckTarget != null)
+					{
+						headingToUnstuck = true;
+						GD.Print("Stuck! Heading to unstuck marker: " + currentUnstuckTarget.Name);
+					}
+				}
 			}
 		}
 		else
@@ -111,5 +131,26 @@ public partial class Human : CharacterBody2D
 		Vector2 direction = (nextPoint - GlobalPosition).Normalized() * speed;
 		Velocity = direction;
 		MoveAndSlide();
+	}
+
+	private Marker2D FindNearestUnstuckMarker()
+	{
+		Marker2D nearest = null;
+		float shortestDistance = float.MaxValue;
+
+		foreach (Marker2D marker in unstuckMarkers)
+		{
+			if (marker == lastUnstuckMarker) continue;
+
+			float distance = GlobalPosition.DistanceTo(marker.GlobalPosition);
+			if (distance < shortestDistance)
+			{
+				shortestDistance = distance;
+				nearest = marker;
+			}
+		}
+
+		lastUnstuckMarker = nearest;
+		return nearest;
 	}
 }

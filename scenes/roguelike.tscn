@@ -34,24 +34,24 @@ region = Rect2(92, 126, 46, 45)
 size = Vector2(27.5, 27)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_55u56"]
-vertices = PackedVector2Array(-211, 144, -56.859375, 61.046875, -52.132813, 419, -513.96875, 419, -259, 184, -259, 144, -211, 61.9375, -412.72656, 184, -513.03125, 147.90625, -413.72656, 147.07813)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 5, 0), PackedInt32Array(0, 6, 1), PackedInt32Array(7, 4, 3), PackedInt32Array(7, 3, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-404, 137, -523, 138, -524, 429, -42, 429, -47, 51, -221, 52, -221, 134, -269, 134, -269, 174, -403, 174)])
+vertices = PackedVector2Array(-52.960938, 184.95313, -52.039063, 419, -513.96094, 419, -513.03906, 184, -269.03906, 184)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-523, 174, -524, 429, -42, 429, -43, 175, -269, 174, -403, 174)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qjabr"]
-vertices = PackedVector2Array(51.859375, 261, -90.15625, 261, -92.84375, 91, 118, 91, 243, 180.07813, 369, 179.07813, 369, 674, -28.046875, 674, -29.046875, 462, 53.140625, 349.9297, -87, 462, -87, 350.92188, 243, 70, 118, 70)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 5, 6, 7, 8, 9), PackedInt32Array(8, 10, 11, 9), PackedInt32Array(4, 9, 0), PackedInt32Array(12, 4, 3, 13)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-103, 81, 108, 81, 108, 60, 253, 60, 253, 170, 379, 169, 379, 684, -38, 684, -39, 472, -97, 472, -97, 341, 43, 340, 42, 271, -100, 271)])
+vertices = PackedVector2Array(372.95313, 673, 51, 673, 51, 264, 371.04688, 264)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(381, 254, 383, 683, 41, 683, 41, 254)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ewk1i"]
-vertices = PackedVector2Array(-9, 685, -511, 685, -511, 484, -9, 484)
+vertices = PackedVector2Array(-9, 674.0078, -510.03906, 674.97656, -510.95313, 484, -9, 484)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-521, 474, 1, 474, 1, 695, -521, 695)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-521, 474, 1, 474, 1, 684, -520, 685)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vhkcm"]
-vertices = PackedVector2Array(-29.0625, 779.03125, -336.03125, 780, -512, 780, -512, 651, -29.929688, 651)
+vertices = PackedVector2Array(-32.929688, 779.03125, -336.03125, 780, -512, 780, -512, 650.96094, -32.0625, 649.03906)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-522, 641, -20, 641, -19, 789, -336, 790, -522, 790)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-522, 641, -22, 639, -23, 789, -336, 790, -522, 790)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_edc0a"]
 vertices = PackedVector2Array(-44, 847.9297, -330, 846.0625, -330, 772, -44, 772)
@@ -64,19 +64,62 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-523, 825, -33, 826, -33, 957, -523, 957)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_76041"]
-vertices = PackedVector2Array(328.92188, 946, -54.90625, 946, -53.09375, 735, 217, 802, 362, 802, 362, 818, 327.92188, 818, 217, 735)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(2, 7, 3), PackedInt32Array(0, 3, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-63, 725, 216, 725, 227, 725, 227, 792, 372, 792, 372, 828, 338, 828, 339, 956, -65, 956)])
+vertices = PackedVector2Array(217, 946, -54.90625, 946, -53.09375, 735, 217, 735)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-63, 725, 216, 725, 227, 725, 227, 956, -65, 956)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i4ahy"]
-vertices = PackedVector2Array(-27.070313, 501, -188.92969, 501, -188.07031, 383, -27.929688, 383)
+vertices = PackedVector2Array(88, 673.03125, -188.02344, 673.96094, -188.96875, 350, 88, 350)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-198, 373, -199, 511, -17, 511, -18, 373)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-199, 340, -198, 684, 98, 683, 98, 340)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_inqac"]
 vertices = PackedVector2Array(-433.4922, 496.29688, -514, 498.6875, -514, 395, -438.52344, 395)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-524, 385, -429, 385, -423, 506, -524, 509)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2l34d"]
+vertices = PackedVector2Array(415, 481.89844, 415, 614.27344, 327.9297, 616.71094, 327.0625, 481.09375)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(317, 471, 425, 472, 425, 624, 318, 627)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ts2m"]
+size = Vector2(18, 127)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rhnre"]
+vertices = PackedVector2Array(261.96094, 275, -69.03906, 275, -69.96094, 59, 261.03906, 59)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(271, 49, 272, 285, -79, 285, -80, 49)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cy3k8"]
+vertices = PackedVector2Array(371, 168.92188, 371, 272, 252, 272, 252, 168.07031)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(242, 158, 381, 159, 381, 282, 242, 282)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xcbfy"]
+vertices = PackedVector2Array(-414, 200, -513, 200, -513, 134.90625, -414, 134.07813)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-523, 125, -404, 124, -404, 210, -523, 210)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kh0iw"]
+vertices = PackedVector2Array(-209, 191, -258, 191, -258, 132, -209, 132)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-199, 122, -199, 201, -268, 201, -268, 122)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2ixy2"]
+vertices = PackedVector2Array(-65.07031, 190, -210, 190, -210, 60, -65.92969, 60)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-220, 50, -56, 50, -55, 200, -220, 200)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_yfcei"]
+vertices = PackedVector2Array(371, 797.9375, 371, 821, 207, 821, 207, 797.0469)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(197, 787, 381, 788, 381, 831, 197, 831)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kfqrx"]
+vertices = PackedVector2Array(333, 947, 206, 947, 206, 816, 333, 816)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(196, 806, 343, 806, 343, 957, 196, 957)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6qle1"]
 vertices = PackedVector2Array(397.92188, 604, 362, 604, 362, 494, 397.07813, 494)
@@ -84,9 +127,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(352, 484, 407, 484, 408, 614, 352, 614)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wd8cj"]
-vertices = PackedVector2Array(383.95313, 947, 380.04688, 162, 475.14844, 162, 485.7578, 873.8828, 900, 946.02344, 496.97656, 947, 660.1094, 872, 900, 872)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 0, 3, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(374, 957, 497, 957, 910, 956, 910, 862, 660, 862, 495.61023, 863.76733, 485, 152, 370, 152)])
+vertices = PackedVector2Array(486.85156, 947, 383.95313, 947, 380.04688, 162, 475.14844, 162)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(374, 957, 497, 957, 485, 152, 370, 152)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i8ope"]
 vertices = PackedVector2Array(1262.9297, 277, 448, 277, 448, 161.96875, 1262.0703, 160.02344)
@@ -94,9 +137,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1272, 150, 1273, 287, 438, 287, 438, 152)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r6jgl"]
-vertices = PackedVector2Array(1056, 360, 1056, 270.03906, 1263, 270.95313, 1263, 679, 461.96875, 679, 461.03125, 360)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(451, 350, 1046, 350, 1046, 260, 1273, 261, 1273, 689, 452, 689)])
+vertices = PackedVector2Array(1263.9688, 361.90625, 1263.0313, 679, 461.96875, 679, 461.03125, 360, 1045.9063, 360)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(451, 350, 1046, 350, 1274, 352, 1273, 689, 452, 689)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pbbjc"]
 vertices = PackedVector2Array(1265.8828, 946, 891.9375, 946, 891.0625, 791, 1264.1094, 791)
@@ -104,9 +147,24 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(882, 956, 881, 781, 1274, 781, 1276, 956)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lgf6e"]
-vertices = PackedVector2Array(922.9531, 875.0625, 654.96875, 876.9297, 654.75, 791.1328, 922.03906, 666.96875, 451, 666.02344, 451, 791.9531)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(441, 656, 932, 657, 933, 885, 645, 887, 644.78326, 801.17, 441, 802)])
+vertices = PackedVector2Array(921.9219, 666.96875, 921.0703, 774.96875, 451, 774.02344, 451, 666.02344)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(441, 656, 932, 657, 931, 785, 441, 784)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_l6npr"]
+vertices = PackedVector2Array(1263.0469, 268.8672, 1263.9297, 416.8672, 1048.0469, 414.1172, 1048.9375, 266.1172)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1039, 256, 1273, 259, 1274, 427, 1038, 424)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8c5lc"]
+vertices = PackedVector2Array(936.78906, 890, 660, 890, 660, 763, 934.2031, 763)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(650, 753, 650, 900, 947, 900, 944, 753)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lr1m8"]
+vertices = PackedVector2Array(920.1094, 879.96875, 920.8828, 946, 473.1172, 946, 473.8828, 879.02344)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(464, 869, 930, 870, 931, 956, 463, 956)])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yfcei"]
 atlas = ExtResource("5_65ar4")
@@ -319,7 +377,7 @@ region = Rect2(97, 66, 46, 45)
 size = Vector2(88.666504, 36.14325)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml7ob"]
-size = Vector2(237.49716, 34.54351)
+size = Vector2(237.49194, 37.972366)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ow1m7"]
 atlas = ExtResource("20_55u56")
@@ -343,10 +401,10 @@ atlas = ExtResource("3_brp47")
 region = Rect2(568, 246, 32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewk1i"]
-size = Vector2(3.7216144, 14.008911)
+size = Vector2(5.0507593, 19.543434)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55u56"]
-size = Vector2(4.2532716, 14.25946)
+size = Vector2(4.5191, 19.543423)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6www"]
 atlas = ExtResource("11_n1x8e")
@@ -555,34 +613,116 @@ path_max_distance = 10.0
 path_postprocessing = 1
 avoidance_enabled = true
 
-[node name="LivingRoom Navigation" type="Node2D" parent="Actors and Objects" unique_id=390023590]
+[node name="UnstuckMarkers" type="Node2D" parent="Actors and Objects" unique_id=1678233113]
 
-[node name="TopLeft" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom Navigation" unique_id=2051976731]
+[node name="KitchenIsland1" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=19371379]
+position = Vector2(384, 244)
+
+[node name="KitchenIsland2" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1635464617]
+position = Vector2(1114, 333)
+
+[node name="KitchenIsland3" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1246493965]
+position = Vector2(418, 340)
+
+[node name="KitchenIsland4" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1282142198]
+position = Vector2(1135, 239)
+
+[node name="KitchenTable1" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1786412958]
+position = Vector2(402, 737)
+
+[node name="KitchenTable2" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1074906193]
+position = Vector2(719, 925)
+
+[node name="KitchenTable3" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1387738629]
+position = Vector2(402, 924)
+
+[node name="KitchenTable4" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1636379894]
+position = Vector2(716, 738)
+
+[node name="MudroomWall" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1243423592]
+position = Vector2(848, 661)
+
+[node name="LivingRoomCouch1" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=262256798]
+position = Vector2(-499, 403)
+
+[node name="LivingRoomCouch2" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1972703739]
+position = Vector2(-126, 516)
+
+[node name="LivingRoomCouch3" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1492115665]
+position = Vector2(-498, 521)
+
+[node name="LivingRoomCouch4" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=241171137]
+position = Vector2(-123, 401)
+
+[node name="DenWall1" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1792219854]
+position = Vector2(-98, 701)
+
+[node name="DoorMarker" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1681081133]
+position = Vector2(454, 546)
+
+[node name="LivingRoom_Navigation" type="Node2D" parent="Actors and Objects" unique_id=390023590]
+
+[node name="TopLeft" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=2051976731]
 navigation_polygon = SubResource("NavigationPolygon_55u56")
 
-[node name="TopRight" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom Navigation" unique_id=246689449]
+[node name="TopRight" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=246689449]
 navigation_polygon = SubResource("NavigationPolygon_qjabr")
 
-[node name="MiddleRoom" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom Navigation" unique_id=1237666861]
+[node name="MiddleRoom" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=1237666861]
 navigation_polygon = SubResource("NavigationPolygon_ewk1i")
 
-[node name="LowerMiddleRoom" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom Navigation" unique_id=2146070763]
+[node name="LowerMiddleRoom" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=2146070763]
 navigation_polygon = SubResource("NavigationPolygon_vhkcm")
 
-[node name="LowerLowerMiddleRoo" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom Navigation" unique_id=1005710716]
+[node name="LowerLowerMiddleRoo" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=1005710716]
 navigation_polygon = SubResource("NavigationPolygon_edc0a")
 
-[node name="EntranceHallway" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom Navigation" unique_id=1795303717]
+[node name="EntranceHallway" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=1795303717]
 navigation_polygon = SubResource("NavigationPolygon_3ts2m")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom Navigation" unique_id=341448807]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=341448807]
 navigation_polygon = SubResource("NavigationPolygon_76041")
 
-[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom Navigation" unique_id=1952261448]
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=1952261448]
 navigation_polygon = SubResource("NavigationPolygon_i4ahy")
 
-[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom Navigation" unique_id=1074457587]
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=1074457587]
 navigation_polygon = SubResource("NavigationPolygon_inqac")
+
+[node name="WP_Door" type="Marker2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=1664577312]
+position = Vector2(375, 547)
+
+[node name="Doorway" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=17339789]
+navigation_polygon = SubResource("NavigationPolygon_2l34d")
+
+[node name="DoorTrigger" type="Area2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=760537545]
+position = Vector2(369, 548)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/LivingRoom_Navigation/DoorTrigger" unique_id=1800145792]
+position = Vector2(7, -0.5)
+shape = SubResource("RectangleShape2D_3ts2m")
+
+[node name="NavigationRegion2D4" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=1936999123]
+navigation_polygon = SubResource("NavigationPolygon_rhnre")
+
+[node name="NavigationRegion2D5" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=680468603]
+navigation_polygon = SubResource("NavigationPolygon_cy3k8")
+
+[node name="NavigationRegion2D6" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=533805123]
+navigation_polygon = SubResource("NavigationPolygon_xcbfy")
+
+[node name="NavigationRegion2D7" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=798994805]
+navigation_polygon = SubResource("NavigationPolygon_kh0iw")
+
+[node name="NavigationRegion2D8" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=1829332592]
+navigation_polygon = SubResource("NavigationPolygon_2ixy2")
+
+[node name="NavigationRegion2D9" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=542549029]
+navigation_polygon = SubResource("NavigationPolygon_yfcei")
+
+[node name="NavigationRegion2D10" type="NavigationRegion2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=1106770597]
+navigation_polygon = SubResource("NavigationPolygon_kfqrx")
 
 [node name="Kitchen Navigation" type="Node2D" parent="Actors and Objects" unique_id=25158746]
 
@@ -604,6 +744,15 @@ navigation_polygon = SubResource("NavigationPolygon_pbbjc")
 
 [node name="NavigationRegion2D3" type="NavigationRegion2D" parent="Actors and Objects/Kitchen Navigation" unique_id=1147722468]
 navigation_polygon = SubResource("NavigationPolygon_lgf6e")
+
+[node name="NavigationRegion2D4" type="NavigationRegion2D" parent="Actors and Objects/Kitchen Navigation" unique_id=2120884695]
+navigation_polygon = SubResource("NavigationPolygon_l6npr")
+
+[node name="NavigationRegion2D5" type="NavigationRegion2D" parent="Actors and Objects/Kitchen Navigation" unique_id=1999750707]
+navigation_polygon = SubResource("NavigationPolygon_8c5lc")
+
+[node name="NavigationRegion2D6" type="NavigationRegion2D" parent="Actors and Objects/Kitchen Navigation" unique_id=1318113664]
+navigation_polygon = SubResource("NavigationPolygon_lr1m8")
 
 [node name="Rooms" type="CanvasGroup" parent="." unique_id=177582493]
 y_sort_enabled = true
@@ -966,7 +1115,7 @@ scale = Vector2(1, 0.7432206)
 texture = SubResource("AtlasTexture_76041")
 
 [node name="Dining Area" type="Node2D" parent="Rooms/Kitchen" unique_id=1411404220]
-position = Vector2(-160.14383, 204.41275)
+position = Vector2(-160.72128, 193.08649)
 
 [node name="Chair" type="StaticBody2D" parent="Rooms/Kitchen/Dining Area" unique_id=1538103637]
 z_index = 2
@@ -1404,8 +1553,8 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Den/Den Wall" unique_id=1832474229]
 z_index = 1
-position = Vector2(393.52258, 369.94455)
-scale = Vector2(0.99999976, 0.9999997)
+position = Vector2(393.52496, 368.2301)
+scale = Vector2(0.99999964, 0.9999997)
 shape = SubResource("RectangleShape2D_ml7ob")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rooms/Living Room/Den/Den Wall" unique_id=1921974281]
@@ -1452,11 +1601,13 @@ scale = Vector2(1, 1.5492067)
 texture = SubResource("AtlasTexture_w3l6v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Living Room/Coffee Table" unique_id=512764858]
-position = Vector2(-11.430666, 3.769493)
+z_index = 1
+position = Vector2(-12.095241, 1.0022354)
 shape = SubResource("RectangleShape2D_ewk1i")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Rooms/Living Room/Coffee Table" unique_id=717730310]
-position = Vector2(12.228153, 3.8947678)
+z_index = 1
+position = Vector2(12.361068, 1.0022354)
 shape = SubResource("RectangleShape2D_55u56")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Rooms/Living Room/Coffee Table" unique_id=118520825]

@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ee8bddymcbxs" path="res://assets/Top-Down_Retro_Interior/LivingRoomFloor.png" id="17_b7xem"]
 [ext_resource type="Texture2D" uid="uid://dqdxlvosnlpr5" path="res://assets/Top-Down_Retro_Interior/DenFloor.png" id="19_wf4uk"]
 [ext_resource type="Texture2D" uid="uid://bklif2lbysina" path="res://assets/Top-Down_Retro_Interior/DenWall.png" id="20_55u56"]
+[ext_resource type="Texture2D" uid="uid://ciuu1ve43s3m4" path="res://assets/Top-Down_Retro_Interior/Grass Tiles.png" id="22_qjabr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjl0"]
 
@@ -411,15 +412,7 @@ atlas = ExtResource("11_n1x8e")
 region = Rect2(97, 116, 14, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhkcm"]
-atlas = ExtResource("11_7xngb")
-region = Rect2(97, 66, 46, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_edc0a"]
-size = Vector2(56.34323, 42.87166)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6qle1"]
-atlas = ExtResource("11_7xngb")
-region = Rect2(65, 193, 143, 41)
+atlas = ExtResource("22_qjabr")
 
 [node name="Roguelike" type="Node2D" unique_id=508994204]
 
@@ -1688,31 +1681,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Rooms/Backyard" unique_id=392031393]
-position = Vector2(66.112885, 65.73132)
-
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Backyard/StaticBody2D" unique_id=241179092]
-position = Vector2(14.97287, 10.853485)
-scale = Vector2(1.9981914, 1.7752489)
+[node name="Sprite2D" type="Sprite2D" parent="Rooms" unique_id=1661278338]
+position = Vector2(1386, 425)
 texture = SubResource("AtlasTexture_vhkcm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Backyard/StaticBody2D" unique_id=882444145]
-position = Vector2(14.948486, 9.432434)
-scale = Vector2(0.99999976, 0.9999999)
-shape = SubResource("RectangleShape2D_edc0a")
-
-[node name="a" type="StaticBody2D" parent="Rooms/Backyard" unique_id=184951490]
-position = Vector2(270.82898, 62.926865)
-
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Backyard/a" unique_id=922186983]
-position = Vector2(14.97287, 10.853485)
-scale = Vector2(1.9981914, 1.7752489)
-texture = SubResource("AtlasTexture_6qle1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Backyard/a" unique_id=459223760]
-position = Vector2(14.948486, 9.432434)
-scale = Vector2(0.99999976, 0.9999999)
-shape = SubResource("RectangleShape2D_edc0a")
 
 [node name="Roguelike GUI" type="Control" parent="." unique_id=563930200]
 layout_mode = 3

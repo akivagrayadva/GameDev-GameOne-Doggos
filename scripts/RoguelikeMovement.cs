@@ -1,10 +1,14 @@
 using Godot;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 public partial class RoguelikeMovement : Node2D {
 	public static RoguelikeMovement Instance;
-	DogController dogController;
-
+public DogController dogController;
+Random rand = new Random();
+HashSet<Marker2D> usedMarkers = new HashSet<Marker2D>();
+private bool hasSpawned = false;
 
 public enum DogBreed {
 	GoldenRetriever,
@@ -37,9 +41,9 @@ public enum DogBreed {
 	Node treatCounter;
 	CollisionShape2D dogCollision;
 	
+	public static int TotalTreats = 0;
+public static int PremiumTreats = 0;
 	
-	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
-	public static int PremiumTreats = 0;
 	
 	public static DogBreed[] OwnedDogs =
 	{
@@ -51,6 +55,7 @@ public enum DogBreed {
 	int kitchenTreats = 8;
 	int backyardTreats = 12;
 	int collectedTreats = 0;
+	int premiumCollected = 0;
 	//bool levelEnded = false;
 	
 	bool usedRevive = false;
@@ -62,7 +67,14 @@ public enum DogBreed {
 
 
 	public override void _Ready(){
+	
+	GD.Print("SPAWNING START");
+	if (hasSpawned) return;
+	hasSpawned = true;
+
+	
 	Instance = this;
+	usedMarkers.Clear();
 	CurrentDog = GachaShopUi.SelectedDog;
 			
 	activeDog = GetNode<CharacterBody2D>("DummyDog");       // Change to "ActiveDog" when the actual dog scene is ready
@@ -97,6 +109,108 @@ public enum DogBreed {
 	};
 
 	GD.Print("Ready to run.");
+	totalTreats = 0;
+	
+	int premiumLeft = (int)GD.RandRange(1, 3); // 1–2 per run
+
+	var spawns = GetNode<Node>("TreatSpawns");
+
+	SpawnTreatsInArea(spawns.GetNode("LivingRoom"), 4);
+	GD.Print("After LivingRoom - totalTreats: " + totalTreats);
+	SpawnTreatsInArea(spawns.GetNode("Kitchen"), 4);
+	GD.Print("After Kitchen - totalTreats: " + totalTreats);
+	SpawnTreatsInArea(spawns.GetNode("Backyard"), 4);
+	 GD.Print("After Backyard - totalTreats: " + totalTreats);
+	
+	// premium treats (extra)
+	int premiumCount = (int)GD.RandRange(1, 2);
+	for (int i = 0; i < premiumCount; i++)
+{
+	Node chosenRoom;
+
+	double roll = rand.NextDouble();
+
+	if (roll < 0.2)
+		chosenRoom = spawns.GetNode("LivingRoom");   // 20%
+	else if (roll < 0.6)
+		chosenRoom = spawns.GetNode("Kitchen");      // 40%
+	else
+		chosenRoom = spawns.GetNode("Backyard");     // 40%
+
+	SpawnOnePremium(chosenRoom);
+}
+	
+	}
+	
+	private void SpawnOnePremium(Node room)
+{
+	var markers = room.GetChildren()
+		.Where(x => x is Marker2D)
+		.Cast<Marker2D>()
+		.Where(m => !usedMarkers.Contains(m)) //  no overlap
+		.OrderBy(x => rand.Next())
+		.ToList();
+
+	if (markers.Count == 0)
+{
+	GD.Print("No free markers for premium");
+	return;
+}
+
+	var premiumScene = GD.Load<PackedScene>("res://scenes/PremiumTreat.tscn");
+
+	var spawn = markers[0]; //
+
+var treatInstance = (Node2D)premiumScene.Instantiate();
+room.AddChild(treatInstance);
+
+usedMarkers.Add(spawn); //
+
+treatInstance.GlobalPosition = spawn.GlobalPosition;
+treatInstance.ZIndex = 100;;
+}
+	 
+private void SpawnTreatsInArea(Node areaNode, int count)
+{
+	GD.Print("CALL SpawnTreatsInArea: " + areaNode.Name);
+	var treatScene = GD.Load<PackedScene>("res://scenes/Treat.tscn");
+
+	var markers = areaNode.GetChildren()
+		.OfType<Marker2D>()
+		.Where(m => !usedMarkers.Contains(m)) 
+		.ToList();;
+
+	//  shuffle
+	for (int i = markers.Count - 1; i > 0; i--)
+	{
+		int j = rand.Next(i + 1);
+		(markers[i], markers[j]) = (markers[j], markers[i]);
+	}
+
+	//  FORCE exactly count
+	for (int i = 0; i < count; i++)
+	{
+		GD.Print("SPAWNED STANDARD in " + areaNode.Name);
+		var spawn = markers[i];
+		usedMarkers.Add(spawn);
+
+		var treatInstance = (Node2D)treatScene.Instantiate();
+		areaNode.AddChild(treatInstance);
+
+		treatInstance.GlobalPosition = spawn.GlobalPosition;
+		treatInstance.ZIndex = 100;
+
+		totalTreats++;
+	}
+}
+
+
+
+	public void PremiumTreatCollected()
+{
+	PremiumTreats++;
+
+	GD.Print("Premium total: " + PremiumTreats);
 }
 
 	public void TreatCollected(){
@@ -104,18 +218,20 @@ public enum DogBreed {
 		TotalTreats++;
 		
 		//Opens the first door after all the treats have been collected
-		if(collectedTreats == livingRoomTreats){
+		if(collectedTreats == 4){
 			EmitSignal(SignalName.Room1TreatsCollected);
 		}
 		
 		//Open the second door after all the treats have been collected
-		if(collectedTreats == kitchenTreats) {
+		if(collectedTreats == 8) {
 			EmitSignal(SignalName.Room2TreatsCollected);
 		}
 		
 		if(collectedTreats == totalTreats){
 			OnGoalTouched();
 		}
+		
+	
 		
 	}
 

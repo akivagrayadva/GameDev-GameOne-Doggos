@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cjmnamg28qx1a" path="res://scripts/RoguelikeMovement.cs" id="1_y4nua"]
 [ext_resource type="SpriteFrames" uid="uid://cgugsepvxwu17" path="res://assets/Pet Dogs Pack/frostdog_frames.tres" id="2_5eco7"]
-[ext_resource type="Script" uid="uid://djaiqloxvwwq3" path="res://scripts/Treat.cs" id="2_ibjl0"]
 [ext_resource type="Texture2D" uid="uid://bn5wne1fqanmm" path="res://assets/livingroom_LRK.png" id="3_brp47"]
 [ext_resource type="Texture2D" uid="uid://j2pht23tbbog" path="res://assets/decorations_LRK.png" id="4_hcvjx"]
-[ext_resource type="Texture2D" uid="uid://qdpqw3xwojm7" path="res://assets/Top-Down_Retro_Interior/Treat.png" id="4_n1x8e"]
 [ext_resource type="Script" uid="uid://clrhohplbsy3x" path="res://scripts/Human.cs" id="5_55u56"]
 [ext_resource type="Texture2D" uid="uid://brpusgup4unts" path="res://assets/Top-Down_Retro_Interior/Floor.png" id="5_65ar4"]
 [ext_resource type="Texture2D" uid="uid://b1p2lukhyoc5d" path="res://assets/kitchen_LRK.png" id="6_4hwsn"]
@@ -35,10 +33,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brp47"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhnre"]
-atlas = ExtResource("4_n1x8e")
-region = Rect2(92, 126, 46, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdh2y"]
 size = Vector2(29.75, 30)
@@ -527,6 +521,83 @@ size = Vector2(152.34277, 168.00002)
 y_sort_enabled = true
 script = ExtResource("1_y4nua")
 
+[node name="TreatSpawns" type="Node2D" parent="Actors and Objects" unique_id=1393795296]
+
+[node name="LivingRoom" type="Node2D" parent="Actors and Objects/TreatSpawns" unique_id=234727254]
+
+[node name="Spawn1" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1540293367]
+position = Vector2(185, 440)
+
+[node name="Spawn2" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1836443677]
+position = Vector2(-339, 152)
+
+[node name="Spawn3" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=383186186]
+position = Vector2(251, 848)
+
+[node name="Spawn4" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1602843706]
+position = Vector2(362, 64)
+
+[node name="Spawn5" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1361958661]
+position = Vector2(-395, 908)
+
+[node name="Spawn6" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1028811963]
+position = Vector2(-131, 291)
+
+[node name="Spawn7" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1139449809]
+position = Vector2(-479, 620)
+
+[node name="Kitchen" type="Node2D" parent="Actors and Objects/TreatSpawns" unique_id=1660121783]
+
+[node name="Spawn8" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=1136871147]
+position = Vector2(435, 201)
+
+[node name="Spawn9" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=1402067347]
+position = Vector2(1226, 845)
+
+[node name="Spawn10" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=831885829]
+position = Vector2(416, 911)
+
+[node name="Spawn11" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=977597829]
+position = Vector2(893, 447)
+
+[node name="Spawn12" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=612260355]
+position = Vector2(864, 752)
+
+[node name="Spawn13" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=1443416064]
+position = Vector2(401, 860)
+
+[node name="Spawn14" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=1346632982]
+position = Vector2(1223, 191)
+
+[node name="Spawn15" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=2016781885]
+position = Vector2(1046, 372)
+
+[node name="Backyard" type="Node2D" parent="Actors and Objects/TreatSpawns" unique_id=1982836968]
+
+[node name="Spawn16" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=141232678]
+position = Vector2(1356, 491)
+
+[node name="Spawn17" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=164704402]
+position = Vector2(185, 440)
+
+[node name="Spawn18" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=1423106043]
+position = Vector2(1956, 822)
+
+[node name="Spawn19" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=1224884894]
+position = Vector2(1971, 130)
+
+[node name="Spawn20" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=632969382]
+position = Vector2(1324, 128)
+
+[node name="Spawn21" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=1589764758]
+position = Vector2(2096, 620)
+
+[node name="Spawn22" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=830962488]
+position = Vector2(1287, 924)
+
+[node name="Spawn23" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=1445339970]
+position = Vector2(1724, 303)
+
 [node name="DummyDog" type="CharacterBody2D" parent="Actors and Objects" unique_id=181501565]
 y_sort_enabled = true
 position = Vector2(211, 155)
@@ -566,174 +637,6 @@ color = Color(0.3476, 0.79, 0.42133328, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/DummyGoal" unique_id=782594766]
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Treat" type="Area2D" parent="Actors and Objects" unique_id=1330432456]
-position = Vector2(275, 864)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat" unique_id=908824225]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat" unique_id=2076938911]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat2" type="Area2D" parent="Actors and Objects" unique_id=1516485143]
-position = Vector2(-321, 144)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat2" unique_id=481410628]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat2" unique_id=1532771421]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat3" type="Area2D" parent="Actors and Objects" unique_id=1410161637]
-position = Vector2(344, 81)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat3" unique_id=7108962]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat3" unique_id=277658841]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat4" type="Area2D" parent="Actors and Objects" unique_id=372513754]
-position = Vector2(462, 177)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat4" unique_id=1067987534]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat4" unique_id=397433402]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat5" type="Area2D" parent="Actors and Objects" unique_id=1871211313]
-position = Vector2(1203, 259)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat5" unique_id=1708895666]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat5" unique_id=379343175]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat6" type="Area2D" parent="Actors and Objects" unique_id=1306472469]
-position = Vector2(412, 914)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat6" unique_id=1349413978]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat6" unique_id=354723316]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat7" type="Area2D" parent="Actors and Objects" unique_id=1672168417]
-position = Vector2(1247, 874)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat7" unique_id=1960377862]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat7" unique_id=1805740488]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat8" type="Area2D" parent="Actors and Objects" unique_id=1984259897]
-position = Vector2(2103, 141)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat8" unique_id=609327845]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat8" unique_id=439700885]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat9" type="Area2D" parent="Actors and Objects" unique_id=1899888608]
-position = Vector2(1296, 399)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat9" unique_id=1205083007]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat9" unique_id=2140212495]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat10" type="Area2D" parent="Actors and Objects" unique_id=583231912]
-position = Vector2(1986, 820)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat10" unique_id=443847375]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat10" unique_id=1777010751]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat11" type="Area2D" parent="Actors and Objects" unique_id=1679166076]
-position = Vector2(1298, 925)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat11" unique_id=1446245627]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat11" unique_id=1065471333]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
-
-[node name="Treat12" type="Area2D" parent="Actors and Objects" unique_id=71508234]
-position = Vector2(-394, 865)
-collision_layer = 8
-script = ExtResource("2_ibjl0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Treat12" unique_id=1690847471]
-scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_brp47")
-
-[node name="Sprite2D" type="Sprite2D" parent="Actors and Objects/Treat12" unique_id=1893943060]
-position = Vector2(-8.583069e-06, -2.861023e-06)
-scale = Vector2(0.9595113, 0.9958333)
-texture = SubResource("AtlasTexture_rhnre")
 
 [node name="DummyHuman" type="CharacterBody2D" parent="Actors and Objects" unique_id=72975321]
 y_sort_enabled = true

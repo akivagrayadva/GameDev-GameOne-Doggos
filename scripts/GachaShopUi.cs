@@ -93,7 +93,7 @@ public partial class GachaShopUi : Control
 
 	private void UpdateDogUI()
 	{
-		var currentDog = RoguelikeMovement.OwnedDogs[selectedDogIndex];
+	var currentDog = RoguelikeMovement.OwnedDogs[selectedDogIndex];
 	SelectedDog = currentDog;
 
 	dogName.Text = GetDogDisplayName(currentDog);

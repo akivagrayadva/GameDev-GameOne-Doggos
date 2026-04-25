@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cf0hdsqj8c0il"]
+
+[ext_resource type="Texture2D" uid="uid://dmwbkvpcs2y67" path="res://assets/Top-Down_Retro_Interior/PremiumTreat.png" id="2_focnf"]
+[ext_resource type="Script" uid="uid://ddrdohat2ee8q" path="res://scripts/PremiumTreat.cs" id="3_52jb2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brp47"]
+
+[node name="PremiumTreat" type="Area2D" unique_id=295746150]
+position = Vector2(614, 201)
+collision_layer = 8
+script = ExtResource("3_52jb2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1297869444]
+position = Vector2(10, 6)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_brp47")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1281974177]
+position = Vector2(9, 12.000001)
+scale = Vector2(0.1, 0.104)
+texture = ExtResource("2_focnf")

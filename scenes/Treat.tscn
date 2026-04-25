@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ir62eou4os7o"]
+
+[ext_resource type="Script" uid="uid://djaiqloxvwwq3" path="res://scripts/Treat.cs" id="1_fjsvs"]
+[ext_resource type="Texture2D" uid="uid://qdpqw3xwojm7" path="res://assets/Top-Down_Retro_Interior/Treat.png" id="2_aulxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brp47"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhnre"]
+atlas = ExtResource("2_aulxs")
+region = Rect2(92, 126, 46, 45)
+
+[node name="Treat" type="Area2D" unique_id=295746150]
+position = Vector2(614, 201)
+collision_layer = 8
+script = ExtResource("1_fjsvs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1297869444]
+position = Vector2(10, 6)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_brp47")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1281974177]
+position = Vector2(10, 5)
+scale = Vector2(0.9595113, 0.9958333)
+texture = SubResource("AtlasTexture_rhnre")

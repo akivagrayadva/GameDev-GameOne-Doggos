@@ -171,7 +171,10 @@ else
 		lastPosition = GlobalPosition;
 
 		Vector2 nextPoint = navAgent.GetNextPathPosition();
-		Vector2 direction = (nextPoint - GlobalPosition).Normalized() * speed;
+		var game = GetNode<RoguelikeMovement>("..");
+		float finalSpeed = speed * game.dogController.humanSpeedModifier;
+
+		Vector2 direction = (nextPoint - GlobalPosition).Normalized() * finalSpeed;
 		Velocity = direction;
 		MoveAndSlide();
 	}

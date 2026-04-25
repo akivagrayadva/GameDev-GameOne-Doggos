@@ -41,9 +41,9 @@ public enum DogBreed {
 	Node treatCounter;
 	CollisionShape2D dogCollision;
 	
-	public static int TotalTreats = 0;
-public static int PremiumTreats = 0;
 	
+	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
+	public static int PremiumTreats = 0;
 	
 	public static DogBreed[] OwnedDogs =
 	{

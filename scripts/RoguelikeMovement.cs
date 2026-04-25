@@ -3,7 +3,7 @@ using System;
 
 public partial class RoguelikeMovement : Node2D {
 	public static RoguelikeMovement Instance;
-	DogController dogController;
+	public DogController dogController;
 
 
 public enum DogBreed {
@@ -38,8 +38,8 @@ public enum DogBreed {
 	CollisionShape2D dogCollision;
 	
 	
-	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
-	public static int PremiumTreats = 0;
+	public static int TotalTreats= 50;         // to keep track of how many treats player has for the shop
+	public static int PremiumTreats = 20;
 	
 	public static DogBreed[] OwnedDogs =
 	{

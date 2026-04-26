@@ -43,7 +43,7 @@ public enum DogBreed {
 	
 	public static int LastSelectedDogIndex = 0;
 	
-	public static float TotalTreats = 50;         // to keep track of how many treats player has for the shop
+	public static float TotalTreats = 100;         // to keep track of how many treats player has for the shop
 	public static float PremiumTreats = 50;
 	
 	public static DogBreed[] OwnedDogs =

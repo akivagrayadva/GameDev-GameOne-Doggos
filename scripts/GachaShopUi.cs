@@ -240,7 +240,8 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 			"Get the treats.\n" +
 			"Don't get caught.\n\n" +
 			"Controls:\n" +
-			"→ WASD Keys or Arrow Keys to move\n\n" +
+			"→ WASD Keys or Arrow Keys to move\n" +
+			"→ Space key to use dog's ability\n\n" +
 			"Goal:\n" +
 			"→ Collect all treats\n" +
 			"→ Avoid the human\n\n" +

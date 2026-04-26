@@ -8,10 +8,16 @@ public partial class Human : CharacterBody2D
 
 	NavigationAgent2D navAgent;
 	CharacterBody2D dog;
+	
 	Marker2D preDoorTarget;
 	bool reachedPreDoor = false;
+	
+	Marker2D preDoorTarget2;
+	bool reachedPreDoor2 = false;
+	
 	Marker2D doorTarget;
 	Marker2D doorTarget2;
+	
 	List<Marker2D> unstuckMarkers = new List<Marker2D>();
 	Marker2D lastUnstuckMarker = null;
 
@@ -36,7 +42,9 @@ public partial class Human : CharacterBody2D
 
 		doorTarget = GetNode<Marker2D>("../LivingRoom_Navigation/WP_Door");
 		doorTarget2 = GetNode<Marker2D>("../Kitchen_Navigation/WP_Door2");
+		
 		preDoorTarget = GetNode<Marker2D>("../LivingRoom_Navigation/WP_PreDoor");
+		preDoorTarget2 = GetNode<Marker2D>("../Kitchen_Navigation/WP_PreDoor2");
 
 		Area2D doorTrigger = GetNode<Area2D>("../LivingRoom_Navigation/DoorTrigger");
 		doorTrigger.BodyEntered += OnDoorAreaEntered;
@@ -142,14 +150,25 @@ public partial class Human : CharacterBody2D
 			}
 		}
 		else if (headingToDoor2)
-		{
-			
-			
-			target = doorTarget2.GlobalPosition;
-			if (GlobalPosition.DistanceTo(doorTarget2.GlobalPosition) < 30f)
+{
+			if (!reachedPreDoor2)
 			{
-				headingToDoor2 = false;
-				GD.Print("Through door 2, resuming chase!");
+				target = preDoorTarget2.GlobalPosition;
+				if (GlobalPosition.DistanceTo(preDoorTarget2.GlobalPosition) < 30f)
+				{
+					reachedPreDoor2 = true;
+					GD.Print("Reached pre-door 2 marker, heading to door 2!");
+				}
+			}
+			else
+			{
+				target = doorTarget2.GlobalPosition;
+				if (GlobalPosition.DistanceTo(doorTarget2.GlobalPosition) < 30f)
+				{
+					headingToDoor2 = false;
+					reachedPreDoor2 = false;
+					GD.Print("Through door 2, resuming chase!");
+				}
 			}
 		}
 		else if (headingToUnstuck && currentUnstuckTarget != null)

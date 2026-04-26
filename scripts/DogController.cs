@@ -71,7 +71,7 @@ public partial class DogController : Node
 			GD.Print("Husky Sprint!");
 			RoguelikeMovement.Instance.ShowAbilityPopup(
 				"bro said no cap im built different and just ZOOMED",
-				2.5f);
+				5.0f);
 			break;
 
 		case RoguelikeMovement.DogBreed.FrostDog:
@@ -97,7 +97,7 @@ public partial class DogController : Node
 				GD.Print("Dash!");
 				RoguelikeMovement.Instance.ShowAbilityPopup(
 				"he said YEET and human watched him skeet",
-				2.5f);
+				5.0f);
 				break;
 				
 		case RoguelikeMovement.DogBreed.Akita:
@@ -109,7 +109,7 @@ public partial class DogController : Node
 			GD.Print("Bark Stun!");
 			 RoguelikeMovement.Instance.ShowAbilityPopup(
 				"BORK BORK BORK the human is witewy frozen rn",
-				2.5f);
+				5.0f);
 			break;
 
 		case RoguelikeMovement.DogBreed.GoldenRetriever:
@@ -120,7 +120,7 @@ public partial class DogController : Node
 			GD.Print("Who's a good boy??");
 			 RoguelikeMovement.Instance.ShowAbilityPopup(
 				"bestie said PET ME and the human FOLDED",
-				2.5f);
+				5.0f);
 			break;
 
 		case RoguelikeMovement.DogBreed.SaintBernard:
@@ -131,7 +131,7 @@ public partial class DogController : Node
 			GD.Print("Drool everywhere!");
 			RoguelikeMovement.Instance.ShowAbilityPopup(
 				"drool goes crazy the human slipped fr fr",
-				2.5f);
+				5.0f);
 			break;
 
 		case RoguelikeMovement.DogBreed.GreatDane:
@@ -142,7 +142,7 @@ public partial class DogController : Node
 			GD.Print("Intimidation!");
 			RoguelikeMovement.Instance.ShowAbilityPopup(
 				"human took one look and said nope not today",
-				2.5f);
+				5.0f);
 			break;
 	}
 }

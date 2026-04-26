@@ -130,9 +130,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(270, 435, 465, 435, 465, 639, 271, 638)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wd8cj"]
-vertices = PackedVector2Array(486.85156, 947, 383.95313, 947, 380.04688, 162, 475.14844, 162)
+vertices = PackedVector2Array(516.1328, 947, 383.95313, 947, 380.04688, 162, 526.8594, 162)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(374, 957, 497, 957, 485, 152, 370, 152)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(374, 957, 526, 957, 537, 152, 370, 152)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i8ope"]
 vertices = PackedVector2Array(1262.9297, 277, 448, 277, 448, 161.96875, 1262.0703, 160.02344)
@@ -165,9 +165,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(650, 753, 650, 900, 947, 900, 944, 753)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lr1m8"]
-vertices = PackedVector2Array(920.1094, 879.96875, 920.8828, 946, 473.1172, 946, 473.8828, 879.02344)
+vertices = PackedVector2Array(920.0781, 848.9531, 920.90625, 946, 473.07813, 946, 473.90625, 847.03906)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(464, 869, 930, 870, 931, 956, 463, 956)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(464, 837, 930, 839, 931, 956, 463, 956)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76041"]
 size = Vector2(20, 128)
@@ -697,7 +697,7 @@ radius = 3.0
 [node name="UnstuckMarkers" type="Node2D" parent="Actors and Objects" unique_id=1678233113]
 
 [node name="KitchenIsland1" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=19371379]
-position = Vector2(384, 244)
+position = Vector2(467, 214)
 
 [node name="KitchenIsland2" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1635464617]
 position = Vector2(1114, 333)
@@ -709,16 +709,16 @@ position = Vector2(418, 340)
 position = Vector2(1135, 239)
 
 [node name="KitchenTable1" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1786412958]
-position = Vector2(402, 737)
+position = Vector2(439, 716)
 
 [node name="KitchenTable2" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1074906193]
-position = Vector2(719, 925)
+position = Vector2(756, 904)
 
 [node name="KitchenTable3" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1387738629]
-position = Vector2(402, 924)
+position = Vector2(439, 903)
 
 [node name="KitchenTable4" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1636379894]
-position = Vector2(716, 738)
+position = Vector2(753, 717)
 
 [node name="MudroomWall" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1243423592]
 position = Vector2(848, 661)
@@ -748,7 +748,7 @@ position = Vector2(-102, 665)
 position = Vector2(454, 546)
 
 [node name="Door2Marker" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=181792661]
-position = Vector2(1330, 585)
+position = Vector2(1354, 585)
 
 [node name="Door1PreDoor" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1831265799]
 position = Vector2(306, 607)
@@ -757,16 +757,13 @@ position = Vector2(306, 607)
 position = Vector2(42, 425)
 
 [node name="Marker2D2" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=820463690]
-position = Vector2(39, 209)
+position = Vector2(39, 152)
 
 [node name="Marker2D3" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=1823589870]
 position = Vector2(300, 253)
 
 [node name="Marker2D4" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=192994580]
 position = Vector2(173, 148)
-
-[node name="Marker2D5" type="Marker2D" parent="Actors and Objects/UnstuckMarkers" unique_id=116366516]
-position = Vector2(1195, 579)
 
 [node name="LivingRoom_Navigation" type="Node2D" parent="Actors and Objects" unique_id=390023590]
 
@@ -821,7 +818,7 @@ navigation_polygon = SubResource("NavigationPolygon_kh0iw")
 navigation_polygon = SubResource("NavigationPolygon_2ixy2")
 
 [node name="WP_PreDoor" type="Marker2D" parent="Actors and Objects/LivingRoom_Navigation" unique_id=1631548107]
-position = Vector2(267, 552)
+position = Vector2(264, 590)
 
 [node name="Kitchen_Navigation" type="Node2D" parent="Actors and Objects" unique_id=25158746]
 
@@ -861,6 +858,9 @@ position = Vector2(1267, 549)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/Kitchen_Navigation/DoorTrigger2" unique_id=753819919]
 position = Vector2(1271, 547)
 shape = SubResource("RectangleShape2D_76041")
+
+[node name="WP_PreDoor2" type="Marker2D" parent="Actors and Objects/Kitchen_Navigation" unique_id=1207842160]
+position = Vector2(1160, 611)
 
 [node name="Backyard Navigation" type="Node2D" parent="Actors and Objects" unique_id=912030536]
 
@@ -1260,7 +1260,7 @@ scale = Vector2(1, 0.84131414)
 texture = SubResource("AtlasTexture_76041")
 
 [node name="Dining Area" type="Node2D" parent="Rooms/Kitchen" unique_id=1411404220]
-position = Vector2(-160.72128, 193.08649)
+position = Vector2(-139.35576, 181.19391)
 
 [node name="Chair" type="StaticBody2D" parent="Rooms/Kitchen/Dining Area" unique_id=1538103637]
 z_index = 91
@@ -1342,7 +1342,7 @@ scale = Vector2(3.761811, 3.991111)
 texture = SubResource("AtlasTexture_3ts2m")
 
 [node name="LivingRoomFloor" type="Sprite2D" parent="Rooms/Living Room" unique_id=534497294]
-position = Vector2(118.14781, -37.667408)
+position = Vector2(118.41365, -37.667408)
 scale = Vector2(1.002659, 1.0000001)
 texture = SubResource("AtlasTexture_8c5lc")
 

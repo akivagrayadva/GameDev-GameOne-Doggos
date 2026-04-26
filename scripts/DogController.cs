@@ -74,8 +74,8 @@ public partial class DogController : Node
 		case RoguelikeMovement.DogBreed.FrostDog:
 			// Slow human
 			humanSpeedModifier = baseHumanSpeed * 0.5f;
-			abilityTimer = 20.0f;
-			abilityCooldown = 20.0f;
+			abilityTimer = 10.0f;
+			abilityCooldown = 30.0f;
 			GD.Print("Frost Aura!");
 			break;
 

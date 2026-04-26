@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://dewhvn2wp335o"]
 
 [ext_resource type="Script" uid="uid://bbfn7de02aamh" path="res://scripts/GachaShopUi.cs" id="1_h5epl"]
-[ext_resource type="Texture2D" uid="uid://c6fj6eyrh2t17" path="res://assets/icons8-dog-bone-32.png" id="2_bsppm"]
 [ext_resource type="Texture2D" uid="uid://ix6milwoxyp0" path="res://assets/Arrow left bold.png" id="2_cspr6"]
 [ext_resource type="FontFile" uid="uid://b7v0s5yuaicm4" path="res://assets/TTF/dogicapixel.ttf" id="2_t7xrn"]
 [ext_resource type="FontFile" uid="uid://dms3tqy3xeyx" path="res://assets/TTF/dogica.ttf" id="3_5avp7"]
 [ext_resource type="SpriteFrames" uid="uid://c7n8q6ireuae7" path="res://assets/Cat/cat_frames.tres" id="4_vtgl6"]
+[ext_resource type="Texture2D" uid="uid://dmwbkvpcs2y67" path="res://assets/Top-Down_Retro_Interior/PremiumTreat.png" id="6_4vb04"]
+[ext_resource type="Texture2D" uid="uid://qdpqw3xwojm7" path="res://assets/Top-Down_Retro_Interior/Treat.png" id="7_x8a0k"]
 [ext_resource type="AudioStream" uid="uid://bpvre3cah0pww" path="res://assets/Pixel Peeker Polka - slower.mp3" id="7_4vb04"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8a0k"]
@@ -53,6 +54,14 @@ shadow_color = Color(0, 0, 0, 0.43529412)
 shadow_offset = Vector2(5, 3.41)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x8a0k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r5t0"]
+atlas = ExtResource("6_4vb04")
+region = Rect2(39, 91, 456, 227)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr7kc"]
+atlas = ExtResource("7_x8a0k")
+region = Rect2(92, 126, 46, 45)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bm85"]
 bg_color = Color(1, 1, 1, 1)
@@ -273,6 +282,14 @@ offset_right = 165.0
 offset_bottom = 227.0
 text = "babushka dog"
 
+[node name="DogAbilityLabel" type="Label" parent="MarginContainer/Split/LeftPanel/CurrentDog" unique_id=401912225]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 0
+offset_left = 27.0
+offset_top = 312.0
+offset_right = 67.0
+offset_bottom = 335.0
+
 [node name="PrevButton" type="TextureButton" parent="MarginContainer/Split/LeftPanel/CurrentDog" unique_id=1896028592]
 layout_mode = 1
 anchors_preset = -1
@@ -388,8 +405,8 @@ position = Vector2(67.87242, 61.0065)
 scale = Vector2(0.2, 0.2)
 sprite_frames = ExtResource("4_vtgl6")
 animation = &"talk"
-frame = 1
-frame_progress = 0.96874315
+frame = 6
+frame_progress = 0.60569227
 
 [node name="Speech bubble" type="PanelContainer" parent="MarginContainer/Split/RightPanel/CatHud" unique_id=345498112]
 custom_minimum_size = Vector2(200, 80)
@@ -406,16 +423,17 @@ text = "\"Oh, back again are we?\""
 [node name="Currency" type="HBoxContainer" parent="MarginContainer/Split/RightPanel" unique_id=663468372]
 layout_mode = 0
 offset_left = 6.0
-offset_top = -1.0
+offset_top = 2.0
 offset_right = 466.0
-offset_bottom = 31.0
+offset_bottom = 47.0
 
 [node name="PremiumTreat" type="HBoxContainer" parent="MarginContainer/Split/RightPanel/Currency" unique_id=1595123688]
 layout_mode = 2
 
 [node name="TreatIcon" type="TextureRect" parent="MarginContainer/Split/RightPanel/Currency/PremiumTreat" unique_id=2134173845]
 layout_mode = 2
-texture = ExtResource("2_bsppm")
+texture = SubResource("AtlasTexture_3r5t0")
+expand_mode = 3
 
 [node name="AmountOfTreats" type="Label" parent="MarginContainer/Split/RightPanel/Currency/PremiumTreat" unique_id=2090447899]
 layout_mode = 2
@@ -427,7 +445,7 @@ layout_mode = 2
 
 [node name="TreatIcon" type="TextureRect" parent="MarginContainer/Split/RightPanel/Currency/Treat" unique_id=1033166286]
 layout_mode = 2
-texture = ExtResource("2_bsppm")
+texture = SubResource("AtlasTexture_mr7kc")
 
 [node name="TreatAmount" type="Label" parent="MarginContainer/Split/RightPanel/Currency/Treat" unique_id=1867597547]
 layout_mode = 2
@@ -436,9 +454,9 @@ text = "x0"
 
 [node name="DifficultyContainer" type="HBoxContainer" parent="MarginContainer/Split/RightPanel" unique_id=1657059080]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 93.0
 offset_top = 315.0
-offset_right = 404.0
+offset_right = 427.0
 offset_bottom = 364.0
 theme_override_constants/separation = 27
 
@@ -460,8 +478,9 @@ text = "EZ"
 autowrap_mode = 2
 
 [node name="NormalButton" type="Button" parent="MarginContainer/Split/RightPanel/DifficultyContainer" unique_id=2108196102]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)

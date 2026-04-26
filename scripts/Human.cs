@@ -143,6 +143,8 @@ public partial class Human : CharacterBody2D
 		}
 		else if (headingToDoor2)
 		{
+			
+			
 			target = doorTarget2.GlobalPosition;
 			if (GlobalPosition.DistanceTo(doorTarget2.GlobalPosition) < 30f)
 			{

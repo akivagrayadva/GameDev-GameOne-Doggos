@@ -283,23 +283,23 @@ private void SetDogSprite(DogBreed dog)
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/schnauzer_frames.tres");
 			dogAnim.Scale = new Vector2(2.5f, 2.5f);
 			if (rectShape != null)
-				rectShape.Size = new Vector2(40,16);
-			dogCollision.Position = new Vector2(0, 0);
+				rectShape.Size = new Vector2(60,30);
+			dogCollision.Position = new Vector2(0, 8);
 			break;
 
 		case DogBreed.GoldenRetriever:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/goldenretriever_frames.tres");
 			dogAnim.Scale = new Vector2(3.8f, 3.8f);
 			if (rectShape != null)
-				rectShape.Size = new Vector2(60, 30);
-			dogCollision.Position = new Vector2(0, 3);
+				rectShape.Size = new Vector2(95, 55 );
+			dogCollision.Position = new Vector2(0, 6);
 			break;
 
 		case DogBreed.Akita:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/akita_frames.tres");
 			dogAnim.Scale = new Vector2(4.5f, 4.5f);
 			if (rectShape != null)
-				rectShape.Size = new Vector2(44, 24);
+				rectShape.Size = new Vector2(65, 45);
 			dogCollision.Position = new Vector2(0, 3);
 			break;
 
@@ -307,24 +307,24 @@ private void SetDogSprite(DogBreed dog)
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/greatdane_frames.tres");
 			dogAnim.Scale = new Vector2(3.3f, 3.3f);
 			if (rectShape != null)
-				rectShape.Size = new Vector2(70, 35);
-			dogCollision.Position = new Vector2(0, 4);
+				rectShape.Size = new Vector2(90, 60);
+			dogCollision.Position = new Vector2(1, 4);
 			break;
 
 		case DogBreed.SaintBernard:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/saintbernard_frames.tres");
 			dogAnim.Scale = new Vector2(3.0f, 3.0f);
 			if (rectShape != null)
-				rectShape.Size = new Vector2(75, 35);
+				rectShape.Size = new Vector2(95,65);
 			
-			dogCollision.Position = new Vector2(-10, 6);
+			dogCollision.Position = new Vector2(1, 4);
 			break;
 
 		case DogBreed.SiberianHusky:
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/siberianhusky_frames.tres");
 			dogAnim.Scale = new Vector2(3.5f, 3.5f);
 			if (rectShape != null)
-				rectShape.Size = new Vector2(60, 25);
+				rectShape.Size = new Vector2(85, 60);
 			dogCollision.Position = new Vector2(0, 0);
 			break;
 			
@@ -332,7 +332,7 @@ private void SetDogSprite(DogBreed dog)
 			dogAnim.SpriteFrames = GD.Load<SpriteFrames>("res://assets/Pet Dogs Pack/frostdog_frames.tres");
 			dogAnim.Scale = new Vector2(2.0f, 2.0f);
 			if (rectShape != null)
-				rectShape.Size = new Vector2(60, 30);
+				rectShape.Size = new Vector2(85, 60);
 			dogCollision.Position = new Vector2(0, 3);
 			break;
 	}

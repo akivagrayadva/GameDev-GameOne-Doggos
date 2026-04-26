@@ -7,6 +7,7 @@
 [ext_resource type="SpriteFrames" uid="uid://c7n8q6ireuae7" path="res://assets/Cat/cat_frames.tres" id="4_vtgl6"]
 [ext_resource type="Texture2D" uid="uid://dmwbkvpcs2y67" path="res://assets/Top-Down_Retro_Interior/PremiumTreat.png" id="6_4vb04"]
 [ext_resource type="Texture2D" uid="uid://qdpqw3xwojm7" path="res://assets/Top-Down_Retro_Interior/Treat.png" id="7_x8a0k"]
+[ext_resource type="AudioStream" uid="uid://bpvre3cah0pww" path="res://assets/Pixel Peeker Polka - slower.mp3" id="7_4vb04"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8a0k"]
 bg_color = Color(0.6042546, 0.5485357, 0.7076875, 1)
@@ -658,3 +659,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ytr8g")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3ttbl")
 theme_override_styles/focus = SubResource("StyleBoxFlat_u7okx")
 text = "Start Fetching!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1348919896]
+stream = ExtResource("7_4vb04")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true

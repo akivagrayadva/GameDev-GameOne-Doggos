@@ -60,6 +60,8 @@ public partial class GachaShopUi : Control
 
 	public override void _Ready()
 {
+	
+
 	GD.Print("Gacha Shop ready.");
 	
 	shopCat = GetNode<AnimatedSprite2D>("MarginContainer/Split/RightPanel/CatHud/ShopCat");

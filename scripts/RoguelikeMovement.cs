@@ -41,6 +41,7 @@ public enum DogBreed {
 	Node treatCounter;
 	CollisionShape2D dogCollision;
 	
+	public static int LastSelectedDogIndex = 0;
 	
 	public static float TotalTreats = 50;         // to keep track of how many treats player has for the shop
 	public static float PremiumTreats = 50;
@@ -58,8 +59,7 @@ public enum DogBreed {
 	int premiumCollected = 0;
 	//bool levelEnded = false;
 	
-	bool usedRevive = false;
-	
+		
 	public float dogSpeed = GLOBAL_CONSTANTS.DOG_SPEED;
 
 	//  turn speed for different dog handling
@@ -316,7 +316,8 @@ private void SetDogSprite(DogBreed dog)
 			dogAnim.Scale = new Vector2(3.0f, 3.0f);
 			if (rectShape != null)
 				rectShape.Size = new Vector2(75, 35);
-			dogCollision.Position = new Vector2(0, 0);
+			
+			dogCollision.Position = new Vector2(-10, 6);
 			break;
 
 		case DogBreed.SiberianHusky:
@@ -389,12 +390,6 @@ private void SetDogSprite(DogBreed dog)
 	}
 
 	public void OnFailTouched() {
-		if (CurrentDog == DogBreed.SaintBernard && !usedRevive)
-	{
-		usedRevive = true;
-		GD.Print("Second Chance!");
-		return;
-	}
 		
 		GD.Print("You Got Caught! Returning to Gacha Shop...");
 		GetTree().ChangeSceneToFile("res://scenes/gacha_shop.tscn");

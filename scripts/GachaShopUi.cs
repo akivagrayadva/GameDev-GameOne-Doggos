@@ -112,6 +112,14 @@ public partial class GachaShopUi : Control
 	GD.Print("SHOP LOAD TotalTreats: " + RoguelikeMovement.TotalTreats);
 
 	UpdateTreatUI();
+	selectedDogIndex = RoguelikeMovement.LastSelectedDogIndex;
+
+if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
+{
+	selectedDogIndex = 0;
+}
+
+	
 	UpdateDogUI();
 	SetupTutorialText();
 
@@ -194,7 +202,10 @@ public partial class GachaShopUi : Control
 		if (selectedDogIndex < 0)
 		{
 			selectedDogIndex = RoguelikeMovement.OwnedDogs.Length - 1;
+			
 		}
+	
+		RoguelikeMovement.LastSelectedDogIndex = selectedDogIndex;
 
 		UpdateDogUI();
 	}
@@ -209,6 +220,7 @@ public partial class GachaShopUi : Control
 			selectedDogIndex = 0;
 		}
 
+		RoguelikeMovement.LastSelectedDogIndex = selectedDogIndex;
 		UpdateDogUI();
 	}
 
@@ -266,6 +278,7 @@ public partial class GachaShopUi : Control
 
 	AddDog(dog);
 	selectedDogIndex = RoguelikeMovement.OwnedDogs.Length - 1;
+	RoguelikeMovement.LastSelectedDogIndex = selectedDogIndex;
 	UpdateDogUI();
 	UpdateTreatUI();
 }
@@ -306,7 +319,8 @@ private void OnPremiumPull()
 
 	AddDog(dog);
 
-	selectedDogIndex = RoguelikeMovement.OwnedDogs.Length - 1; 
+	selectedDogIndex = RoguelikeMovement.OwnedDogs.Length - 1;
+	RoguelikeMovement.LastSelectedDogIndex = selectedDogIndex;
 	UpdateDogUI();
 	UpdateTreatUI();
 }

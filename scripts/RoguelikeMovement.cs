@@ -3,6 +3,17 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
+/**
+ * RoguelikeMovement is the main game controller.
+ *
+ * Responsibilities:
+ * - Spawning treats and premium treats
+ * - Tracking game progress (treats collected)
+ * - Managing player (dog) + human references
+ * - Handling win/lose conditions
+ * - Connecting UI (ability popup)
+ * - Initializing DogController
+ */
 public partial class RoguelikeMovement : Node2D {
 	public static RoguelikeMovement Instance;
 public DogController dogController;
@@ -71,10 +82,11 @@ public enum DogBreed {
 	AnimatedSprite2D catSprite;
 	float popupTimer = 0f;
 
-
-	public override void _Ready(){
-	
-	
+	/**
+	 * Runs once when scene starts.
+	 * Initializes everything in the game.
+	 */
+	public override void _Ready(){	
 
 	GD.Print("SPAWNING START");
 	if (hasSpawned) return;
@@ -232,7 +244,9 @@ private void SpawnTreatsInArea(Node areaNode, int count)
 }
 
 
-
+	/**
+	 * Called when player collects a premium treat.
+	 */
 	public void PremiumTreatCollected()
 {
 	PremiumTreats++;
@@ -240,6 +254,9 @@ private void SpawnTreatsInArea(Node areaNode, int count)
 	GD.Print("Premium total: " + PremiumTreats);
 }
 
+	/**
+	 * Called when player collects a normal treat.
+	 */
 	public void TreatCollected(){
 		collectedTreats++;
 		TotalTreats += GachaShopUi.GetTreatMultiplier();

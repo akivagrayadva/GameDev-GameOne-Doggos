@@ -2,6 +2,16 @@ using Godot;
 using System;
 using System.Linq;
 
+
+/**
+ * GachaShopUi handles:
+ * - Shop UI interactions (buttons, labels)
+ * - Dog selection and display
+ * - Gacha pulling system (standard + premium)
+ * - Difficulty selection
+ * - Tutorial popup
+ * - Scene transitions (play / title)
+ */
 public partial class GachaShopUi : Control
 {
 	Button fetchButton;
@@ -42,6 +52,9 @@ public partial class GachaShopUi : Control
 	public enum Difficulty { Easy, Normal, Hard }
 	public static Difficulty SelectedDifficulty = Difficulty.Normal;
 	
+	/**
+	 * Returns multiplier for treat rewards based on difficulty.
+	 */
 	public static float GetTreatMultiplier() => SelectedDifficulty switch
 		{
 			Difficulty.Easy => 0.5f,
@@ -49,6 +62,9 @@ public partial class GachaShopUi : Control
 			_ => 1.0f
 		};
 
+		/**
+	 	* Returns multiplier for human speed based on difficulty.
+		*/
 		public static float GetHumanSpeedMultiplier() => SelectedDifficulty switch
 		{
 			Difficulty.Easy => 1.0f,
@@ -58,6 +74,13 @@ public partial class GachaShopUi : Control
 	
 	private int selectedDogIndex = 0;
 
+
+	/**
+	 * Called when UI loads.
+	 * - Gets all node references
+	 * - Connects button signals
+	 * - Initializes UI state
+	 */
 	public override void _Ready()
 {
 	
@@ -115,6 +138,7 @@ public partial class GachaShopUi : Control
 
 	GD.Print("SHOP LOAD TotalTreats: " + RoguelikeMovement.TotalTreats);
 
+	
 	UpdateTreatUI();
 	selectedDogIndex = RoguelikeMovement.LastSelectedDogIndex;
 
@@ -137,12 +161,18 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 		tutorialPopup.Visible = false;
 	}
 }
+	/**
+	 * Updates treat and premium treat display.
+	 */
 	private void UpdateTreatUI()
 	{
 		treatLabel.Text = "x" + Math.Floor(RoguelikeMovement.TotalTreats);
 		premiumTreatLabel.Text = "x" + RoguelikeMovement.PremiumTreats;
 	}
-
+	
+	/**
+	 * Updates currently selected dog UI.
+	 */
 	private void UpdateDogUI()
 	{
 	var currentDog = RoguelikeMovement.OwnedDogs[selectedDogIndex];
@@ -153,7 +183,8 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 	abilityLabel.Text = GetDogAbilityDescription(currentDog);
 	 GD.Print("Ability text set to: " + abilityLabel.Text);
 	}
-
+	
+	
 	private string GetDogDisplayName(RoguelikeMovement.DogBreed dog)
 	{
 		switch (dog)
@@ -200,6 +231,9 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 		}
 	}
 
+	/**
+	 * Moves to previous dog in list (wraps around).
+	 */
 	private void OnPrevPressed()
 	{
 		GD.Print("Prev button clicked");
@@ -215,7 +249,10 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 
 		UpdateDogUI();
 	}
-
+	
+	/**
+	 * Moves to next dog in list (wraps around).
+	 */
 	private void OnNextPressed()
 	{
 		GD.Print("Next button clicked");
@@ -270,6 +307,11 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 		GetTree().ChangeSceneToFile("res://scenes/main_menu.tscn");
 	}
 	
+	/**
+	 * Handles standard gacha pull.
+	 * - Costs normal treats
+	 * - Gives common dogs
+	 */
 	private void OnStandardPull()
 {
 	if (Math.Floor(RoguelikeMovement.TotalTreats) < STANDARD_PULL_COST)
@@ -290,6 +332,12 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 	UpdateTreatUI();
 }
 
+/**
+ * Handles premium gacha pull.
+ * - Costs premium + normal treats
+ * - Only gives rare dogs
+ * - Prevents duplicates
+ */
 private void OnPremiumPull()
 {
 	if (RoguelikeMovement.PremiumTreats < PREMIUM_PULL_COST || RoguelikeMovement.TotalTreats < PREMIUM_TREAT_COST)
@@ -368,7 +416,9 @@ private void OnDifficultySelected(Difficulty difficulty)
 	SelectedDifficulty = difficulty;
 	UpdateDifficultyUI();
 }
-
+/**
+  * Updates difficulty button visuals + description text.
+  */
 private void UpdateDifficultyUI()
 {
 	// reset style - white background, no border

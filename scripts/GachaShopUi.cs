@@ -61,7 +61,7 @@ public partial class GachaShopUi : Control
 	public override void _Ready()
 {
 	
-
+	
 	GD.Print("Gacha Shop ready.");
 	
 	shopCat = GetNode<AnimatedSprite2D>("MarginContainer/Split/RightPanel/CatHud/ShopCat");
@@ -159,19 +159,19 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 		switch (dog)
 		{
 			case RoguelikeMovement.DogBreed.GoldenRetriever:
-				return "Golden Retriever";
+				return "Goodest Boy";
 			case RoguelikeMovement.DogBreed.Akita:
-				return "Akita";
+				return "Pulled Bork";
 			case RoguelikeMovement.DogBreed.GreatDane:
-				return "Great Dane";
+				return "Big Boy Supreme";
 			case RoguelikeMovement.DogBreed.Schnauzer:
-				return "Schnauzer";
+				return "Smol King";
 			case RoguelikeMovement.DogBreed.SaintBernard:
-				return "Saint Bernard";
+				return "Slobber Chonk";
 			case RoguelikeMovement.DogBreed.SiberianHusky:
-				return "Siberian Husky";
+				return "Certified Zoomer";
 			case RoguelikeMovement.DogBreed.FrostDog:
-				return "Frosty";
+				return "Ice Gremlin";
 			default:
 				return "Dog";
 		}
@@ -279,7 +279,7 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 
 	RoguelikeMovement.TotalTreats -= STANDARD_PULL_COST;
 
-	var dog = RollDog(false);
+	var dog = RollDog();
 	GD.Print("Pulled: " + dog);
 
 	AddDog(dog);
@@ -300,20 +300,21 @@ private void OnPremiumPull()
 	RoguelikeMovement.PremiumTreats -= PREMIUM_PULL_COST;
 	RoguelikeMovement.TotalTreats -= PREMIUM_TREAT_COST;
 
-	RoguelikeMovement.DogBreed dog;
-
-	int safety = 0;
-
-	//  reroll until NOT owned
-	do
+	var premiumDogs = new[]
 	{
-		dog = RollDog(true);
-		safety++;
-	}
-	while (RoguelikeMovement.OwnedDogs.Contains(dog) && safety < 10);
+		RoguelikeMovement.DogBreed.SiberianHusky,
+		RoguelikeMovement.DogBreed.FrostDog,
+		RoguelikeMovement.DogBreed.GreatDane,
+		RoguelikeMovement.DogBreed.SaintBernard
+	};
 
-	//  if ALL dogs owned → fallback
-	if (RoguelikeMovement.OwnedDogs.Contains(dog))
+	//  only dogs you DON'T own
+	var availableDogs = premiumDogs
+		.Where(d => !RoguelikeMovement.OwnedDogs.Contains(d))
+		.ToList();
+
+	// if all owned
+	if (availableDogs.Count == 0)
 	{
 		GD.Print("All premium dogs owned! Giving bonus instead.");
 		RoguelikeMovement.PremiumTreats += 1;
@@ -321,35 +322,28 @@ private void OnPremiumPull()
 		return;
 	}
 
-	GD.Print(" PREMIUM: " + dog);
+	// pick clean random
+	var dog = availableDogs[rand.Next(availableDogs.Count)];
+
+	GD.Print("PREMIUM: " + dog);
 
 	AddDog(dog);
 
 	selectedDogIndex = RoguelikeMovement.OwnedDogs.Length - 1;
 	RoguelikeMovement.LastSelectedDogIndex = selectedDogIndex;
+
 	UpdateDogUI();
 	UpdateTreatUI();
 }
 
 
-private RoguelikeMovement.DogBreed RollDog(bool premium)
+private RoguelikeMovement.DogBreed RollDog()
 {
 	int roll = rand.Next(0, 100);
 
-	if (premium)
-	{
-		// PREMIUM POOL (no common dogs)
-		if (roll < 40) return RoguelikeMovement.DogBreed.SiberianHusky;
-		if (roll < 75) return RoguelikeMovement.DogBreed.FrostDog;
-		if (roll < 90) return RoguelikeMovement.DogBreed.GreatDane;
-		return RoguelikeMovement.DogBreed.SaintBernard; // rarest
-	}
-	else
-	{
-		// STANDARD POOL (common only)
-		if (roll < 80) return RoguelikeMovement.DogBreed.Akita;
-		return RoguelikeMovement.DogBreed.Schnauzer;
-	}
+	// STANDARD ONLY
+	if (roll < 50) return RoguelikeMovement.DogBreed.Akita;
+	return RoguelikeMovement.DogBreed.Schnauzer;
 }
 private void AddDog(RoguelikeMovement.DogBreed dog)
 {

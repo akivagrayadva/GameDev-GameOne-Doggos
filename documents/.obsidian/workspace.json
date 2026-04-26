@@ -150,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "resources/PROMPT-QUICK-REF.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of PROMPT-QUICK-REF"
+              "title": "Outline"
             }
           }
         ]
@@ -177,15 +176,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "16fc85179f425165",
+  "active": "a07468f3f3365d81",
   "lastOpenFiles": [
+    "resources/PROMPT-QUICK-REF.md",
     "ai-usage/disclosures/akivagrayadva/transparency-logs/log-2026-04-08-akivagrayadva-01.md",
+    "ai-usage/disclosures/akivagrayadva/transparency-logs",
     "ai-usage/disclosures/akivagrayadva/session-2026-04-08-akivagrayadva-01.md",
+    "ai-usage/disclosures/akivagrayadva",
     "ai-usage/thaimor/session-2026-04-08-akivagrayadva-01.md",
     "ai-usage/thaimor/session-2026-04-08-thaimor-01.md",
     "ai-usage/thaimor/transparency-logs",
     "ai-usage/thaimor",
-    "resources/PROMPT-QUICK-REF.md",
     "resources/FOR-CONTRIBUTORS.md",
     "resources",
     "docs/PROJECT-CONTEXT.md",
@@ -193,13 +194,11 @@
     "docs",
     "ai-usage/policies/HOMEWORK-MANIFESTO.md",
     "ai-usage/policies",
-    "ai-usage/disclosures/akivagrayadva/transparency-logs",
     "docs/PROJECT-CONTEXT.md.tmp.35932.1775064527399",
     "ai-usage/resources/PROMPT-QUICK-REF.md",
     "docs/FOR-CONTRIBUTORS.md",
     "Welcome.md",
     "ai-usage/disclosures/akivagrayadva/compact-logs",
-    "ai-usage/disclosures/ashniccole",
-    "ai-usage/disclosures/joshryder55"
+    "ai-usage/disclosures/ashniccole"
   ]
 }

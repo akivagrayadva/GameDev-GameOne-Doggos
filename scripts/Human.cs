@@ -8,12 +8,15 @@ public partial class Human : CharacterBody2D
 
 	NavigationAgent2D navAgent;
 	CharacterBody2D dog;
+	Marker2D preDoorTarget;
+	bool reachedPreDoor = false;
 	Marker2D doorTarget;
 	Marker2D doorTarget2;
 	List<Marker2D> unstuckMarkers = new List<Marker2D>();
 	Marker2D lastUnstuckMarker = null;
 
-	float speed = 0f;
+	float speed = 170f; // safe fallback until initialized
+	bool speedInitialized = false;
 	float stuckTimer = 0f;
 	float stuckThreshold = 0.5f;
 	Vector2 lastPosition;
@@ -22,7 +25,7 @@ public partial class Human : CharacterBody2D
 	bool headingToDoor2 = false;
 	bool headingToUnstuck = false;
 	Marker2D currentUnstuckTarget = null;
-	
+
 	AnimatedSprite2D humanAnim;
 
 	public override void _Ready()
@@ -33,25 +36,20 @@ public partial class Human : CharacterBody2D
 
 		doorTarget = GetNode<Marker2D>("../LivingRoom_Navigation/WP_Door");
 		doorTarget2 = GetNode<Marker2D>("../Kitchen_Navigation/WP_Door2");
+		preDoorTarget = GetNode<Marker2D>("../LivingRoom_Navigation/WP_PreDoor");
 
 		Area2D doorTrigger = GetNode<Area2D>("../LivingRoom_Navigation/DoorTrigger");
 		doorTrigger.BodyEntered += OnDoorAreaEntered;
-		
+
 		Area2D doorTrigger2 = GetNode<Area2D>("../Kitchen_Navigation/DoorTrigger2");
 		doorTrigger2.BodyEntered += OnDoorTrigger2Entered;
 
-		// set speed relative to dog speed
-		var gameScript = GetNode<RoguelikeMovement>("..");
-		speed = gameScript.dogSpeed * 0.85f;
-		GD.Print("Human speed set to: " + speed);
-
-		// load unstuck markers
 		Node unstuckNode = GetNode("../UnstuckMarkers");
 		foreach (Marker2D marker in unstuckNode.GetChildren())
 		{
 			unstuckMarkers.Add(marker);
 		}
-		
+
 		humanAnim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		GD.Print("HumanAI Ready!");
 		GD.Print("NavAgent: " + navAgent);
@@ -59,6 +57,15 @@ public partial class Human : CharacterBody2D
 		GD.Print("Unstuck markers loaded: " + unstuckMarkers.Count);
 	}
 
+	private void OnDoorAreaEntered(Node2D body)
+	{
+		if (body.Name == "DummyDog" && !headingToDoor)
+		{
+			headingToDoor = true;
+			reachedPreDoor = false;
+			GD.Print("Dog entered door, human heading to pre-door marker!");
+		}
+	}
 
 	private void OnDoorTrigger2Entered(Node2D body)
 	{
@@ -69,17 +76,22 @@ public partial class Human : CharacterBody2D
 		}
 	}
 
-	private void OnDoorAreaEntered(Node2D body)
-	{
-		if (body.Name == "DummyDog" && !headingToDoor)
-		{
-			headingToDoor = true;
-			GD.Print("Dog entered door, human heading to door marker!");
-		}
-	}
-
 	public override void _PhysicsProcess(double delta)
 	{
+		ZIndex = (int)(GlobalPosition.Y / 10);
+
+		// initialize speed once dogController is ready
+		if (!speedInitialized)
+		{
+			var gameScript = GetNode<RoguelikeMovement>("..");
+			if (gameScript.dogController != null)
+			{
+				speed = gameScript.dogController.dogSpeed * GachaShopUi.GetHumanSpeedMultiplier();
+				speedInitialized = true;
+				GD.Print("Human speed initialized: " + speed);
+			}
+		}
+
 		switch (currentState)
 		{
 			case HumanState.Chasing: HandleChase(delta); break;
@@ -92,29 +104,41 @@ public partial class Human : CharacterBody2D
 	private void HandleChase(double delta)
 	{
 		Vector2 target;
-		
-		humanAnim.Play("walk");
 
+		// animation
 		if (Velocity.Length() > 0)
-{
-	humanAnim.Play("walk");
-	if (Velocity.X < 0)
-		humanAnim.FlipH = true;
-	else if (Velocity.X > 0)
-		humanAnim.FlipH = false;
-}
-else
-{
-	humanAnim.Play("idle");
-}
+		{
+			humanAnim.Play("walk");
+			if (Velocity.X < 0)
+				humanAnim.FlipH = true;
+			else if (Velocity.X > 0)
+				humanAnim.FlipH = false;
+		}
+		else
+		{
+			humanAnim.Play("idle");
+		}
 
 		if (headingToDoor)
 		{
-			target = doorTarget.GlobalPosition;
-			if (GlobalPosition.DistanceTo(doorTarget.GlobalPosition) < 30f)
+			if (!reachedPreDoor)
 			{
-				headingToDoor = false;
-				GD.Print("Through the door, resuming chase!");
+				target = preDoorTarget.GlobalPosition;
+				if (GlobalPosition.DistanceTo(preDoorTarget.GlobalPosition) < 30f)
+				{
+					reachedPreDoor = true;
+					GD.Print("Reached pre-door marker, heading to door!");
+				}
+			}
+			else
+			{
+				target = doorTarget.GlobalPosition;
+				if (GlobalPosition.DistanceTo(doorTarget.GlobalPosition) < 30f)
+				{
+					headingToDoor = false;
+					reachedPreDoor = false;
+					GD.Print("Through the door, resuming chase!");
+				}
 			}
 		}
 		else if (headingToDoor2)
@@ -152,7 +176,7 @@ else
 			{
 				stuckTimer = 0f;
 
-				if (!headingToUnstuck && !headingToDoor)
+				if (!headingToUnstuck && !headingToDoor && !headingToDoor2)
 				{
 					currentUnstuckTarget = FindNearestUnstuckMarker();
 					if (currentUnstuckTarget != null)

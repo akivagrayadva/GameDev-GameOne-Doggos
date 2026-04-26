@@ -345,6 +345,36 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t7xrn")
 text = "x0"
 
+[node name="DifficultyContainer" type="HBoxContainer" parent="MarginContainer/Split/RightPanel" unique_id=1657059080]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 315.0
+offset_right = 404.0
+offset_bottom = 364.0
+theme_override_constants/separation = 27
+
+[node name="EasyButton" type="Button" parent="MarginContainer/Split/RightPanel/DifficultyContainer" unique_id=213184349]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "EZ"
+
+[node name="NormalButton" type="Button" parent="MarginContainer/Split/RightPanel/DifficultyContainer" unique_id=2108196102]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Normal"
+
+[node name="HardButton" type="Button" parent="MarginContainer/Split/RightPanel/DifficultyContainer" unique_id=508861861]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Hard"
+
+[node name="DifficultyInfo" type="Label" parent="MarginContainer/Split/RightPanel" unique_id=584566468]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 287.0
+offset_right = 141.0
+offset_bottom = 310.0
+
 [node name="ButtonRow" type="HBoxContainer" parent="MarginContainer/Split/RightPanel" unique_id=361060200]
 z_as_relative = false
 custom_minimum_size = Vector2(300, 100)

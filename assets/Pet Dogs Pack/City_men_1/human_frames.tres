@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://bhuavpwl3rtpk"]
 
 [ext_resource type="Texture2D" uid="uid://e81avw2l725q" path="res://assets/Pet Dogs Pack/City_men_1/Walk.png" id="1_dhrdn"]
-[ext_resource type="Texture2D" uid="uid://d24bkx04ld4mu" path="res://assets/Pet Dogs Pack/City_men_1/Idle.png" id="1_gtotn"]
+[ext_resource type="Texture2D" uid="uid://d24bkx04ld4mu" path="res://assets/City_men_1/Idle.png" id="1_gtotn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rirv3"]
 atlas = ExtResource("1_gtotn")

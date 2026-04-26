@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class GachaShopUi : Control
 {
@@ -32,7 +33,7 @@ public partial class GachaShopUi : Control
 
 	const int STANDARD_PULL_COST = 10;
 	const int PREMIUM_PULL_COST  = 2; // premium currency is rarer
-	const int PREMIUM_TREAT_COST = 5; //normal treats also required
+	const int PREMIUM_TREAT_COST = 10; //normal treats also required
 	
 	private static bool hasShownTutorial = false;
 	public static RoguelikeMovement.DogBreed SelectedDog = RoguelikeMovement.DogBreed.GoldenRetriever;
@@ -268,25 +269,49 @@ public partial class GachaShopUi : Control
 	UpdateDogUI();
 	UpdateTreatUI();
 }
+
 private void OnPremiumPull()
 {
 	if (RoguelikeMovement.PremiumTreats < PREMIUM_PULL_COST || RoguelikeMovement.TotalTreats < PREMIUM_TREAT_COST)
 	{
-		GD.Print("Not enough premium treats!");
+		GD.Print("Not enough treats or premium treats!");
 		return;
 	}
 
 	RoguelikeMovement.PremiumTreats -= PREMIUM_PULL_COST;
 	RoguelikeMovement.TotalTreats -= PREMIUM_TREAT_COST;
 
-	var dog = RollDog(true);
+	RoguelikeMovement.DogBreed dog;
+
+	int safety = 0;
+
+	//  reroll until NOT owned
+	do
+	{
+		dog = RollDog(true);
+		safety++;
+	}
+	while (RoguelikeMovement.OwnedDogs.Contains(dog) && safety < 10);
+
+	//  if ALL dogs owned → fallback
+	if (RoguelikeMovement.OwnedDogs.Contains(dog))
+	{
+		GD.Print("All premium dogs owned! Giving bonus instead.");
+		RoguelikeMovement.PremiumTreats += 1;
+		UpdateTreatUI();
+		return;
+	}
+
 	GD.Print(" PREMIUM: " + dog);
 
 	AddDog(dog);
+
 	selectedDogIndex = RoguelikeMovement.OwnedDogs.Length - 1; 
 	UpdateDogUI();
 	UpdateTreatUI();
 }
+
+
 private RoguelikeMovement.DogBreed RollDog(bool premium)
 {
 	int roll = rand.Next(0, 100);

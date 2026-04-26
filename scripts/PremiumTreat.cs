@@ -11,18 +11,19 @@ public partial class PremiumTreat : Area2D
 	}
 
 	private void OnBodyEntered(Node2D body)
+{
+	if (collected) return;
+
+	if (body.Name == "DummyDog")
 	{
-		if (collected) return;
+		collected = true;
 
-		if (body.Name == "DummyDog")
-		{
-			collected = true;
+		BodyEntered -= OnBodyEntered; 
 
-			GD.Print("Premium treat collected!");
+		GD.Print("Premium treat collected!");
 
-			RoguelikeMovement.Instance.PremiumTreatCollected();
+		RoguelikeMovement.Instance.PremiumTreatCollected();
 
-			QueueFree();
-		}
+		QueueFree();
 	}
-}
+}}

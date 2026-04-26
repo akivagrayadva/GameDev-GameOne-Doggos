@@ -12,18 +12,18 @@ public partial class Treat : Area2D
 	}
 
 	private void OnBodyEntered(Node2D body)
+{
+	if (collected) return;
+
+	if (body.Name == "DummyDog")
 	{
-		if (collected) return;
+		collected = true;
 
-		if (body.Name == "DummyDog")
-		{
-			collected = true;
+		BodyEntered -= OnBodyEntered; //  stop future triggers immediately
 
-			GD.Print("Dog collected treat!");
+		RoguelikeMovement.Instance.TreatCollected();
 
-			RoguelikeMovement.Instance.TreatCollected();
-
-			QueueFree();
-		}
+		QueueFree();
 	}
+}
 }

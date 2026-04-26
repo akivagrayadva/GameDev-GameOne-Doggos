@@ -155,19 +155,19 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 		switch (dog)
 		{
 			case RoguelikeMovement.DogBreed.GoldenRetriever:
-				return "Golden Retriever";
+				return "Goodest Boy";
 			case RoguelikeMovement.DogBreed.Akita:
-				return "Akita";
+				return "Pulled Bork";
 			case RoguelikeMovement.DogBreed.GreatDane:
-				return "Great Dane";
+				return "Big Boy Supreme";
 			case RoguelikeMovement.DogBreed.Schnauzer:
-				return "Schnauzer";
+				return "Smol King";
 			case RoguelikeMovement.DogBreed.SaintBernard:
-				return "Saint Bernard";
+				return "Slobber Chonk";
 			case RoguelikeMovement.DogBreed.SiberianHusky:
-				return "Siberian Husky";
+				return "Certified Zoomer";
 			case RoguelikeMovement.DogBreed.FrostDog:
-				return "Frosty";
+				return "Ice Gremlin";
 			default:
 				return "Dog";
 		}

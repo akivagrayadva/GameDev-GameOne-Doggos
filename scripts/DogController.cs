@@ -13,6 +13,7 @@ public partial class DogController : Node
 	float abilityTimer = 0f;
 	float abilityCooldown = 0f;
 	bool isDashing = false;
+	bool abilityReadyNotified = false;
 
 	Vector2 lastInput = Vector2.Zero;
 
@@ -167,7 +168,19 @@ public partial class DogController : Node
 		}
 
 		if (abilityCooldown > 0)
+		{
 			abilityCooldown -= dt;
+
+			if (abilityCooldown <= 0)
+			{
+				abilityCooldown = 0;
+				if (!abilityReadyNotified)
+				{
+					abilityReadyNotified = true;
+					RoguelikeMovement.Instance.ShowAbilityPopup("Ability Ready!", 2.0f);
+				}
+			}
+		}
 	}
 
 		public void TryUseAbility()

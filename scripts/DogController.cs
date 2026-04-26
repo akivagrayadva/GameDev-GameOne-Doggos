@@ -108,7 +108,7 @@ public partial class DogController : Node
 			abilityCooldown = 20.0f;
 			GD.Print("Bark Stun!");
 			 RoguelikeMovement.Instance.ShowAbilityPopup(
-				"BARK BARK BARK the human is literally frozen rn",
+				"BORK BORK BORK the human is witewy frozen rn",
 				2.5f);
 			break;
 

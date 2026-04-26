@@ -6,8 +6,8 @@
 [ext_resource type="FontFile" uid="uid://dms3tqy3xeyx" path="res://assets/TTF/dogica.ttf" id="3_5avp7"]
 [ext_resource type="SpriteFrames" uid="uid://c7n8q6ireuae7" path="res://assets/Cat/cat_frames.tres" id="4_vtgl6"]
 [ext_resource type="Texture2D" uid="uid://dmwbkvpcs2y67" path="res://assets/Top-Down_Retro_Interior/PremiumTreat.png" id="6_4vb04"]
-[ext_resource type="Texture2D" uid="uid://qdpqw3xwojm7" path="res://assets/Top-Down_Retro_Interior/Treat.png" id="7_x8a0k"]
 [ext_resource type="AudioStream" uid="uid://bpvre3cah0pww" path="res://assets/Pixel Peeker Polka - slower.mp3" id="7_4vb04"]
+[ext_resource type="Texture2D" uid="uid://qdpqw3xwojm7" path="res://assets/Top-Down_Retro_Interior/Treat.png" id="7_x8a0k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8a0k"]
 bg_color = Color(0.6042546, 0.5485357, 0.7076875, 1)

@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://ddo6sivrv2ari" path="res://assets/Top-Down_Retro_Interior/backgroundpound.png" id="25_3ts2m"]
 [ext_resource type="Texture2D" uid="uid://c3o1nnjptyh0g" path="res://assets/Top-Down_Retro_Interior/bush.png" id="26_76041"]
 [ext_resource type="Texture2D" uid="uid://ccy6ac3jtlye4" path="res://assets/Top-Down_Retro_Interior/RightFence.png" id="28_i8ope"]
+[ext_resource type="AudioStream" uid="uid://bx0t16d1th1ng" path="res://assets/Pixelland.mp3" id="29_inqac"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i4ahy"]
 animations = [{
@@ -1941,3 +1942,9 @@ offset = Vector2(-22.180908, 26.45813)
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1805305425]
+stream = ExtResource("29_inqac")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true

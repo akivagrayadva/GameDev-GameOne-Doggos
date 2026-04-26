@@ -509,78 +509,100 @@ script = ExtResource("1_y4nua")
 
 [node name="LivingRoom" type="Node2D" parent="Actors and Objects/TreatSpawns" unique_id=234727254]
 
-[node name="Spawn1" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1540293367]
+[node name="StandardSpawns" type="Node2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1845960542]
+
+[node name="Spawn1" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom/StandardSpawns" unique_id=1540293367]
 position = Vector2(185, 440)
 
-[node name="Spawn2" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1836443677]
+[node name="Spawn2" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom/StandardSpawns" unique_id=1836443677]
 position = Vector2(-339, 152)
 
-[node name="Spawn3" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=383186186]
+[node name="Spawn3" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom/StandardSpawns" unique_id=383186186]
 position = Vector2(251, 848)
 
-[node name="Spawn4" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1602843706]
+[node name="Spawn4" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom/StandardSpawns" unique_id=1602843706]
 position = Vector2(362, 64)
 
-[node name="Spawn5" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1361958661]
+[node name="Spawn5" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom/StandardSpawns" unique_id=1361958661]
 position = Vector2(-395, 908)
 
-[node name="Spawn6" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1028811963]
+[node name="Spawn6" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom/StandardSpawns" unique_id=1028811963]
 position = Vector2(-131, 291)
 
-[node name="Spawn7" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom" unique_id=1139449809]
+[node name="Spawn7" type="Marker2D" parent="Actors and Objects/TreatSpawns/LivingRoom/StandardSpawns" unique_id=1139449809]
 position = Vector2(-479, 620)
 
 [node name="Kitchen" type="Node2D" parent="Actors and Objects/TreatSpawns" unique_id=1660121783]
 
-[node name="Spawn8" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=1136871147]
-position = Vector2(435, 201)
+[node name="StandardSpawns" type="Node2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=528530254]
 
-[node name="Spawn9" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=1402067347]
-position = Vector2(1226, 845)
+[node name="Spawn15" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen/StandardSpawns" unique_id=2016781885]
+position = Vector2(1046, 372)
 
-[node name="Spawn10" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=831885829]
-position = Vector2(416, 911)
-
-[node name="Spawn11" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=977597829]
-position = Vector2(893, 447)
-
-[node name="Spawn12" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=612260355]
+[node name="Spawn12" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen/StandardSpawns" unique_id=612260355]
 position = Vector2(864, 752)
 
-[node name="Spawn13" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=1443416064]
-position = Vector2(401, 860)
+[node name="Spawn10" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen/StandardSpawns" unique_id=831885829]
+position = Vector2(416, 911)
 
-[node name="Spawn14" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=1346632982]
+[node name="Spawn8" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen/StandardSpawns" unique_id=1136871147]
+position = Vector2(435, 201)
+
+[node name="Spawn9" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen/StandardSpawns" unique_id=1402067347]
+position = Vector2(1226, 845)
+
+[node name="Spawn11" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen/StandardSpawns" unique_id=977597829]
+position = Vector2(893, 447)
+
+[node name="Spawn14" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen/StandardSpawns" unique_id=1346632982]
 position = Vector2(1223, 191)
 
-[node name="Spawn15" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=2016781885]
-position = Vector2(1046, 372)
+[node name="PremiumSpawns" type="Node2D" parent="Actors and Objects/TreatSpawns/Kitchen" unique_id=1745816459]
+
+[node name="Spawn16" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen/PremiumSpawns" unique_id=1816104443]
+position = Vector2(568, 907)
+
+[node name="Spawn17" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen/PremiumSpawns" unique_id=329169310]
+position = Vector2(1227, 629)
+
+[node name="Spawn13" type="Marker2D" parent="Actors and Objects/TreatSpawns/Kitchen/PremiumSpawns" unique_id=1443416064]
+position = Vector2(401, 860)
 
 [node name="Backyard" type="Node2D" parent="Actors and Objects/TreatSpawns" unique_id=1982836968]
 
-[node name="Spawn16" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=141232678]
+[node name="StandardSpawns" type="Node2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=583737696]
+
+[node name="Spawn16" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard/StandardSpawns" unique_id=141232678]
 position = Vector2(1356, 491)
 
-[node name="Spawn17" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=164704402]
+[node name="Spawn17" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard/StandardSpawns" unique_id=164704402]
 position = Vector2(185, 440)
 
-[node name="Spawn18" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=1423106043]
+[node name="Spawn18" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard/StandardSpawns" unique_id=1423106043]
 position = Vector2(1956, 822)
 
-[node name="Spawn19" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=1224884894]
-position = Vector2(1971, 130)
-
-[node name="Spawn20" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=632969382]
+[node name="Spawn20" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard/StandardSpawns" unique_id=632969382]
 position = Vector2(1324, 128)
 
-[node name="Spawn21" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=1589764758]
+[node name="Spawn21" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard/StandardSpawns" unique_id=1589764758]
 position = Vector2(2096, 620)
 
-[node name="Spawn22" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=830962488]
+[node name="Spawn22" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard/StandardSpawns" unique_id=830962488]
 position = Vector2(1287, 924)
 
-[node name="Spawn23" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=1445339970]
+[node name="Spawn23" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard/StandardSpawns" unique_id=1445339970]
 position = Vector2(1724, 303)
+
+[node name="PremiumSpawn" type="Node2D" parent="Actors and Objects/TreatSpawns/Backyard" unique_id=1707392210]
+
+[node name="Spawn19" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard/PremiumSpawn" unique_id=1224884894]
+position = Vector2(1971, 130)
+
+[node name="Spawn20" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard/PremiumSpawn" unique_id=620882251]
+position = Vector2(1299, 379)
+
+[node name="Spawn21" type="Marker2D" parent="Actors and Objects/TreatSpawns/Backyard/PremiumSpawn" unique_id=911716223]
+position = Vector2(2112, 916)
 
 [node name="DummyDog" type="CharacterBody2D" parent="Actors and Objects" unique_id=181501565]
 y_sort_enabled = true

@@ -42,8 +42,8 @@ public enum DogBreed {
 	CollisionShape2D dogCollision;
 	
 	
-	public static int TotalTreats= 0;         // to keep track of how many treats player has for the shop
-	public static int PremiumTreats = 0;
+	public static float TotalTreats = 0;         // to keep track of how many treats player has for the shop
+	public static float PremiumTreats = 0;
 	
 	public static DogBreed[] OwnedDogs =
 	{
@@ -127,59 +127,70 @@ public enum DogBreed {
 	 GD.Print("After Backyard - totalTreats: " + totalTreats);
 	
 	// premium treats (extra)
-	int premiumCount = (int)GD.RandRange(1, 2);
-	for (int i = 0; i < premiumCount; i++)
+	var validRooms = new List<Node>();
+
+if (spawns.GetNode("LivingRoom").HasNode("PremiumSpawns"))
+	validRooms.Add(spawns.GetNode("LivingRoom"));
+
+if (spawns.GetNode("Kitchen").HasNode("PremiumSpawns"))
+	validRooms.Add(spawns.GetNode("Kitchen"));
+
+if (spawns.GetNode("Backyard").HasNode("PremiumSpawns"))
+	validRooms.Add(spawns.GetNode("Backyard"));
+
+if (validRooms.Count == 0)
 {
-	Node chosenRoom;
-
-	double roll = rand.NextDouble();
-
-	if (roll < 0.2)
-		chosenRoom = spawns.GetNode("LivingRoom");   // 20%
-	else if (roll < 0.6)
-		chosenRoom = spawns.GetNode("Kitchen");      // 40%
-	else
-		chosenRoom = spawns.GetNode("Backyard");     // 40%
-
-	SpawnOnePremium(chosenRoom);
+	GD.Print("No rooms have premium spawns!");
+	return;
 }
-	
-	}
+
+// pick ONE room
+var chosenRoom = validRooms[rand.Next(validRooms.Count)];
+
+// spawn ONE premium
+SpawnOnePremium(chosenRoom);
+
+}
 	
 	private void SpawnOnePremium(Node room)
 {
-	var markers = room.GetChildren()
-		.Where(x => x is Marker2D)
-		.Cast<Marker2D>()
-		.Where(m => !usedMarkers.Contains(m)) //  no overlap
+	//  check if PremiumSpawns exists
+	if (!room.HasNode("PremiumSpawns"))
+	{
+		GD.Print(room.Name + " has no premium spawns — skipping");
+		return;
+	}
+
+	var markers = room.GetNode("PremiumSpawns").GetChildren()
+		.OfType<Marker2D>()
 		.OrderBy(x => rand.Next())
 		.ToList();
 
 	if (markers.Count == 0)
-{
-	GD.Print("No free markers for premium");
-	return;
-}
+	{
+		GD.Print("No premium markers in " + room.Name);
+		return;
+	}
 
 	var premiumScene = GD.Load<PackedScene>("res://scenes/PremiumTreat.tscn");
 
-	var spawn = markers[0]; //
+	var spawn = markers[0];
 
-var treatInstance = (Node2D)premiumScene.Instantiate();
-room.AddChild(treatInstance);
+	var treatInstance = (Node2D)premiumScene.Instantiate();
+	room.AddChild(treatInstance);
 
-usedMarkers.Add(spawn); //
-
-treatInstance.GlobalPosition = spawn.GlobalPosition;
-treatInstance.ZIndex = 100;;
+	treatInstance.GlobalPosition = spawn.GlobalPosition;
+	treatInstance.ZIndex = 100;
 }
+	
+	
 	 
 private void SpawnTreatsInArea(Node areaNode, int count)
 {
 	GD.Print("CALL SpawnTreatsInArea: " + areaNode.Name);
 	var treatScene = GD.Load<PackedScene>("res://scenes/Treat.tscn");
 
-	var markers = areaNode.GetChildren()
+	var markers = areaNode.GetNode("StandardSpawns").GetChildren()
 		.OfType<Marker2D>()
 		.Where(m => !usedMarkers.Contains(m)) 
 		.ToList();;
@@ -219,7 +230,10 @@ private void SpawnTreatsInArea(Node areaNode, int count)
 
 	public void TreatCollected(){
 		collectedTreats++;
-		TotalTreats += (int)(1 * GachaShopUi.GetTreatMultiplier());
+		TotalTreats += GachaShopUi.GetTreatMultiplier();
+		
+		GD.Print("Multiplier: " + GachaShopUi.GetTreatMultiplier());
+		GD.Print("Total now: " + TotalTreats);
 		
 		//Opens the first door after all the treats have been collected
 		if(collectedTreats == 4){

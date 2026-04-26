@@ -42,8 +42,8 @@ public partial class GachaShopUi : Control
 	
 	public static float GetTreatMultiplier() => SelectedDifficulty switch
 		{
-			Difficulty.Easy => 0.75f,
-			Difficulty.Hard => 1.5f,
+			Difficulty.Easy => 0.5f,
+			Difficulty.Hard => 2.0f,
 			_ => 1.0f
 		};
 
@@ -108,6 +108,8 @@ public partial class GachaShopUi : Control
 	standardPullButton.Pressed += OnStandardPull;
 	premiumPullButton.Pressed += OnPremiumPull;
 
+	GD.Print("SHOP LOAD TotalTreats: " + RoguelikeMovement.TotalTreats);
+
 	UpdateTreatUI();
 	UpdateDogUI();
 	SetupTutorialText();
@@ -124,7 +126,7 @@ public partial class GachaShopUi : Control
 }
 	private void UpdateTreatUI()
 	{
-		treatLabel.Text = "x" + RoguelikeMovement.TotalTreats;
+		treatLabel.Text = "x" + Math.Floor(RoguelikeMovement.TotalTreats);
 		premiumTreatLabel.Text = "x" + RoguelikeMovement.PremiumTreats;
 	}
 
@@ -250,7 +252,7 @@ public partial class GachaShopUi : Control
 	
 	private void OnStandardPull()
 {
-	if (RoguelikeMovement.TotalTreats < STANDARD_PULL_COST)
+	if (Math.Floor(RoguelikeMovement.TotalTreats) < STANDARD_PULL_COST)
 	{
 		GD.Print("Not enough treats!");
 		return;
@@ -355,15 +357,15 @@ private void UpdateDifficultyUI()
 	{
 		case Difficulty.Easy:
 			easyButton.AddThemeStyleboxOverride("normal", selectedStyle);
-			difficultyInfo.Text = "Easy - 0.75x treats, slower human";
+			difficultyInfo.Text = "Easy - Earn half a treat per pickup, slower human";
 			break;
 		case Difficulty.Normal:
 			normalButton.AddThemeStyleboxOverride("normal", selectedStyle);
-			difficultyInfo.Text = "Normal - 1.0x treats";
+			difficultyInfo.Text = "Normal - Earn one full treat per pickup";
 			break;
 		case Difficulty.Hard:
 			hardButton.AddThemeStyleboxOverride("normal", selectedStyle);
-			difficultyInfo.Text = "Hard - 1.5x treats, faster human";
+			difficultyInfo.Text = "Hard - Earn double treats per pickup, faster human";
 			break;
 	}
 }

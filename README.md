@@ -9,17 +9,28 @@ A roguelike gacha game about dogs and the messes they get into
 - Godot 4.x with C# support (.NET)
 - .NET SDK (required for Godot C# scripting)
 
-### Installation
+### Installation & Running
 
 ```bash
-[Installation commands here]
+Windows:
+1. Download Dogcha._Windows.zip
+2. Extract the .zip file
+3. Run Dogcha.exe
+
+MAC:
+1. Download Dogcha._MAC.zip
+2. Extract the .zip file
+3. Right click the app and select Open
+4. Click Open Anyway on the security warning
+5. The game will launch
 ```
 
-### Running
-
-```bash
-[Run command here]
-```
+### How To Play
+- Move: WASD or Arrow Keys
+- Ability: Space bar
+- Collect all the treats in each room to unlock the next door
+- Avoid the human — if they catch you it's game over
+- Use your dog's special ability to slow, stun, or distract the human
 
 ### Testing
 

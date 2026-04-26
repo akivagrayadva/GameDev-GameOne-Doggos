@@ -26,6 +26,7 @@ public partial class GachaShopUi : Control
 
 	TextureRect dogPhoto;
 	Label dogName;
+	Label abilityLabel;
 	TextureButton prevButton;
 	TextureButton nextButton;
 	Button standardPullButton;
@@ -94,6 +95,7 @@ public partial class GachaShopUi : Control
 	dogName = GetNode<Label>("MarginContainer/Split/LeftPanel/CurrentDog/DogName");
 	prevButton = GetNode<TextureButton>("MarginContainer/Split/LeftPanel/CurrentDog/PrevButton");
 	nextButton = GetNode<TextureButton>("MarginContainer/Split/LeftPanel/CurrentDog/NextButton");
+	abilityLabel = GetNode<Label>("MarginContainer/Split/LeftPanel/CurrentDog/DogAbilityLabel");
 	
 	standardPullButton = GetNode<Button>("MarginContainer/Split/LeftPanel/StdPull");
 	premiumPullButton = GetNode<Button>("MarginContainer/Split/LeftPanel/PremPull");
@@ -146,6 +148,8 @@ if (selectedDogIndex >= RoguelikeMovement.OwnedDogs.Length)
 
 	dogName.Text = GetDogDisplayName(currentDog);
 	dogPhoto.Texture = GetDogTexture(currentDog);
+	abilityLabel.Text = GetDogAbilityDescription(currentDog);
+	 GD.Print("Ability text set to: " + abilityLabel.Text);
 	}
 
 	private string GetDogDisplayName(RoguelikeMovement.DogBreed dog)
@@ -373,6 +377,7 @@ private void UpdateDifficultyUI()
 	// reset style - white background, no border
 	var normalStyle = new StyleBoxFlat();
 	normalStyle.BgColor = new Color(1, 1, 1); // white
+
 	normalStyle.CornerRadiusTopLeft = 8;
 	normalStyle.CornerRadiusTopRight = 8;
 	normalStyle.CornerRadiusBottomLeft = 8;
@@ -387,6 +392,7 @@ private void UpdateDifficultyUI()
 	selectedStyle.BgColor = new Color(1, 1, 1); // white
 	selectedStyle.BorderColor = new Color(1, 0.8f, 0); // gold
 	selectedStyle.SetBorderWidthAll(3);
+	
 	selectedStyle.CornerRadiusTopLeft = 8;
 	selectedStyle.CornerRadiusTopRight = 8;
 	selectedStyle.CornerRadiusBottomLeft = 8;
@@ -409,6 +415,28 @@ private void UpdateDifficultyUI()
 	}
 }
 
+private string GetDogAbilityDescription(RoguelikeMovement.DogBreed dog)
+{
+	switch (dog)
+	{
+		case RoguelikeMovement.DogBreed.GoldenRetriever:
+			return "Ability: Who's a good boy?\nDistracts human for 2.5s\nCooldown: 20s";
+		case RoguelikeMovement.DogBreed.Akita:
+			return "Ability: Bark Stun\nStops human completely for 1.5s\nCooldown: 20s";
+		case RoguelikeMovement.DogBreed.Schnauzer:
+			return "Ability: Dash\nBurst forward at high speed\nCooldown: 20s";
+		case RoguelikeMovement.DogBreed.SiberianHusky:
+			return "Ability: Sprint\nDoubles speed for 1.5s\nCooldown: 15s";
+		case RoguelikeMovement.DogBreed.FrostDog:
+			return "Ability: Frost Aura\nSlows human for 10s\nCooldown: 30s";
+		case RoguelikeMovement.DogBreed.GreatDane:
+			return "Ability: Intimidation\nHuman backs off for 2s\nCooldown: 20s";
+		case RoguelikeMovement.DogBreed.SaintBernard:
+			return "Ability: Drool Mess\nSlows human for 3s\nCooldown: 20s";
+		default:
+			return "";
+	}
+}
 
 
 }

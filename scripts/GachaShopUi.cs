@@ -7,6 +7,7 @@ public partial class GachaShopUi : Control
 	Button titleButton;
 	Label treatLabel;
 	Label premiumTreatLabel;
+	Label difficultyInfo;
 	
 	Random rand = new Random();
 
@@ -16,6 +17,11 @@ public partial class GachaShopUi : Control
 	Label titleLabel;
 	Label bodyLabel;
 	AnimatedSprite2D shopCat;
+	
+	
+	Button easyButton;
+	Button normalButton;
+	Button hardButton;
 
 	TextureRect dogPhoto;
 	Label dogName;
@@ -31,6 +37,22 @@ public partial class GachaShopUi : Control
 	private static bool hasShownTutorial = false;
 	public static RoguelikeMovement.DogBreed SelectedDog = RoguelikeMovement.DogBreed.GoldenRetriever;
 
+	public enum Difficulty { Easy, Normal, Hard }
+	public static Difficulty SelectedDifficulty = Difficulty.Normal;
+	
+	public static float GetTreatMultiplier() => SelectedDifficulty switch
+		{
+			Difficulty.Easy => 0.75f,
+			Difficulty.Hard => 1.5f,
+			_ => 1.0f
+		};
+
+		public static float GetHumanSpeedMultiplier() => SelectedDifficulty switch
+		{
+			Difficulty.Easy => 1.0f,
+			Difficulty.Hard => 1.5f,
+			_ => 1.25f
+		};
 	
 	private int selectedDogIndex = 0;
 
@@ -46,6 +68,21 @@ public partial class GachaShopUi : Control
 	treatLabel = GetNode<Label>("MarginContainer/Split/RightPanel/Currency/Treat/TreatAmount");
 	premiumTreatLabel = GetNode<Label>("MarginContainer/Split/RightPanel/Currency/PremiumTreat/AmountOfTreats");
 
+	easyButton = GetNode<Button>("MarginContainer/Split/RightPanel/DifficultyContainer/EasyButton");
+	normalButton = GetNode<Button>("MarginContainer/Split/RightPanel/DifficultyContainer/NormalButton");
+	hardButton = GetNode<Button>("MarginContainer/Split/RightPanel/DifficultyContainer/HardButton");
+	difficultyInfo = GetNode<Label>("MarginContainer/Split/RightPanel/DifficultyInfo");
+
+	easyButton.Pressed += () => OnDifficultySelected(Difficulty.Easy);
+	normalButton.Pressed += () => OnDifficultySelected(Difficulty.Normal);
+	hardButton.Pressed += () => OnDifficultySelected(Difficulty.Hard);
+	
+	// set text color to black
+	easyButton.AddThemeColorOverride("font_color", new Color(0, 0, 0));
+	normalButton.AddThemeColorOverride("font_color", new Color(0, 0, 0));
+	hardButton.AddThemeColorOverride("font_color", new Color(0, 0, 0));
+
+	UpdateDifficultyUI();
 
 	tutorialPopup = GetNode<Control>("TutorialPopup");
 	startTutorialButton = GetNode<Button>("TutorialPopup/PopupPanel/MarginContainer/VBoxContainer/StartButton");
@@ -283,4 +320,54 @@ private void AddDog(RoguelikeMovement.DogBreed dog)
 
 	GD.Print("New dog added!");
 }
+
+private void OnDifficultySelected(Difficulty difficulty)
+{
+	SelectedDifficulty = difficulty;
+	UpdateDifficultyUI();
+}
+
+private void UpdateDifficultyUI()
+{
+	// reset style - white background, no border
+	var normalStyle = new StyleBoxFlat();
+	normalStyle.BgColor = new Color(1, 1, 1); // white
+	normalStyle.CornerRadiusTopLeft = 8;
+	normalStyle.CornerRadiusTopRight = 8;
+	normalStyle.CornerRadiusBottomLeft = 8;
+	normalStyle.CornerRadiusBottomRight = 8;
+
+	easyButton.AddThemeStyleboxOverride("normal", normalStyle);
+	normalButton.AddThemeStyleboxOverride("normal", normalStyle);
+	hardButton.AddThemeStyleboxOverride("normal", normalStyle);
+
+	// selected style - white background with gold border
+	var selectedStyle = new StyleBoxFlat();
+	selectedStyle.BgColor = new Color(1, 1, 1); // white
+	selectedStyle.BorderColor = new Color(1, 0.8f, 0); // gold
+	selectedStyle.SetBorderWidthAll(3);
+	selectedStyle.CornerRadiusTopLeft = 8;
+	selectedStyle.CornerRadiusTopRight = 8;
+	selectedStyle.CornerRadiusBottomLeft = 8;
+	selectedStyle.CornerRadiusBottomRight = 8;
+
+	switch (SelectedDifficulty)
+	{
+		case Difficulty.Easy:
+			easyButton.AddThemeStyleboxOverride("normal", selectedStyle);
+			difficultyInfo.Text = "Easy - 0.75x treats, slower human";
+			break;
+		case Difficulty.Normal:
+			normalButton.AddThemeStyleboxOverride("normal", selectedStyle);
+			difficultyInfo.Text = "Normal - 1.0x treats";
+			break;
+		case Difficulty.Hard:
+			hardButton.AddThemeStyleboxOverride("normal", selectedStyle);
+			difficultyInfo.Text = "Hard - 1.5x treats, faster human";
+			break;
+	}
+}
+
+
+
 }

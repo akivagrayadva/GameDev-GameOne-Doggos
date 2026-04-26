@@ -68,6 +68,8 @@ public enum DogBreed {
 
 	public override void _Ready(){
 	
+	
+
 	GD.Print("SPAWNING START");
 	if (hasSpawned) return;
 	hasSpawned = true;
@@ -76,6 +78,8 @@ public enum DogBreed {
 	Instance = this;
 	usedMarkers.Clear();
 	CurrentDog = GachaShopUi.SelectedDog;
+	
+	
 			
 	activeDog = GetNode<CharacterBody2D>("DummyDog");       // Change to "ActiveDog" when the actual dog scene is ready
 	dogAnim = activeDog.GetNode<AnimatedSprite2D>("Anim");
@@ -215,7 +219,7 @@ private void SpawnTreatsInArea(Node areaNode, int count)
 
 	public void TreatCollected(){
 		collectedTreats++;
-		TotalTreats++;
+		TotalTreats += (int)(1 * GachaShopUi.GetTreatMultiplier());
 		
 		//Opens the first door after all the treats have been collected
 		if(collectedTreats == 4){
@@ -323,6 +327,9 @@ private void SetDogSprite(DogBreed dog)
 
 	public override void _PhysicsProcess(double delta)
 {
+	
+	activeDog.ZIndex = (int)(activeDog.GlobalPosition.Y / 10);
+	
 	Vector2 inputVector = Vector2.Zero;
 
 	if (Input.IsActionPressed("ui_right"))

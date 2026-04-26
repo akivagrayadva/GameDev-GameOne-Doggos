@@ -64,6 +64,12 @@ public enum DogBreed {
 
 	//  turn speed for different dog handling
 	//float dogTurnSpeed = 8f;
+	
+	
+	Control abilityPopup;
+	Label abilityText;
+	AnimatedSprite2D catSprite;
+	float popupTimer = 0f;
 
 
 	public override void _Ready(){
@@ -87,6 +93,12 @@ public enum DogBreed {
 	var goalArea = GetNode<Area2D>("DummyGoal");             // This becomes the collision for the canna-biscuits that end a sucessful round
 	var failArea = activeHuman.GetNode<Area2D>("DogDetection");                             // This becomes the collision for the human that ends a failed round
 	dogCollision = activeDog.GetNode<CollisionShape2D>("CollisionShape2D");
+	
+	
+	abilityPopup = GetNode<Control>("../CanvasLayer/AbilityPopup");
+	abilityText = GetNode<Label>("../CanvasLayer/AbilityPopup/SpeechBubble/AbilityText");
+	catSprite = GetNode<AnimatedSprite2D>("../CanvasLayer/AbilityPopup/CatSprite");
+	abilityPopup.Visible = false;
 	
 			
 	dogAnim = activeDog.GetNode<AnimatedSprite2D>("Anim");
@@ -356,6 +368,18 @@ private void SetDogSprite(DogBreed dog)
 	if (Input.IsActionPressed("ui_up"))
 		inputVector.Y -= 1;
 
+
+	if (popupTimer > 0)
+	{
+		popupTimer -= (float)delta;
+		if (popupTimer <= 0)
+		{
+			abilityPopup.Visible = false;
+			catSprite.Stop();
+		}
+	}
+	
+	
 	inputVector = inputVector.Normalized();
 
 	// update abilities
@@ -399,4 +423,14 @@ private void SetDogSprite(DogBreed dog)
 		//// Placeholder for a more complex pathfinding algorithm
 		//return (dogPos - humanPos).Normalized();
 	//}
+	
+	public void ShowAbilityPopup(string message, float duration)
+{
+	abilityText.Text = message;
+	abilityPopup.Visible = true;
+	catSprite.Play("talk");
+	popupTimer = duration;
+}
+	
+	
 }

@@ -27,8 +27,11 @@
 [ext_resource type="Texture2D" uid="uid://dl54672vtfnld" path="res://assets/Top-Down_Retro_Interior/BackyearFurniture.png" id="23_vhkcm"]
 [ext_resource type="Texture2D" uid="uid://ddo6sivrv2ari" path="res://assets/Top-Down_Retro_Interior/backgroundpound.png" id="25_3ts2m"]
 [ext_resource type="Texture2D" uid="uid://c3o1nnjptyh0g" path="res://assets/Top-Down_Retro_Interior/bush.png" id="26_76041"]
+[ext_resource type="Texture2D" uid="uid://mb5e5thol16p" path="res://assets/Top-Down_Retro_Interior/Fence.png" id="26_wd8cj"]
+[ext_resource type="Texture2D" uid="uid://cd4qiwt5vgb65" path="res://assets/Top-Down_Retro_Interior/BottomFence.png" id="27_i8ope"]
 [ext_resource type="Texture2D" uid="uid://ccy6ac3jtlye4" path="res://assets/Top-Down_Retro_Interior/RightFence.png" id="28_i8ope"]
 [ext_resource type="AudioStream" uid="uid://bx0t16d1th1ng" path="res://assets/Pixelland.mp3" id="29_inqac"]
+[ext_resource type="SpriteFrames" uid="uid://c7n8q6ireuae7" path="res://assets/Cat/cat_frames.tres" id="32_i8ope"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i4ahy"]
 animations = [{
@@ -228,7 +231,7 @@ region = Rect2(140, 99, 3, 44)
 size = Vector2(5.184911, 88.571)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbkj4"]
-size = Vector2(5, 566.1665)
+size = Vector2(5, 541.35803)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jkugl"]
 atlas = ExtResource("10_wd8cj")
@@ -478,6 +481,13 @@ atlas = ExtResource("22_ewk1i")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wo0ab"]
 atlas = ExtResource("28_i8ope")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhnre"]
+atlas = ExtResource("26_wd8cj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sujwe"]
+atlas = ExtResource("27_i8ope")
+region = Rect2(0, 0, 413, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpeuu"]
 atlas = ExtResource("23_vhkcm")
@@ -1782,7 +1792,8 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="RightWallCollision" type="CollisionShape2D" parent="Rooms/BackYard/OuterWalls" unique_id=1983818455]
-position = Vector2(576, 320)
+position = Vector2(576, 307.5958)
+scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_dbkj4")
 debug_color = Color(0.8617307, 0.3485904, 0.25359473, 0.41960785)
 
@@ -1802,8 +1813,8 @@ grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Rooms/BackYard/OuterWalls/RightWallCollision" unique_id=1827884619]
-position = Vector2(0, -0.91502035)
-scale = Vector2(1, 0.5830401)
+position = Vector2(0, 3.5632572)
+scale = Vector2(1, 0.59310365)
 texture = SubResource("AtlasTexture_wo0ab")
 
 [node name="TopWallCollision" type="CollisionShape2D" parent="Rooms/BackYard/OuterWalls" unique_id=749911574]
@@ -1826,6 +1837,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/BackYard/OuterWalls/TopWallCollision" unique_id=503940446]
+position = Vector2(2.5472546, -40.36293)
+scale = Vector2(1.2384253, 1.4857076)
+texture = SubResource("AtlasTexture_rhnre")
+
 [node name="BottomWallCollision" type="CollisionShape2D" parent="Rooms/BackYard/OuterWalls" unique_id=1900560702]
 position = Vector2(320, 576)
 shape = SubResource("RectangleShape2D_foalq")
@@ -1845,6 +1861,11 @@ offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.74, 0.11840002, 0.11840002, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/BackYard/OuterWalls/BottomWallCollision" unique_id=1579499757]
+position = Vector2(3.7271423, 0)
+scale = Vector2(1.2465222, 1)
+texture = SubResource("AtlasTexture_sujwe")
 
 [node name="Trees" type="StaticBody2D" parent="Rooms/BackYard/OuterWalls" unique_id=19989573]
 position = Vector2(321.5528, 320.4949)
@@ -1943,3 +1964,33 @@ stream = ExtResource("29_inqac")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2133456341]
+
+[node name="AbilityPopup" type="Control" parent="CanvasLayer" unique_id=957540435]
+visible = false
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_vertical = 0
+
+[node name="CatSprite" type="AnimatedSprite2D" parent="CanvasLayer/AbilityPopup" unique_id=439385330]
+position = Vector2(-50, 65)
+scale = Vector2(0.15, 0.15)
+sprite_frames = ExtResource("32_i8ope")
+animation = &"talk"
+frame_progress = 0.11734188
+
+[node name="SpeechBubble" type="PanelContainer" parent="CanvasLayer/AbilityPopup" unique_id=1244389300]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 40.0
+offset_bottom = 90.0
+
+[node name="AbilityText" type="Label" parent="CanvasLayer/AbilityPopup/SpeechBubble" unique_id=1510587453]
+layout_mode = 2

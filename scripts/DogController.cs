@@ -69,6 +69,9 @@ public partial class DogController : Node
 			abilityTimer = 1.5f;
 			abilityCooldown = 15f;
 			GD.Print("Husky Sprint!");
+			RoguelikeMovement.Instance.ShowAbilityPopup(
+				"bro said no cap im built different and just ZOOMED",
+				2.5f);
 			break;
 
 		case RoguelikeMovement.DogBreed.FrostDog:
@@ -77,6 +80,9 @@ public partial class DogController : Node
 			abilityTimer = 10.0f;
 			abilityCooldown = 30.0f;
 			GD.Print("Frost Aura!");
+			RoguelikeMovement.Instance.ShowAbilityPopup(
+				"human is moving in 0.5x speed rn lmfaooo",
+				10.0f);
 			break;
 
 		case RoguelikeMovement.DogBreed.Schnauzer:
@@ -89,7 +95,11 @@ public partial class DogController : Node
 			}
 				abilityCooldown = 20.0f;
 				GD.Print("Dash!");
+				RoguelikeMovement.Instance.ShowAbilityPopup(
+				"he said YEET and human watched him skeet",
+				2.5f);
 				break;
+				
 		case RoguelikeMovement.DogBreed.Akita:
 			// Stun human
 
@@ -97,6 +107,9 @@ public partial class DogController : Node
 			abilityTimer = 1.5f;
 			abilityCooldown = 20.0f;
 			GD.Print("Bark Stun!");
+			 RoguelikeMovement.Instance.ShowAbilityPopup(
+				"BARK BARK BARK the human is literally frozen rn",
+				2.5f);
 			break;
 
 		case RoguelikeMovement.DogBreed.GoldenRetriever:
@@ -105,6 +118,9 @@ public partial class DogController : Node
 			abilityTimer = 2.5f;
 			abilityCooldown = 20.0f;
 			GD.Print("Who's a good boy??");
+			 RoguelikeMovement.Instance.ShowAbilityPopup(
+				"bestie said PET ME and the human FOLDED",
+				2.5f);
 			break;
 
 		case RoguelikeMovement.DogBreed.SaintBernard:
@@ -113,6 +129,9 @@ public partial class DogController : Node
 			abilityTimer = 3.0f;
 			abilityCooldown = 20.0f;
 			GD.Print("Drool everywhere!");
+			RoguelikeMovement.Instance.ShowAbilityPopup(
+				"drool goes crazy the human slipped fr fr",
+				2.5f);
 			break;
 
 		case RoguelikeMovement.DogBreed.GreatDane:
@@ -121,6 +140,9 @@ public partial class DogController : Node
 			abilityTimer = 2.0f;
 			abilityCooldown = 20.0f;
 			GD.Print("Intimidation!");
+			RoguelikeMovement.Instance.ShowAbilityPopup(
+				"human took one look and said nope not today",
+				2.5f);
 			break;
 	}
 }

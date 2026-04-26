@@ -42,8 +42,8 @@ public enum DogBreed {
 	CollisionShape2D dogCollision;
 	
 	
-	public static float TotalTreats = 0;         // to keep track of how many treats player has for the shop
-	public static float PremiumTreats = 0;
+	public static float TotalTreats = 50;         // to keep track of how many treats player has for the shop
+	public static float PremiumTreats = 50;
 	
 	public static DogBreed[] OwnedDogs =
 	{

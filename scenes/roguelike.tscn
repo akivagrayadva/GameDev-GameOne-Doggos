@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b1bd36kw8dne5"]
 
 [ext_resource type="Script" uid="uid://cjmnamg28qx1a" path="res://scripts/RoguelikeMovement.cs" id="1_y4nua"]
-[ext_resource type="SpriteFrames" uid="uid://cgugsepvxwu17" path="res://assets/Pet Dogs Pack/frostdog_frames.tres" id="2_5eco7"]
 [ext_resource type="Texture2D" uid="uid://bn5wne1fqanmm" path="res://assets/livingroom_LRK.png" id="3_brp47"]
 [ext_resource type="Texture2D" uid="uid://j2pht23tbbog" path="res://assets/decorations_LRK.png" id="4_hcvjx"]
 [ext_resource type="Script" uid="uid://clrhohplbsy3x" path="res://scripts/Human.cs" id="5_55u56"]
@@ -29,6 +28,19 @@
 [ext_resource type="Texture2D" uid="uid://ddo6sivrv2ari" path="res://assets/Top-Down_Retro_Interior/backgroundpound.png" id="25_3ts2m"]
 [ext_resource type="Texture2D" uid="uid://c3o1nnjptyh0g" path="res://assets/Top-Down_Retro_Interior/bush.png" id="26_76041"]
 [ext_resource type="Texture2D" uid="uid://ccy6ac3jtlye4" path="res://assets/Top-Down_Retro_Interior/RightFence.png" id="28_i8ope"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4ahy"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjl0"]
 
@@ -611,9 +623,10 @@ collision_mask = 2
 
 [node name="Anim" type="AnimatedSprite2D" parent="Actors and Objects/DummyDog" unique_id=1262435739]
 y_sort_enabled = true
-sprite_frames = ExtResource("2_5eco7")
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_i4ahy")
 animation = &"walk"
-frame_progress = 0.42009425
+frame_progress = 0.76769096
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actors and Objects/DummyDog" unique_id=1108728528]
 shape = SubResource("RectangleShape2D_ibjl0")

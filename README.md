@@ -9,6 +9,10 @@ A roguelike gacha game about dogs and the messes they get into
 - Godot 4.x with C# support (.NET)
 - .NET SDK (required for Godot C# scripting)
 
+### Download Link
+
+https://github.com/akivagrayadva/GameDev-GameOne-Doggos/releases/tag/v1.0
+
 ### Installation & Running
 
 ```bash
